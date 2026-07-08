@@ -147,3 +147,96 @@ main should be used only for stable release versions.
 - v0.4: resume/about/contact pages
 - v0.5: design polish
 - v1.0: release-ready version
+
+## GitHub 확인 규칙
+
+새 작업을 시작하기 전에 반드시 GitHub 최신 상태를 확인한다.
+
+작업 전 필수 확인 명령어:
+
+- git status
+- git branch --show-current
+- git remote -v
+- git fetch origin
+- git --no-pager log --oneline --decorate --graph --all -n 20
+
+현재 작업 브랜치가 dev 기준이면 origin/dev와 비교한다.
+
+- git diff --stat origin/dev...HEAD
+- git diff --name-only origin/dev...HEAD
+
+현재 작업 브랜치가 main 기준이면 origin/main과 비교한다.
+
+- git diff --stat origin/main...HEAD
+- git diff --name-only origin/main...HEAD
+
+작업 전에 반드시 아래 내용을 요약한다.
+
+- 현재 브랜치
+- 현재 로컬 최신 커밋
+- origin/dev 최신 커밋
+- origin/main 최신 커밋
+- 변경된 파일
+- 추적되지 않은 파일
+- 작업 트리가 깨끗한지 여부
+- 이번 요청이 기존 코드와 충돌하는지 여부
+- 이번 요청이 VERSION_PLAN과 맞는지 여부
+
+사용자가 승인하기 전에는 코드를 수정하지 않는다.
+
+## 작업 요청 문서 규칙
+
+새 작업마다 아래 폴더에 요청 문서를 만든다.
+
+docs/change-request/
+
+파일 이름 형식:
+
+YYYY-MM-DD-vX.X-task-name-request.md
+
+요청 문서에는 아래 내용을 포함한다.
+
+- 작업 날짜
+- 목표 버전
+- 목표 브랜치
+- 사용자 요청 요약
+- 현재 GitHub 상태 요약
+- 관련된 이전 worklog 파일
+- 예상 수정 파일
+- 위험 요소 체크리스트
+- 완료 기준 체크리스트
+
+## 검증 문서 규칙
+
+새 작업마다 아래 폴더에 검증 문서를 만든다.
+
+docs/validation/
+
+파일 이름 형식:
+
+YYYY-MM-DD-vX.X-task-name-validation.md
+
+검증 문서에는 아래 내용을 포함한다.
+
+- 작업 전 체크리스트
+- 작업 후 체크리스트
+- lint 결과
+- build 결과
+- 페이지/라우팅 확인 결과
+- 남은 문제
+- dev에 병합해도 안전한지 여부
+
+## 계속 이어가기 규칙
+
+새 작업을 시작할 때마다 아래 파일들을 먼저 읽는다.
+
+- AGENTS.md
+- docs/WORKFLOW.md
+- docs/VERSION_PLAN.md
+- docs/CHECKLIST.md
+- docs/change-request 최신 파일
+- docs/validation 최신 파일
+- docs/worklog 최신 파일
+- docs/release 최신 파일
+
+이전 MD 기록을 참고해서 같은 작업을 반복하지 않고, 기존 기능을 깨지 않게 작업한다.
