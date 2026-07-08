@@ -4,6 +4,7 @@ export type Project = {
   subtitle: string
   category: string
   stage: string
+  statusCode: string
   status: string
   summary: string
   role: string
@@ -18,8 +19,9 @@ export const projects: Project[] = [
     title: 'STACCATO',
     subtitle: 'AI 기반 고속도로 돌발 상황 감지 및 관제 프로젝트',
     category: 'AI PROJECT',
-    stage: 'Stage 01',
-    status: '프로토타입',
+    stage: 'STAGE 01',
+    statusCode: 'COMPLETED',
+    status: '기본 프로토타입 완료',
     summary:
       'CCTV 영상 분석, YOLO 객체 감지, Flask 서버, 관제 대시보드를 연결해 정지 차량과 돌발 상황을 탐지하는 교통 안전 프로젝트입니다.',
     role: '영상 분석 흐름 설계, 감지 결과 처리, 대시보드 연동 구조 정리를 맡았습니다.',
@@ -39,8 +41,9 @@ export const projects: Project[] = [
     title: 'Wizard Defense',
     subtitle: '2D 캐주얼 판타지 타워 디펜스 게임',
     category: 'GAME PROJECT',
-    stage: 'Stage 02',
-    status: '제작 중',
+    stage: 'STAGE 02',
+    statusCode: 'IN PROGRESS',
+    status: '전투 시스템 제작 중',
     summary:
       '마법사를 배치해 몬스터를 막는 Unity 기반 2D 타워 디펜스 게임입니다. 배치, 전투, 장비, 공명 규칙을 중심으로 게임 루프를 설계했습니다.',
     role: '전투 시스템, 몬스터 이동, 장비 인벤토리, 마법사 공명 규칙 구현을 담당했습니다.',
@@ -60,8 +63,9 @@ export const projects: Project[] = [
     title: 'Inquiry Dataset',
     subtitle: '한국어 게임 고객 문의 분류 데이터셋',
     category: 'DATA PROJECT',
-    stage: 'Stage 03',
-    status: '데이터셋',
+    stage: 'STAGE 03',
+    statusCode: 'DATASET',
+    status: '라벨링 기준 정리',
     summary:
       '한국어 게임 고객 문의를 카테고리별로 분류하기 위한 데이터셋 프로젝트입니다. 라벨링 기준, 데이터셋 카드, 규칙 기반 기준선을 함께 정리했습니다.',
     role: '문의 유형 정의, 라벨링 가이드 작성, CSV 구조 정리, 기본 분류 규칙 설계를 맡았습니다.',
