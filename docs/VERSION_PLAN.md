@@ -88,6 +88,13 @@
 - Keep unconfirmed personal information such as email, education, certifications, and photo as planned or to be organized.
 - Apply Noto Sans KR through CSS import and font-family fallback without storing font files in the repository.
 
+## v0.12 Resume Content Slots
+
+- Move Resume page content into `src/data/resume.ts` so profile, cover letter, education, certificates, licenses, and contact slots can be edited more easily.
+- Connect the provided profile photo and certificate PDF from `public/assets/resume`.
+- Keep missing files such as `certificate-02.pdf` in a safe planned state instead of linking broken URLs.
+- Record that public resume assets are deployed as public static files and must not contain unmasked sensitive information.
+
 ## v1.0 Release Preparation
 
 - Complete content pass.
