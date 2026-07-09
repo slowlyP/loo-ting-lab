@@ -73,6 +73,13 @@
 - Keep personal contribution wording conservative by using participation, verification, structure summary, and integration-flow wording where direct ownership is not confirmed.
 - Add confirmed GitHub and demo video links without describing the project as commercially operated.
 
+## v0.10.1 Tech Stack Badge UI
+
+- Improve project tech stack display with horizontal icon + label badges.
+- Remove the duplicated lower `사용 기술스택` detail section from project detail pages.
+- Reuse the same badge component on project detail pages and project list cards.
+- Use `react-icons` brand icons where available and fallback icons for ambiguous technologies.
+
 ## v1.0 Release Preparation
 
 - Complete content pass.
