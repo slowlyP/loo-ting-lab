@@ -39,9 +39,11 @@
 
 ## v0.6 Resume, About, Contact
 
-- Fill real resume content.
-- Expand personal/about narrative.
-- Add contact links or form strategy.
+- Strengthen Resume, About, and Contact pages for recruiting review.
+- Summarize skills, project experience, work style, and portfolio highlights.
+- Explain the developer profile without overstating unconfirmed experience.
+- Mark unconfirmed private contact information as planned.
+- Clean up Header and Footer Korean copy.
 
 ## v0.7 Design Polish
 

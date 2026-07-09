@@ -3,9 +3,9 @@ import { NavLink } from 'react-router'
 const navItems = [
   { to: '/', label: '홈' },
   { to: '/projects', label: '프로젝트' },
-  { to: '/resume', label: '이력서' },
+  { to: '/resume', label: '이력' },
   { to: '/about', label: '소개' },
-  { to: '/contact', label: '연락처' },
+  { to: '/contact', label: '연락' },
 ]
 
 export function Header() {
