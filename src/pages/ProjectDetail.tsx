@@ -12,7 +12,7 @@ function DetailSection({ title, items, tone = 'cyan' }: DetailSectionProps) {
   const borderColor = tone === 'cyan' ? 'border-cyan-300' : 'border-violet-300'
 
   return (
-    <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+    <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
       <h2 className="text-xl font-black text-white">{title}</h2>
       <ul className="mt-4 space-y-3 text-slate-300">
         {items.map((item) => (
@@ -51,7 +51,7 @@ function StatusColumn({ title, items, tone }: StatusColumnProps) {
   }[tone]
 
   return (
-    <div className="rounded-lg border border-slate-700 bg-slate-950/80 p-4">
+    <div className="rounded-lg border border-cyan-300/15 bg-slate-950/80 p-4">
       <h3 className={`border-l-2 pl-3 text-lg font-black ${toneClass}`}>
         {title}
       </h3>
@@ -96,12 +96,12 @@ export function ProjectDetail() {
         to="/projects"
         className="inline-flex text-sm font-bold text-cyan-300 transition hover:text-cyan-100"
       >
-        프로젝트 목록으로
+        Project Archive로 돌아가기
       </Link>
 
-      <header className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-5 sm:p-6">
+      <header className="rounded-lg border border-violet-400/30 bg-slate-950/80 p-5 shadow-lg shadow-slate-950/30 backdrop-blur sm:p-6">
         <p className="text-sm font-bold uppercase tracking-[0.16em] text-violet-300">
-          {project.category} · {project.stage}
+          Project File · {project.category} · {project.stage.replace('STAGE', 'FILE')}
         </p>
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
@@ -117,8 +117,8 @@ export function ProjectDetail() {
       </header>
 
       <section className="grid gap-4 md:grid-cols-[1fr_0.7fr]">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-          <h2 className="text-xl font-black text-white">프로젝트 개요</h2>
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+          <h2 className="text-xl font-black text-white">Experiment Brief</h2>
           <p className="mt-3 font-semibold leading-7 text-cyan-100">
             {project.role}
           </p>
@@ -135,8 +135,8 @@ export function ProjectDetail() {
           </ul>
         </div>
 
-        <aside className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-          <h2 className="text-xl font-black text-white">사용 기술스택</h2>
+        <aside className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+          <h2 className="text-xl font-black text-white">System Modules</h2>
           <div className="mt-4">
             <TechStackBadges techs={project.tech} />
           </div>
@@ -188,7 +188,7 @@ export function ProjectDetail() {
             tone="violet"
           />
 
-          <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
             <h2 className="text-xl font-black text-white">구현 상태 구분</h2>
             <div className="mt-4 grid gap-4 lg:grid-cols-3">
               <StatusColumn
@@ -226,7 +226,7 @@ export function ProjectDetail() {
           ) : null}
 
           {project.detail.metrics?.length ? (
-            <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+            <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
               <h2 className="text-xl font-black text-white">
                 확인된 결과 지표
               </h2>
@@ -259,8 +259,8 @@ export function ProjectDetail() {
           <DetailSection title="결과 및 배운 점" items={project.detail.outcomes} />
 
           {project.detail.artifacts?.length ? (
-            <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-              <h2 className="text-xl font-black text-white">프로젝트 자료</h2>
+            <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+              <h2 className="text-xl font-black text-white">External Access</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 {project.detail.artifacts.map((artifact) => {
                   const isExternal = artifact.pathOrUrl.startsWith('http')
@@ -310,7 +310,7 @@ export function ProjectDetail() {
           ) : null}
 
           <section className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+            <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
               <h2 className="text-xl font-black text-white">
                 {hasVideos ? '시연 영상 / 이미지' : '이미지 / 영상 추가 예정'}
               </h2>
@@ -351,8 +351,8 @@ export function ProjectDetail() {
               )}
             </div>
 
-            <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-              <h2 className="text-xl font-black text-white">GitHub 링크</h2>
+            <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+              <h2 className="text-xl font-black text-white">Repository Access</h2>
               {project.links?.github ? (
                 <a
                   href={project.links.github}

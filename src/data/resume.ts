@@ -4,14 +4,6 @@ export type ResumeInfoItem = {
   href?: string
 }
 
-export type ResumePhoto = {
-  src: string
-  alt: string
-  placeholder: string
-  ratio: string
-  recommendedSize: string
-}
-
 export type ResumeSkillGroup = {
   title: string
   items: string[]
@@ -39,10 +31,23 @@ export type ResumeCertificate = {
   note: string
 }
 
+export type ResumeDocument = {
+  title: string
+  status: 'available' | 'planned'
+  fileUrl: string
+  note: string
+}
+
 export type ResumeContact = {
   label: string
   value: string
   href?: string
+}
+
+export type ResumeExternalLink = {
+  label: string
+  href: string
+  note: string
 }
 
 export type ResumeContent = {
@@ -50,14 +55,14 @@ export type ResumeContent = {
   intro: string
   name: string
   headline: string
-  profilePhoto: ResumePhoto
   basicInfo: ResumeInfoItem[]
+  resumeDocument: ResumeDocument
+  externalResumeLinks: ResumeExternalLink[]
   desiredRole: string
   profileSummary: string
   coreSkills: ResumeSkillGroup[]
   projectExperience: ResumeProject[]
   educationTraining: ResumeEducation[]
-  certificates: ResumeCertificate[]
   licenses: ResumeCertificate[]
   coverLetter: {
     summary: string
@@ -75,27 +80,33 @@ export const resumeContent: ResumeContent = {
     '프로젝트를 구조화하고 구현 내용과 검증 기록을 함께 남기는 방식으로 성장하고 있는 개발자 포트폴리오입니다.',
   name: '송명근',
   headline:
-    'React, TypeScript, Unity, Python 기반 프로젝트를 포트폴리오로 정리하며, 구현 내용과 검증 기록을 함께 보여주는 개발자를 목표로 하고 있습니다.',
-  profilePhoto: {
-    src: '/assets/resume/profile/profile-photo.jpg',
-    alt: '송명근 증명사진',
-    placeholder: '증명사진 추가 예정',
-    ratio: '3:4',
-    recommendedSize: '300x400px 또는 360x480px',
-  },
+    'AI 모델 개발, AI 기반 서비스 구현, Unity 게임 기획·개발 경험을 포트폴리오로 정리하며, 구현 내용과 검증 기록을 함께 보여주는 개발자를 목표로 하고 있습니다.',
   basicInfo: [
     { label: '이름', value: '송명근' },
-    { label: '희망 직무', value: '프론트엔드 / 웹 개발 / 프로젝트형 개발 직무' },
-    { label: 'Email', value: '추가 예정' },
+    { label: '희망 직무', value: 'AI 모델 개발 / AI 서비스 개발 / 게임 기획·개발' },
+    { label: 'Email', value: 'vvckfn@gmail.com', href: 'mailto:vvckfn@gmail.com' },
     { label: 'GitHub', value: 'slowlyP', href: 'https://github.com/slowlyP' },
   ],
+  resumeDocument: {
+    title: '이력서 PDF',
+    status: 'available',
+    fileUrl: '/assets/resume/documents/resume.pdf',
+    note: '새 탭에서 이력서 PDF를 확인할 수 있습니다.',
+  },
+  externalResumeLinks: [
+    {
+      label: '인크루트 이력서 확인',
+      href: 'https://www.incruit.com/resume/resumelist.asp',
+      note: '인크루트 이력서 관리/확인 페이지입니다. 접속 환경에 따라 로그인 페이지가 먼저 표시될 수 있습니다.',
+    },
+  ],
   desiredRole:
-    'React와 TypeScript 기반 웹 UI 구현을 중심으로, 프로젝트 구조를 이해하고 문서화하며 검증 결과를 남기는 개발 직무를 희망합니다. AI/데이터 프로젝트와 Unity 게임 프로토타입 경험은 서비스 흐름과 시스템 구조를 이해하는 보조 경험으로 정리하고 있습니다.',
+    'AI 모델 개발과 AI 기반 서비스 구현, 그리고 Unity 기반 게임 기획·개발 직무를 희망합니다. AI 프로젝트에서는 데이터 흐름, 모델 추론 결과, 서비스 연동 구조를 이해하고 검증하는 경험을 쌓았고, 게임 프로젝트에서는 전투 시스템, 캐릭터 배치, UI 흐름, 성장 구조를 직접 설계하고 구현하며 게임 개발 역량을 확장하고 있습니다. React와 TypeScript 경험은 주력 직무가 아니라, AI 결과나 게임 프로젝트를 사용자에게 보여주기 위한 서비스 화면 구현 경험으로 정리하고 있습니다.',
   profileSummary:
-    'React 기반 포트폴리오, Unity 게임 프로토타입, 한국어 문의 데이터셋 프로젝트를 통해 화면 구성, 게임 시스템 이해, 데이터 라벨링 기준 정리, 규칙 기반 분류 실험을 경험했습니다. 현재는 프로젝트별 역할과 검증 과정을 취업용으로 설명할 수 있도록 정리하고 있습니다.',
+    'STACCATO와 AI Accident Detection을 통해 AI 기반 분석/탐지 서비스의 데이터 흐름과 서비스 연동 구조를 정리했고, Inquiry Dataset에서는 데이터셋 구성과 분류 실험을 경험했습니다. Wizard Defense에서는 Unity 기반 게임 기획과 전투 시스템, 캐릭터 배치, 성장 구조를 구현하며 게임 개발 역량을 확장하고 있습니다.',
   coreSkills: [
     {
-      title: 'Frontend',
+      title: 'Service UI Support',
       items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router'],
     },
     {
@@ -132,31 +143,22 @@ export const resumeContent: ResumeContent = {
   ],
   educationTraining: [
     {
-      title: '교육기관 / 과정명',
-      period: '정리 예정',
-      description:
-        '실제 교육기관명과 기간은 확인된 정보 기준으로 추후 정리할 예정입니다.',
+      title: '한국IT전문대학 게임그래픽학과',
+      period: '중퇴',
+      description: '게임그래픽학과 과정에 재학했으며, 졸업이 아닌 중퇴로 표기합니다.',
       learned: [
-        'React / TypeScript 기반 화면 구성',
-        'Python / Flask 기반 API 구조 이해',
-        'Unity / C# 기반 게임 프로토타입 구조 이해',
-        'CSV 데이터셋과 라벨링 기준 정리',
+        '게임 제작과 그래픽 분야의 기초 흐름을 학습했습니다.',
+        '현재 포트폴리오에서는 졸업 이력으로 표시하지 않습니다.',
       ],
     },
-  ],
-  certificates: [
     {
-      title: '수료증 1',
-      issuer: '발급 기관명 정리 예정',
-      status: 'available',
-      fileUrl: '/assets/resume/certificates/certificate-01.pdf',
-      note: 'public/assets/resume/certificates/certificate-01.pdf 파일을 연결했습니다.',
-    },
-    {
-      title: '수료증 2',
-      issuer: '정리 예정',
-      status: 'planned',
-      note: 'certificate-02.pdf 파일이 아직 없어 추가 예정으로 표시합니다.',
+      title: '학점은행제 컴퓨터공학학과',
+      period: '진행중',
+      description: '현재 학점은행제로 컴퓨터공학학과 과정을 진행중입니다.',
+      learned: [
+        '컴퓨터공학 기반 지식을 보강하는 중입니다.',
+        '진행중인 학습 상태로 표기하며 졸업으로 표현하지 않습니다.',
+      ],
     },
   ],
   licenses: [
@@ -169,7 +171,7 @@ export const resumeContent: ResumeContent = {
   ],
   coverLetter: {
     summary:
-      '저는 프로젝트를 구현하고 끝내기보다, 구조와 역할, 검증 결과를 함께 남기는 방식으로 개발 경험을 정리하고 있습니다. 웹 UI, 게임 프로토타입, 데이터셋 프로젝트를 각각 다루며 확인된 사실과 향후 확장 예정 내용을 분리해 설명하는 데 집중하고 있습니다.',
+      '저는 프로젝트를 구현하고 끝내기보다, 구조와 역할, 검증 결과를 함께 남기는 방식으로 개발 경험을 정리하고 있습니다. AI 기반 분석/탐지 서비스, Unity 게임 프로토타입, 데이터셋 프로젝트를 각각 다루며 확인된 사실과 향후 확장 예정 내용을 분리해 설명하는 데 집중하고 있습니다.',
     openLabel: '자기소개 자세히 보기',
     closeLabel: '자기소개 접기',
     details: [
@@ -181,12 +183,12 @@ export const resumeContent: ResumeContent = {
     ],
   },
   portfolioHighlights: [
-    'React + TypeScript 기반 개인 포트폴리오를 직접 구성',
+    'AI 프로젝트와 Unity 게임 프로젝트 경험을 희망 직무 방향에 맞게 정리',
     'AI 관제, Unity 게임 프로토타입, 한국어 데이터셋 프로젝트를 취업용 경험으로 정리',
     '프로젝트별 역할, 사용 기술, 문제 해결, 검증 결과, 한계를 구분해 기록',
   ],
   contactLinks: [
-    { label: 'Email', value: '추가 예정' },
+    { label: 'Email', value: 'vvckfn@gmail.com', href: 'mailto:vvckfn@gmail.com' },
     { label: 'GitHub', value: 'slowlyP', href: 'https://github.com/slowlyP' },
     { label: '학력 / 자격증 / 상세 연락 정보', value: '정리 예정' },
   ],
