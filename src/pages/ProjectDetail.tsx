@@ -24,6 +24,33 @@ function DetailSection({ title, items, tone = 'cyan' }: DetailSectionProps) {
   )
 }
 
+type StatusColumnProps = {
+  title: string
+  items: string[]
+  tone: 'cyan' | 'violet' | 'amber'
+}
+
+function StatusColumn({ title, items, tone }: StatusColumnProps) {
+  const toneClass = {
+    cyan: 'border-cyan-300 text-cyan-100',
+    violet: 'border-violet-300 text-violet-100',
+    amber: 'border-amber-300 text-amber-100',
+  }[tone]
+
+  return (
+    <div className="rounded-lg border border-slate-700 bg-slate-950 p-4">
+      <h3 className={`border-l-2 pl-3 text-lg font-bold ${toneClass}`}>
+        {title}
+      </h3>
+      <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 export function ProjectDetail() {
   const { projectId } = useParams()
   const project = findProject(projectId)
@@ -47,11 +74,15 @@ export function ProjectDetail() {
     )
   }
 
+  const hasScreenshots = Boolean(project.detail?.media?.screenshots?.length)
+  const hasVideos = Boolean(project.detail?.media?.videos?.length)
+
   return (
     <article className="space-y-6">
       <Link to="/projects" className="text-sm font-semibold text-cyan-300">
         프로젝트 목록으로
       </Link>
+
       <header className="rounded-lg border border-violet-400/30 bg-slate-900 p-6">
         <p className="text-sm font-bold uppercase text-violet-300">
           {project.category} · {project.stage}
@@ -66,6 +97,7 @@ export function ProjectDetail() {
           </span>
         </div>
       </header>
+
       <section className="grid gap-4 md:grid-cols-[1fr_0.7fr]">
         <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
           <h2 className="text-xl font-bold text-white">프로젝트 개요</h2>
@@ -79,8 +111,9 @@ export function ProjectDetail() {
             ))}
           </ul>
         </div>
+
         <aside className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">기술 스택</h2>
+          <h2 className="text-xl font-bold text-white">사용 기술스택</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tech.map((tech) => (
               <span
@@ -93,53 +126,105 @@ export function ProjectDetail() {
           </div>
         </aside>
       </section>
-      <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-        <h2 className="text-xl font-bold text-white">문제 해결 포인트</h2>
-        <ul className="mt-4 space-y-3 text-slate-300">
-          {project.problemSolving.map((item) => (
-            <li key={item} className="border-l-2 border-violet-300 pl-3">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </section>
+
+      <DetailSection
+        title="문제 해결 / 설계 포인트"
+        items={project.problemSolving}
+        tone="violet"
+      />
+
       {project.detail ? (
         <>
-          <DetailSection title="해결하려는 문제" items={project.detail.problem} />
+          <DetailSection title="프로젝트 개요" items={project.detail.overview} />
           <DetailSection
-            title="내가 맡은 역할"
-            items={project.detail.responsibilities}
+            title="게임 핵심 구조"
+            items={project.detail.coreStructure}
             tone="violet"
           />
           <DetailSection
-            title="주요 구현/참여 기능"
-            items={project.detail.features}
+            title="내가 맡은 역할"
+            items={project.detail.responsibilities}
+          />
+
+          <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
+            <h2 className="text-xl font-bold text-white">
+              구현 상태 구분
+            </h2>
+            <div className="mt-4 grid gap-4 lg:grid-cols-3">
+              <StatusColumn
+                title="구현 완료 내용"
+                items={project.detail.implementationStatus.completed}
+                tone="cyan"
+              />
+              <StatusColumn
+                title="진행 중인 내용"
+                items={project.detail.implementationStatus.inProgress}
+                tone="violet"
+              />
+              <StatusColumn
+                title="기획 / 확장 예정 내용"
+                items={project.detail.implementationStatus.planned}
+                tone="amber"
+              />
+            </div>
+          </section>
+
+          <DetailSection
+            title="사용 기술스택"
+            items={project.detail.techStack}
           />
           <DetailSection
-            title="아키텍처 / 데이터 흐름 요약"
-            items={project.detail.architecture}
+            title="문제 해결 / 설계 포인트"
+            items={project.detail.problemSolving}
             tone="violet"
           />
           <DetailSection
             title="결과 및 배운 점"
             items={project.detail.outcomes}
           />
+
           <section className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <h2 className="text-xl font-bold text-white">발표 영상</h2>
-              {project.links?.youtube ? (
-                <a
-                  href={project.links.youtube}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-bold text-cyan-100 transition hover:bg-cyan-300/10"
-                >
-                  발표 영상 보기
-                </a>
+              <h2 className="text-xl font-bold text-white">
+                이미지 / 영상 추가 예정
+              </h2>
+              {hasScreenshots || hasVideos ? (
+                <div className="mt-4 space-y-3 text-slate-300">
+                  {project.detail.media?.screenshots?.map((screenshot) => (
+                    <figure
+                      key={screenshot.src}
+                      className="rounded border border-slate-700 p-3"
+                    >
+                      <img
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        className="w-full rounded"
+                      />
+                      <figcaption className="mt-2 text-sm text-slate-400">
+                        {screenshot.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                  {project.detail.media?.videos?.map((video) => (
+                    <a
+                      key={video.url}
+                      href={video.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-bold text-cyan-100 transition hover:bg-cyan-300/10"
+                    >
+                      {video.title}
+                    </a>
+                  ))}
+                </div>
               ) : (
-                <p className="mt-4 text-slate-300">발표 영상 추가 예정</p>
+                <p className="mt-4 leading-7 text-slate-300">
+                  {project.detail.media?.note ??
+                    '확인된 이미지와 영상 링크가 없어 추가 예정으로 표시합니다.'}
+                </p>
               )}
             </div>
+
             <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
               <h2 className="text-xl font-bold text-white">GitHub 링크</h2>
               {project.links?.github ? (
@@ -152,7 +237,9 @@ export function ProjectDetail() {
                   저장소 보기
                 </a>
               ) : (
-                <p className="mt-4 text-slate-300">GitHub 링크 추가 예정</p>
+                <p className="mt-4 leading-7 text-slate-300">
+                  확인된 GitHub 저장소 URL이 없어 추가 예정으로 표시합니다.
+                </p>
               )}
             </div>
           </section>
