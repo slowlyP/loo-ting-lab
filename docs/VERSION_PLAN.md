@@ -95,6 +95,14 @@
 - Keep missing files such as `certificate-02.pdf` in a safe planned state instead of linking broken URLs.
 - Record that public resume assets are deployed as public static files and must not contain unmasked sensitive information.
 
+## v0.13 Unique Lab Browser Concept
+
+- Shift the portfolio concept toward Loo Ting Lab OS, Developer Lab Browser, and Project Archive System.
+- Reduce generic fantasy RPG menu wording and use lab console, project file, experiment record, system modules, developer character sheet, and contact portal labels.
+- Improve the visual tone with deep navy, ink purple, cyan / mint accents, glass panels, thin borders, subtle grid, and light scanline texture.
+- Keep project facts and v0.12 Resume photo/certificate asset links intact.
+- Update Resume privacy posture by removing direct profile photo / certificate exposure, connecting the public resume PDF document, and adding a secondary Incruit resume link.
+
 ## v1.0 Release Preparation
 
 - Complete content pass.

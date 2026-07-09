@@ -2,36 +2,6 @@ import { useState } from 'react'
 import { TechStackBadges } from '../components/TechStackBadges'
 import { resumeContent } from '../data/resume'
 
-function ProfilePhoto() {
-  const { profilePhoto } = resumeContent
-
-  return profilePhoto.src ? (
-    <figure className="w-full max-w-[180px]">
-      <img
-        src={profilePhoto.src}
-        alt={profilePhoto.alt}
-        className="aspect-[3/4] w-full rounded-lg border border-cyan-300/40 bg-slate-950/70 object-cover"
-      />
-      <figcaption className="mt-3 text-xs leading-5 text-slate-400">
-        권장 비율 {profilePhoto.ratio}
-        <br />
-        {profilePhoto.recommendedSize}
-      </figcaption>
-    </figure>
-  ) : (
-    <div className="flex aspect-[3/4] w-full max-w-[180px] flex-col items-center justify-center rounded-lg border border-dashed border-cyan-300/50 bg-slate-950/70 p-4 text-center">
-      <p className="text-sm font-black text-cyan-100">
-        {profilePhoto.placeholder}
-      </p>
-      <p className="mt-3 text-xs leading-5 text-slate-400">
-        권장 비율 {profilePhoto.ratio}
-        <br />
-        {profilePhoto.recommendedSize}
-      </p>
-    </div>
-  )
-}
-
 export function Resume() {
   const [isCoverLetterOpen, setIsCoverLetterOpen] = useState(false)
   const resume = resumeContent
@@ -40,15 +10,13 @@ export function Resume() {
     <div className="space-y-6">
       <header className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-          Resume
+          Developer Character Sheet
         </p>
         <h1 className="text-3xl font-black text-white">{resume.pageTitle}</h1>
         <p className="max-w-3xl leading-7 text-slate-300">{resume.intro}</p>
       </header>
 
-      <section className="grid gap-5 rounded-lg border border-violet-400/30 bg-slate-900/90 p-5 md:grid-cols-[180px_1fr] md:p-6">
-        <ProfilePhoto />
-
+      <section className="rounded-lg border border-violet-400/30 bg-slate-950/75 p-5 shadow-lg shadow-slate-950/30 backdrop-blur md:p-6">
         <div className="space-y-5">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-violet-300">
@@ -98,14 +66,65 @@ export function Resume() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-violet-300">
+              Resume Document
+            </p>
+            <h2 className="mt-2 text-xl font-black text-white">
+              {resume.resumeDocument.title}
+            </h2>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-300">
+              {resume.resumeDocument.note}
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 md:items-end">
+            {resume.resumeDocument.fileUrl ? (
+              <a
+                href={resume.resumeDocument.fileUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit rounded-md border border-cyan-300 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
+              >
+                이력서 PDF 열기
+              </a>
+            ) : (
+              <span className="inline-flex w-fit rounded-md border border-slate-600 px-4 py-2 text-sm font-bold text-slate-400">
+                이력서 PDF 추가 예정
+              </span>
+            )}
+            {resume.externalResumeLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit rounded-md border border-violet-300/60 px-4 py-2 text-sm font-bold text-violet-100 transition hover:bg-violet-300/10"
+              >
+                {link.label}
+              </a>
+            ))}
+            {resume.externalResumeLinks.map((link) => (
+              <p
+                key={`${link.href}-note`}
+                className="max-w-xs text-xs leading-5 text-slate-500 md:text-right"
+              >
+                {link.note}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">희망 직무</h2>
         <p className="mt-3 max-w-4xl leading-7 text-slate-300">
           {resume.desiredRole}
         </p>
       </section>
 
-      <section className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-6">
+      <section className="rounded-lg border border-violet-400/30 bg-slate-950/75 p-6 backdrop-blur">
         <h2 className="text-xl font-black text-white">Profile Summary</h2>
         <p className="mt-3 max-w-4xl leading-7 text-slate-300">
           {resume.profileSummary}
@@ -118,7 +137,7 @@ export function Resume() {
           {resume.coreSkills.map((skill) => (
             <div
               key={skill.title}
-              className="rounded-lg border border-slate-700 bg-slate-900/90 p-5"
+              className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur"
             >
               <h3 className="text-lg font-black text-cyan-100">
                 {skill.title}
@@ -137,7 +156,7 @@ export function Resume() {
           {resume.projectExperience.map((project) => (
             <article
               key={project.name}
-              className="rounded-lg border border-slate-700 bg-slate-900/90 p-5"
+              className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur"
             >
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-300">
                 {project.role}
@@ -156,7 +175,7 @@ export function Resume() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">Education / Training</h2>
         <div className="mt-4 space-y-4">
           {resume.educationTraining.map((education) => (
@@ -193,47 +212,7 @@ export function Resume() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-          <h2 className="text-xl font-black text-white">수료증</h2>
-          <div className="mt-4 space-y-3">
-            {resume.certificates.map((certificate) => (
-              <div
-                key={certificate.title}
-                className="rounded-lg border border-slate-700 bg-slate-950/70 p-4"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <h3 className="text-lg font-black text-white">
-                      {certificate.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-400">
-                      {certificate.issuer}
-                    </p>
-                    <p className="mt-3 leading-7 text-slate-300">
-                      {certificate.note}
-                    </p>
-                  </div>
-                  {certificate.fileUrl ? (
-                    <a
-                      href={certificate.fileUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex w-fit rounded-md border border-cyan-300 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
-                    >
-                      수료증 보기
-                    </a>
-                  ) : (
-                    <span className="inline-flex w-fit rounded-md border border-slate-600 px-4 py-2 text-sm font-bold text-slate-400">
-                      파일 추가 예정
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">자격증</h2>
           <div className="mt-4 space-y-3">
             {resume.licenses.map((license) => (
@@ -255,7 +234,7 @@ export function Resume() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-violet-400/30 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">자기소개 요약</h2>
         <p className="mt-3 max-w-4xl leading-7 text-slate-300">
           {resume.coverLetter.summary}
@@ -285,7 +264,7 @@ export function Resume() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">
             Portfolio Highlights
           </h2>
@@ -298,7 +277,7 @@ export function Resume() {
           </ul>
         </div>
 
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">Links / Contact</h2>
           <div className="mt-4 grid gap-3">
             {resume.contactLinks.map((contact) =>

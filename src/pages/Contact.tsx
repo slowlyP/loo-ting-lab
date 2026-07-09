@@ -1,3 +1,5 @@
+import { resumeContent } from '../data/resume'
+
 const projectLinks = [
   {
     label: 'Portfolio Repository',
@@ -17,7 +19,7 @@ const projectLinks = [
 ]
 
 const contactTopics = [
-  'React / TypeScript 기반 포트폴리오 UI 구현 경험',
+  'AI 모델 개발과 AI 기반 분석/탐지 서비스 구현 경험',
   'Unity / C# 기반 게임 프로토타입 정리 경험',
   'Python / CSV 기반 한국어 데이터셋과 rule-based classifier 실험 경험',
   '프로젝트 문서화, worklog, validation 기록 방식',
@@ -28,9 +30,9 @@ export function Contact() {
     <div className="space-y-6">
       <header className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-          Contact
+          Contact Portal
         </p>
-        <h1 className="text-3xl font-black text-white">연락</h1>
+        <h1 className="text-3xl font-black text-white">연락 포털</h1>
         <p className="max-w-3xl leading-7 text-slate-300">
           포트폴리오와 프로젝트 기록을 확인하고 연락할 수 있도록 기본 링크를
           정리했습니다. 개인 연락처는 확인된 정보만 공개하고, 미확정 항목은
@@ -39,17 +41,22 @@ export function Contact() {
       </header>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">연락 안내</h2>
           <p className="mt-3 leading-7 text-slate-300">
             채용, 협업, 프로젝트 확인과 관련된 연락 정보를 정리하는 영역입니다.
           </p>
         </div>
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">Email</h2>
-          <p className="mt-3 leading-7 text-slate-300">추가 예정</p>
+          <a
+            href="mailto:vvckfn@gmail.com"
+            className="mt-3 inline-flex max-w-full break-words rounded-md border border-cyan-300/70 px-3 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
+          >
+            vvckfn@gmail.com
+          </a>
         </div>
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">GitHub</h2>
           <a
             href="https://github.com/slowlyP"
@@ -62,9 +69,9 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">
-          Portfolio repository 링크
+          External Access: Portfolio repository
         </h2>
         <a
           href="https://github.com/slowlyP/loo-ting-lab"
@@ -76,13 +83,50 @@ export function Contact() {
         </a>
       </section>
 
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
+        <h2 className="text-xl font-black text-white">
+          Resume Access
+        </h2>
+        <p className="mt-3 max-w-3xl leading-7 text-slate-300">
+          이력서 PDF와 외부 이력서 확인 링크를 보조 자료로 정리했습니다.
+          인크루트 링크는 접속 환경에 따라 로그인 페이지가 먼저 표시될 수 있습니다.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          {resumeContent.resumeDocument.fileUrl ? (
+            <a
+              href={resumeContent.resumeDocument.fileUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex max-w-full break-words rounded-md border border-cyan-300 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
+            >
+              이력서 PDF 열기
+            </a>
+          ) : (
+            <span className="inline-flex rounded-md border border-slate-600 px-4 py-2 text-sm font-bold text-slate-400">
+              이력서 PDF 추가 예정
+            </span>
+          )}
+          {resumeContent.externalResumeLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex max-w-full break-words rounded-md border border-violet-300/70 px-4 py-2 text-sm font-black text-violet-100 transition hover:bg-violet-300/10"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </section>
+
       <section className="space-y-4">
         <h2 className="text-xl font-black text-white">주요 프로젝트 링크</h2>
         <div className="grid gap-4 lg:grid-cols-3">
           {projectLinks.map((link) => (
             <article
               key={link.href}
-              className="rounded-lg border border-slate-700 bg-slate-900/90 p-5"
+              className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur"
             >
               <h3 className="text-lg font-black text-white">{link.label}</h3>
               <p className="mt-3 leading-7 text-slate-300">
@@ -101,7 +145,7 @@ export function Contact() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">
           채용 / 협업 담당자용 안내
         </h2>

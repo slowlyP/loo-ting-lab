@@ -1,5 +1,5 @@
 const interests = [
-  'React와 TypeScript 기반의 포트폴리오형 UI 구성',
+  'AI 모델 개발과 AI 기반 분석/탐지 서비스 구조 이해',
   'Unity와 C#을 사용한 게임 시스템 구조 이해',
   '한국어 데이터셋 설계와 라벨링 기준 정리',
   'AI 지원 시스템에서 데이터, 규칙, 검증 기록을 연결하는 방식',
@@ -22,30 +22,28 @@ export function About() {
     <div className="space-y-6">
       <header className="space-y-2">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-          About
+          Lab Profile
         </p>
-        <h1 className="text-3xl font-black text-white">소개</h1>
+        <h1 className="text-3xl font-black text-white">연구소 프로필</h1>
         <p className="max-w-3xl leading-7 text-slate-300">
           Loo Ting Lab은 프로젝트를 하나씩 탐색하며 개발 경험을 확인할 수
           있도록 만든 개인 포트폴리오 아카이브입니다.
         </p>
       </header>
 
-      <section className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-6">
-        <h2 className="text-xl font-black text-white">
-          나는 어떤 개발자인가
-        </h2>
+      <section className="rounded-lg border border-violet-400/30 bg-slate-950/75 p-6 backdrop-blur">
+          <h2 className="text-xl font-black text-white">Lab Operator Profile</h2>
         <p className="mt-3 max-w-4xl leading-7 text-slate-300">
           화면을 만드는 일뿐 아니라 프로젝트의 목적, 데이터 흐름, 시스템 구조,
           검증 기록을 함께 정리하는 데 관심이 있습니다. STACCATO, Wizard
-          Defense, Inquiry Dataset을 통해 웹 UI, 게임 프로토타입, 한국어
+          Defense, Inquiry Dataset을 통해 AI 서비스 흐름, 게임 프로토타입, 한국어
           데이터셋 설계를 각각 경험했고, 현재는 그 경험을 취업용 포트폴리오로
           설명 가능한 형태로 다듬고 있습니다.
         </p>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">관심 분야</h2>
           <ul className="mt-4 space-y-3 text-slate-300">
             {interests.map((item) => (
@@ -56,7 +54,7 @@ export function About() {
           </ul>
         </div>
 
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">
             프로젝트를 만드는 방식
           </h2>
@@ -71,7 +69,7 @@ export function About() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">강점</h2>
           <ul className="mt-4 space-y-3 text-slate-300">
             {strengths.map((item) => (
@@ -82,7 +80,7 @@ export function About() {
           </ul>
         </div>
 
-        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <div className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
           <h2 className="text-xl font-black text-white">
             현재 집중하고 있는 것
           </h2>
@@ -94,7 +92,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <section className="rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 backdrop-blur">
         <h2 className="text-xl font-black text-white">
           앞으로 확장하고 싶은 방향
         </h2>
