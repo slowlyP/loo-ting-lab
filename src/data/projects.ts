@@ -440,6 +440,140 @@ export const projects: Project[] = [
       service: '',
     },
   },
+  {
+    id: 'ai-accident-detection',
+    title: '404 R·N·F AI',
+    subtitle: 'AI 기반 도로 낙하물 탐지 및 위험 알림 팀 미니프로젝트',
+    category: 'MINI PROJECT / TEAM PROJECT',
+    stage: 'STAGE 04',
+    statusCode: 'TEAM MINI',
+    status: '팀 프로젝트 참여',
+    summary:
+      '도로 위 낙하물을 AI로 탐지하고, 위험도 분석과 실시간 알림, 지도 기반 위험 위치 시각화, 경로 기반 위험 분석을 연결한 팀 미니프로젝트입니다.',
+    role: '송명근은 팀 프로젝트에서 조원으로 참여해 신고 기능 구현, Google Maps API 연동, AI 탐지 기능 개발 및 서비스 연계에 참여했습니다. README 기준으로 LLM 기반 신고 제목/내용 보조 기능도 참여 범위로 정리할 수 있습니다.',
+    highlights: [
+      'YOLO 기반 객체 탐지로 이미지와 영상 업로드 데이터를 분석하는 흐름 구성',
+      '위험/긴급 상황만 필터링해 Flask-SocketIO 기반 실시간 알림으로 전달하는 구조',
+      '지도 기반 위험 위치 시각화와 출발지/도착지 기반 경로 위험 분석 기능을 포함한 안전 주행 서비스',
+    ],
+    problemSolving: [
+      '신고 등록, 파일 업로드, AI 분석 연계가 이어지는 사용자 신고 흐름을 팀 프로젝트 안에서 구현 범위로 나누어 작업했습니다.',
+      'Google Maps API를 활용해 지도 시각화와 위치 기반 데이터 표시를 서비스 화면에 연결하는 역할을 맡았습니다.',
+      'AI 탐지 기능이 단독 기능에 머물지 않고 신고 기능과 서비스 흐름에 이어지도록 연계 작업에 참여했습니다.',
+    ],
+    tech: [
+      'Flask',
+      'YOLOv8',
+      'Flask-SocketIO',
+      'MySQL',
+      'Google Maps API',
+      'Kakao Navigation API',
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'LLM',
+    ],
+    detail: {
+      overview: [
+        '404 R·N·F AI는 도로 위 낙하물을 AI로 자동 탐지하고, 위험도 판단 결과를 기반으로 실시간 알림을 제공하는 팀 미니프로젝트입니다.',
+        'README 기준으로 이미지/영상 업로드 분석, 지도 기반 위험 위치 시각화, 경로 기반 위험 분석, 신고 기능, 관리자 기능을 포함합니다.',
+        '대표 프로젝트 3개와 같은 비중이 아니라, 팀 프로젝트 참여 경험을 보여주는 미니프로젝트 카드로 정리합니다.',
+      ],
+      problem: [
+        '도로 위 낙하물은 운전자에게 위험 요소가 될 수 있어, 업로드된 이미지나 영상을 기반으로 빠르게 탐지하고 위험도를 판단하는 흐름이 필요합니다.',
+        '탐지 결과가 단순 분석에 그치지 않고 신고, 실시간 알림, 지도 기반 모니터링, 경로 위험 분석으로 이어져야 서비스 흐름이 완성됩니다.',
+      ],
+      coreStructure: [
+        '사용자가 이미지 또는 영상을 업로드하면 YOLO 또는 RT-DETR 모델이 객체 탐지를 수행합니다.',
+        '탐지된 객체 정보는 Detection 데이터로 저장되고, 위험도는 주의, 위험, 긴급 단계로 분류됩니다.',
+        '위험 또는 긴급 상황이면 Alert를 생성하고 WebSocket 기반으로 관리자 페이지에 실시간 전송합니다.',
+        '최종 탐지 결과는 지도 기반 탐지 현황과 경로 위험 분석에 반영됩니다.',
+      ],
+      responsibilities: [
+        '송명근은 팀 프로젝트에서 조원으로 참여했습니다.',
+        '신고 등록, 파일 업로드, AI 분석 연계 처리를 포함한 신고 기능 구현을 담당했습니다.',
+        'Google Maps API 연동을 통해 지도 시각화와 위치 기반 데이터 표시 기능에 참여했습니다.',
+        'AI 탐지 기능 개발 및 서비스 연계에 참여했고, README 기준으로 LLM 기반 신고 제목/내용 보조 기능도 참여 범위로 정리할 수 있습니다.',
+      ],
+      implementationStatus: {
+        completed: [
+          'AI 낙하물 탐지 기능',
+          '이미지 / 영상 업로드 자동 분석 흐름',
+          '위험도 분석 및 Alert 생성 흐름',
+          'Flask-SocketIO 기반 실시간 알림',
+          '지도 기반 위험 위치 시각화',
+          '경로 기반 위험 분석',
+          '신고 기능과 AI 분석 연계',
+          'MySQL 기반 데이터 관리',
+        ],
+        inProgress: [
+          '포트폴리오에서는 README에서 확인된 팀 프로젝트 참여 내용만 짧은 미니프로젝트 상세로 정리합니다.',
+        ],
+        planned: [
+          '이미지와 스크린샷은 별도 확인된 자산 링크가 준비되면 추가할 예정입니다.',
+          '발표자료 PDF와 시연 영상은 README에서 확인된 링크 후보로 유지합니다.',
+        ],
+      },
+      techStack: [
+        'Flask',
+        'SQLAlchemy',
+        'Flask-Migrate',
+        'Flask-SocketIO',
+        'HTML',
+        'CSS',
+        'JavaScript',
+        'Google Maps API',
+        'Kakao Navigation API',
+        'YOLOv8',
+        'YOLOv8-p2',
+        'RT-DETR',
+        'LLM',
+        'MySQL',
+      ],
+      problemSolving: [
+        'API, Service, Repository, Model 계층으로 나누어진 Flask 백엔드 구조 안에서 기능별 책임을 분리해 작업했습니다.',
+        '신고 기능과 AI 분석 연계를 통해 사용자가 올린 자료가 탐지와 위험도 판단 흐름으로 이어지도록 구성했습니다.',
+        '지도 API 연동으로 탐지 결과가 위치 기반 화면에서 확인될 수 있도록 서비스 흐름에 연결했습니다.',
+      ],
+      outcomes: [
+        '팀 프로젝트에서 신고 기능, 지도 API 연동, AI 탐지 기능 서비스 연계에 참여한 경험을 포트폴리오에 추가했습니다.',
+        'Flask 기반 백엔드, SocketIO 실시간 알림, MySQL 데이터 관리, AI 객체 탐지 기능이 연결되는 구조를 경험했습니다.',
+        '대표 프로젝트보다 낮은 비중의 미니프로젝트로 정리해 팀 프로젝트 참여 경험을 보조적으로 보여줄 수 있게 했습니다.',
+      ],
+      artifacts: [
+        {
+          label: 'GitHub 저장소',
+          pathOrUrl: 'https://github.com/lms-mini-project/AI-accident-detection',
+          kind: 'repository',
+          note: '프로젝트 코드와 README를 확인할 수 있습니다.',
+        },
+        {
+          label: '발표자료 PDF',
+          pathOrUrl:
+            'https://github.com/lms-mini-project/AI-accident-detection/blob/main/404RNF-mini_2026.04.03%28FFFFFinal%29.pdf',
+          kind: 'docs',
+          note: '프로젝트 발표자료를 확인할 수 있습니다.',
+        },
+      ],
+      media: {
+        screenshots: [],
+        videos: [
+          {
+            title: '404 R·N·F AI 시연 영상',
+            url: 'https://youtu.be/Iet2QiSkU5s',
+            type: 'demo',
+          },
+        ],
+        note: '스크린샷 자산은 별도 확인된 링크가 없어 추가 예정으로 표시합니다.',
+      },
+    },
+    links: {
+      github: 'https://github.com/lms-mini-project/AI-accident-detection',
+      youtube: 'https://youtu.be/Iet2QiSkU5s',
+      service:
+        'https://github.com/lms-mini-project/AI-accident-detection/blob/main/404RNF-mini_2026.04.03%28FFFFFinal%29.pdf',
+    },
+  },
 ]
 
 export const findProject = (projectId: string | undefined) =>

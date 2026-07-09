@@ -30,6 +30,18 @@ type StatusColumnProps = {
   tone: 'cyan' | 'violet' | 'amber'
 }
 
+function getArtifactActionLabel(kind: string, label: string) {
+  if (kind === 'repository') {
+    return '저장소 보기'
+  }
+
+  if (label.toLowerCase().includes('pdf')) {
+    return 'PDF 보기'
+  }
+
+  return '자료 보기'
+}
+
 function StatusColumn({ title, items, tone }: StatusColumnProps) {
   const toneClass = {
     cyan: 'border-cyan-300 text-cyan-100',
@@ -254,24 +266,51 @@ export function ProjectDetail() {
 
           {project.detail.artifacts?.length ? (
             <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
-              <h2 className="text-xl font-black text-white">확인된 산출물</h2>
+              <h2 className="text-xl font-black text-white">프로젝트 자료</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
-                {project.detail.artifacts.map((artifact) => (
-                  <div
-                    key={artifact.label}
-                    className="rounded-lg border border-slate-700 bg-slate-950/80 p-4"
-                  >
-                    <p className="text-sm font-bold text-cyan-100">
-                      {artifact.label}
-                    </p>
-                    <p className="mt-2 break-words text-sm text-slate-400">
-                      {artifact.pathOrUrl}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">
-                      {artifact.note}
-                    </p>
-                  </div>
-                ))}
+                {project.detail.artifacts.map((artifact) => {
+                  const isExternal = artifact.pathOrUrl.startsWith('http')
+                  const content = (
+                    <>
+                      <p className="text-sm font-bold text-cyan-100">
+                        {artifact.label}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-slate-300">
+                        {artifact.note}
+                      </p>
+                      <p className="mt-3 break-words text-xs text-slate-500">
+                        {artifact.pathOrUrl}
+                      </p>
+                      {isExternal ? (
+                        <span className="mt-4 inline-flex rounded-md border border-cyan-300/70 px-3 py-2 text-sm font-black text-cyan-100 transition group-hover:bg-cyan-300/10">
+                          {getArtifactActionLabel(
+                            artifact.kind,
+                            artifact.label,
+                          )}
+                        </span>
+                      ) : null}
+                    </>
+                  )
+
+                  return isExternal ? (
+                    <a
+                      key={artifact.label}
+                      href={artifact.pathOrUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group rounded-lg border border-slate-700 bg-slate-950/80 p-4 transition hover:border-cyan-300 hover:bg-slate-950"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div
+                      key={artifact.label}
+                      className="rounded-lg border border-slate-700 bg-slate-950/80 p-4"
+                    >
+                      {content}
+                    </div>
+                  )
+                })}
               </div>
             </section>
           ) : null}
@@ -279,7 +318,7 @@ export function ProjectDetail() {
           <section className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
               <h2 className="text-xl font-black text-white">
-                이미지 / 영상 추가 예정
+                {hasVideos ? '시연 영상 / 이미지' : '이미지 / 영상 추가 예정'}
               </h2>
               {hasScreenshots || hasVideos ? (
                 <div className="mt-4 space-y-3 text-slate-300">
