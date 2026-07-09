@@ -58,7 +58,15 @@
 - Improve responsive views.
 - Finalize visual system.
 
-## v0.9 Release Preparation
+## v0.9 AI Accident Detection Mini Project
+
+- Add AI Accident Detection as a mini project / team project card.
+- Use only the confirmed README content from `https://github.com/lms-mini-project/AI-accident-detection`.
+- Keep the card lower weight than STACCATO, Wizard Defense, and Inquiry Dataset.
+- Describe the role as team member / 조원 participation, not solo ownership.
+- Link the confirmed GitHub repository, demo video, and presentation PDF.
+
+## v1.0 Release Preparation
 
 - Complete content pass.
 - Final build verification.
