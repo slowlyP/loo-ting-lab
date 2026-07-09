@@ -45,13 +45,20 @@
 - Mark unconfirmed private contact information as planned.
 - Clean up Header and Footer Korean copy.
 
-## v0.7 Design Polish
+## v0.7 Wizard Defense PC / Steam Direction
+
+- Update Wizard Defense copy from the earlier direction to the latest PC / Steam direction confirmed in Notion.
+- Keep the project described as a playable prototype, not a released Steam game.
+- Emphasize normal wizard fusion, elemental fusion, and synergy experiments as the main fun loop.
+- Record that v0.4 historical documents remain unchanged and v0.7 documents explain the direction change.
+
+## v0.8 Design Polish
 
 - Refine HUD styling, motion, spacing, and accessibility.
-- Improve mobile views.
+- Improve responsive views.
 - Finalize visual system.
 
-## v0.8 Release Preparation
+## v0.9 Release Preparation
 
 - Complete content pass.
 - Final build verification.
