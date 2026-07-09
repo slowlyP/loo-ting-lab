@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import type { Project } from '../data/projects'
+import { TechStackBadges } from './TechStackBadges'
 
 type ProjectCardProps = {
   project: Project
@@ -33,16 +34,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.subtitle}
         </p>
         <p className="text-sm leading-6 text-slate-400">{project.summary}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.tech.slice(0, 4).map((tech) => (
-            <span
-              key={tech}
-              className="rounded border border-slate-700 bg-slate-950/60 px-2 py-1 text-xs text-slate-300"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        <TechStackBadges techs={project.tech} limit={4} size="sm" />
       </div>
       <Link
         to={`/projects/${project.id}`}

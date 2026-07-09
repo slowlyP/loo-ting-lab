@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router'
+import { TechStackBadges } from '../components/TechStackBadges'
 import { findProject } from '../data/projects'
 
 type DetailSectionProps = {
@@ -136,15 +137,8 @@ export function ProjectDetail() {
 
         <aside className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
           <h2 className="text-xl font-black text-white">사용 기술스택</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="rounded border border-slate-700 bg-slate-950/60 px-2 py-1 text-sm text-slate-300"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="mt-4">
+            <TechStackBadges techs={project.tech} />
           </div>
         </aside>
       </section>
@@ -222,8 +216,6 @@ export function ProjectDetail() {
               tone="violet"
             />
           ) : null}
-
-          <DetailSection title="사용 기술스택" items={project.detail.techStack} />
 
           {project.detail.experimentLog ? (
             <DetailSection
