@@ -182,6 +182,8 @@ export function ProjectDetail() {
             title={
               project.id === 'wizard-defense'
                 ? '게임 핵심 구조'
+                : project.id === 'staccato'
+                  ? '아키텍처 / 데이터 흐름'
                 : '문서 / 데이터 구성'
             }
             items={project.detail.coreStructure}

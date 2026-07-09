@@ -66,6 +66,13 @@
 - Describe the role as team member / 조원 participation, not solo ownership.
 - Link the confirmed GitHub repository, demo video, and presentation PDF.
 
+## v0.10 STACCATO Detail Completion
+
+- Restore and strengthen missing STACCATO detail page content from v0.3 records and the confirmed STACCATO GitHub repository.
+- Reintroduce AI detection flow, ROI / Rule Engine, LANE_STOP / SHOULDER_STOP, VM-separated architecture, media proxy, report upload, realtime notification, and monitoring UI details.
+- Keep personal contribution wording conservative by using participation, verification, structure summary, and integration-flow wording where direct ownership is not confirmed.
+- Add confirmed GitHub and demo video links without describing the project as commercially operated.
+
 ## v1.0 Release Preparation
 
 - Complete content pass.
