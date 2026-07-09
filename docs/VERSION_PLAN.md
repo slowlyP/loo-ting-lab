@@ -80,6 +80,14 @@
 - Reuse the same badge component on project detail pages and project list cards.
 - Use `react-icons` brand icons where available and fallback icons for ambiguous technologies.
 
+## v0.11 Resume / Cover Letter Page Upgrade
+
+- Upgrade the Resume page into a cleaner recruiting-oriented resume layout.
+- Add an ID photo placeholder area with 3:4 ratio guidance and recommended image sizes.
+- Add desired role, profile summary, core skills, project experience, education / training, cover letter summary, expandable detailed cover letter, and links / contact sections.
+- Keep unconfirmed personal information such as email, education, certifications, and photo as planned or to be organized.
+- Apply Noto Sans KR through CSS import and font-family fallback without storing font files in the repository.
+
 ## v1.0 Release Preparation
 
 - Complete content pass.
