@@ -13,3 +13,12 @@ body {
   min-width: 320px;
   background: #020617;
 }
+
+::selection {
+  background: rgba(103, 232, 249, 0.28);
+  color: #f8fafc;
+}
+
+a {
+  overflow-wrap: anywhere;
+}

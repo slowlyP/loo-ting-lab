@@ -6,10 +6,10 @@ export function ProjectBrowser() {
     <section className="space-y-5">
       <div className="flex flex-col gap-3 border-b border-slate-800 pb-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-sm font-semibold uppercase text-cyan-300">
-            STAGE SELECT
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
+            Stage Select
           </p>
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="text-2xl font-black text-white">
             입장할 프로젝트를 선택하세요
           </h2>
         </div>

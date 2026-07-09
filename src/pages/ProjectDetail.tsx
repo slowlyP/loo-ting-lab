@@ -11,11 +11,11 @@ function DetailSection({ title, items, tone = 'cyan' }: DetailSectionProps) {
   const borderColor = tone === 'cyan' ? 'border-cyan-300' : 'border-violet-300'
 
   return (
-    <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-      <h2 className="text-xl font-bold text-white">{title}</h2>
+    <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+      <h2 className="text-xl font-black text-white">{title}</h2>
       <ul className="mt-4 space-y-3 text-slate-300">
         {items.map((item) => (
-          <li key={item} className={`border-l-2 ${borderColor} pl-3`}>
+          <li key={item} className={`border-l-2 ${borderColor} pl-3 leading-7`}>
             {item}
           </li>
         ))}
@@ -38,8 +38,8 @@ function StatusColumn({ title, items, tone }: StatusColumnProps) {
   }[tone]
 
   return (
-    <div className="rounded-lg border border-slate-700 bg-slate-950 p-4">
-      <h3 className={`border-l-2 pl-3 text-lg font-bold ${toneClass}`}>
+    <div className="rounded-lg border border-slate-700 bg-slate-950/80 p-4">
+      <h3 className={`border-l-2 pl-3 text-lg font-black ${toneClass}`}>
         {title}
       </h3>
       <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-300">
@@ -58,15 +58,15 @@ export function ProjectDetail() {
   if (!project) {
     return (
       <section className="rounded-lg border border-slate-700 bg-slate-900 p-6">
-        <p className="text-sm font-semibold uppercase text-rose-300">
-          STAGE MISSING
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-rose-300">
+          Stage Missing
         </p>
         <h1 className="mt-2 text-3xl font-black text-white">
           프로젝트를 찾을 수 없습니다
         </h1>
         <Link
           to="/projects"
-          className="mt-6 inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-bold text-cyan-100"
+          className="mt-6 inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
         >
           프로젝트 목록으로 돌아가기
         </Link>
@@ -79,46 +79,56 @@ export function ProjectDetail() {
 
   return (
     <article className="space-y-6">
-      <Link to="/projects" className="text-sm font-semibold text-cyan-300">
+      <Link
+        to="/projects"
+        className="inline-flex text-sm font-bold text-cyan-300 transition hover:text-cyan-100"
+      >
         프로젝트 목록으로
       </Link>
 
-      <header className="rounded-lg border border-violet-400/30 bg-slate-900 p-6">
-        <p className="text-sm font-bold uppercase text-violet-300">
+      <header className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-5 sm:p-6">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-violet-300">
           {project.category} · {project.stage}
         </p>
-        <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h1 className="text-3xl font-black text-white">{project.title}</h1>
-            <p className="mt-2 text-slate-300">{project.subtitle}</p>
+            <p className="mt-2 leading-7 text-slate-300">
+              {project.subtitle}
+            </p>
           </div>
-          <span className="w-fit rounded bg-cyan-300/10 px-3 py-1 text-sm font-bold text-cyan-100">
+          <span className="w-fit shrink-0 rounded border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-sm font-black text-cyan-100">
             {project.status}
           </span>
         </div>
       </header>
 
       <section className="grid gap-4 md:grid-cols-[1fr_0.7fr]">
-        <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">프로젝트 개요</h2>
-          <p className="mt-3 font-semibold text-cyan-100">{project.role}</p>
+        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">프로젝트 개요</h2>
+          <p className="mt-3 font-semibold leading-7 text-cyan-100">
+            {project.role}
+          </p>
           <p className="mt-3 leading-7 text-slate-300">{project.summary}</p>
           <ul className="mt-5 space-y-3 text-slate-300">
             {project.highlights.map((highlight) => (
-              <li key={highlight} className="border-l-2 border-cyan-300 pl-3">
+              <li
+                key={highlight}
+                className="border-l-2 border-cyan-300 pl-3 leading-7"
+              >
                 {highlight}
               </li>
             ))}
           </ul>
         </div>
 
-        <aside className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">사용 기술스택</h2>
+        <aside className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">사용 기술스택</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="rounded border border-slate-700 px-2 py-1 text-sm text-slate-300"
+                className="rounded border border-slate-700 bg-slate-950/60 px-2 py-1 text-sm text-slate-300"
               >
                 {tech}
               </span>
@@ -157,7 +167,11 @@ export function ProjectDetail() {
             />
           ) : null}
           <DetailSection
-            title={project.id === 'wizard-defense' ? '게임 핵심 구조' : '문서 / 데이터 구성'}
+            title={
+              project.id === 'wizard-defense'
+                ? '게임 핵심 구조'
+                : '문서 / 데이터 구성'
+            }
             items={project.detail.coreStructure}
           />
           <DetailSection
@@ -166,8 +180,8 @@ export function ProjectDetail() {
             tone="violet"
           />
 
-          <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-            <h2 className="text-xl font-bold text-white">구현 상태 구분</h2>
+          <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+            <h2 className="text-xl font-black text-white">구현 상태 구분</h2>
             <div className="mt-4 grid gap-4 lg:grid-cols-3">
               <StatusColumn
                 title="구현 / 작성한 내용"
@@ -206,13 +220,15 @@ export function ProjectDetail() {
           ) : null}
 
           {project.detail.metrics?.length ? (
-            <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <h2 className="text-xl font-bold text-white">확인된 결과 지표</h2>
+            <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+              <h2 className="text-xl font-black text-white">
+                확인된 결과 지표
+              </h2>
               <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {project.detail.metrics.map((metric) => (
                   <div
                     key={metric.label}
-                    className="rounded-lg border border-slate-700 bg-slate-950 p-4"
+                    className="rounded-lg border border-slate-700 bg-slate-950/80 p-4"
                   >
                     <p className="text-sm font-bold uppercase text-violet-300">
                       {metric.label}
@@ -237,13 +253,13 @@ export function ProjectDetail() {
           <DetailSection title="결과 및 배운 점" items={project.detail.outcomes} />
 
           {project.detail.artifacts?.length ? (
-            <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <h2 className="text-xl font-bold text-white">확인된 산출물</h2>
+            <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+              <h2 className="text-xl font-black text-white">확인된 산출물</h2>
               <div className="mt-4 grid gap-3 md:grid-cols-2">
                 {project.detail.artifacts.map((artifact) => (
                   <div
                     key={artifact.label}
-                    className="rounded-lg border border-slate-700 bg-slate-950 p-4"
+                    className="rounded-lg border border-slate-700 bg-slate-950/80 p-4"
                   >
                     <p className="text-sm font-bold text-cyan-100">
                       {artifact.label}
@@ -261,8 +277,8 @@ export function ProjectDetail() {
           ) : null}
 
           <section className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <h2 className="text-xl font-bold text-white">
+            <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+              <h2 className="text-xl font-black text-white">
                 이미지 / 영상 추가 예정
               </h2>
               {hasScreenshots || hasVideos ? (
@@ -288,7 +304,7 @@ export function ProjectDetail() {
                       href={video.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-bold text-cyan-100 transition hover:bg-cyan-300/10"
+                      className="inline-flex rounded-md border border-cyan-300 px-4 py-2 text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10"
                     >
                       {video.title}
                     </a>
@@ -302,14 +318,14 @@ export function ProjectDetail() {
               )}
             </div>
 
-            <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-              <h2 className="text-xl font-bold text-white">GitHub 링크</h2>
+            <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+              <h2 className="text-xl font-black text-white">GitHub 링크</h2>
               {project.links?.github ? (
                 <a
                   href={project.links.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex rounded-md border border-violet-300 px-4 py-2 text-sm font-bold text-violet-100 transition hover:bg-violet-300/10"
+                  className="mt-4 inline-flex rounded-md border border-violet-300 px-4 py-2 text-sm font-black text-violet-100 transition hover:bg-violet-300/10"
                 >
                   저장소 보기
                 </a>
