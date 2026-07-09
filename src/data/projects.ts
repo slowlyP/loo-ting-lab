@@ -18,14 +18,34 @@ export type ProjectMedia = {
   note?: string
 }
 
+export type ProjectArtifact = {
+  label: string
+  pathOrUrl: string
+  kind: 'csv' | 'docs' | 'code' | 'experiment' | 'repository'
+  note: string
+}
+
+export type ProjectMetric = {
+  label: string
+  value: string
+  note: string
+}
+
 export type ProjectDetailContent = {
   overview: string[]
+  problem?: string[]
+  designDirection?: string[]
+  labelStructure?: string[]
   coreStructure: string[]
   responsibilities: string[]
   implementationStatus: ProjectStatusGroup
+  classifierStructure?: string[]
   techStack: string[]
+  experimentLog?: string[]
   problemSolving: string[]
   outcomes: string[]
+  artifacts?: ProjectArtifact[]
+  metrics?: ProjectMetric[]
   media?: ProjectMedia
 }
 
@@ -201,24 +221,222 @@ export const projects: Project[] = [
   {
     id: 'inquiry-dataset',
     title: 'Inquiry Dataset',
-    subtitle: '한국어 게임 고객 문의 분류 데이터셋',
+    subtitle: 'Random Wizard Defense 한국어 고객 문의 분류 데이터셋',
     category: 'DATA PROJECT',
     stage: 'STAGE 03',
     statusCode: 'DATASET',
-    status: '라벨링 기준 정리',
+    status: '데이터셋 / 규칙 기반 분류기 정리',
     summary:
-      '한국어 게임 고객 문의를 카테고리별로 분류하기 위한 데이터셋 프로젝트입니다. 라벨링 기준, 데이터셋 카드, 규칙 기반 분류 기준을 함께 정리했습니다.',
-    role: '문의 유형 정의, 라벨링 가이드 작성, CSV 구조 정리, 기본 분류 규칙 설계를 맡았습니다.',
+      'Random Wizard Defense 플레이어 문의를 분류하기 위해 합성 한국어 문의 CSV, 라벨링 가이드, dataset card, rule-based classifier, 실험 기록을 함께 정리한 데이터 프로젝트입니다.',
+    role: '문의 category, subcategory, urgency, needs_human 라벨 구조를 설계하고, v1/v2 CSV 데이터셋과 라벨링 기준, 규칙 기반 분류기, 실험/오류 분석 문서를 포트폴리오용 근거로 정리했습니다.',
     highlights: [
-      'CSV 데이터 구조와 라벨링 가이드 작성',
-      '문의 카테고리 분류 기준 정리',
-      '데이터셋 카드와 규칙 기반 분류기 계획 수립',
+      'v1 100개 합성 한국어 문의에서 v2 150개 문의로 확장하며 라벨 경계 사례를 보강',
+      '단순 CSV가 아니라 labeling guide, dataset card, experiment log, error analysis까지 함께 관리',
+      'Python rule-based classifier와 test script로 데이터셋 활용 가능성을 검증',
     ],
     problemSolving: [
-      '비슷해 보이는 문의를 일관되게 분류할 수 있도록 라벨 기준을 구체화했습니다.',
-      '데이터셋을 처음 보는 사람이 목적과 한계를 이해할 수 있도록 문서화했습니다.',
+      '`bug_report`와 기능 category, `feedback_balance`와 기능 category가 섞이는 경계 문제를 문서화했습니다.',
+      '`wizard_growth`와 `wizard_acquisition`처럼 비슷한 표현을 쓰는 문의를 구분하기 위해 라벨링 기준을 세분화했습니다.',
+      'baseline 결과와 improved rule 결과를 분리해 기록하고, improved rule v2는 해당 데이터 기준 결과이며 추가 검증이 필요하다고 명확히 남겼습니다.',
     ],
-    tech: ['CSV', 'Data Labeling', 'Dataset Card', 'Classification', 'Rules'],
+    tech: [
+      'Python',
+      'CSV',
+      'Dataclass',
+      'rule-based classifier',
+      'TF-IDF',
+      'LogisticRegression',
+      'scikit-learn',
+      'GitHub',
+    ],
+    detail: {
+      overview: [
+        'Inquiry Dataset은 Random Wizard Defense 게임의 플레이어 문의를 분류하기 위한 한국어 합성 데이터셋 프로젝트입니다.',
+        '실제 사용자 문의 데이터가 아니라 게임 맥락을 바탕으로 만든 합성 문의를 사용하며, 데이터셋 설계와 라벨링 기준 정리, 규칙 기반 분류기 실험을 포트폴리오 근거로 삼습니다.',
+        '저장소 README에는 의도 분류, 문서 검색, 근거 기반 응답 설계를 위한 AI support scaffold로 정리되어 있지만, 포트폴리오에서는 데이터 설계와 분류 실험 중심으로 설명합니다.',
+      ],
+      problem: [
+        '게임 고객 문의는 같은 기능 단어를 포함해도 정보 요청, 오류 제보, 밸런스 의견처럼 처리 방식이 달라질 수 있습니다.',
+        '자동 응답으로 처리 가능한 문의와 사람 검토가 필요한 문의를 구분하려면 category뿐 아니라 urgency와 needs_human 같은 운영 관점의 라벨이 필요합니다.',
+        '합성 데이터는 실제 사용자 표현을 모두 담지 못하므로, dataset card와 error analysis에 제한 사항을 함께 기록해야 합니다.',
+      ],
+      designDirection: [
+        'CSV row마다 문의 원문과 라벨을 함께 두어 rule-based classifier와 baseline 평가에 바로 사용할 수 있게 구성했습니다.',
+        'v1 dataset은 100개 합성 한국어 문의로 시작했고, v2 dataset은 라벨 경계 사례를 보강해 150개 문의로 확장했습니다.',
+        'v1 파일은 비교 기준으로 보존하고 v2 파일을 별도로 생성해 기존 결과를 덮어쓰지 않는 방식으로 관리했습니다.',
+        '`bug_report`, `feedback_balance`, `wizard_growth`, `gameplay_guide`처럼 경계가 약한 category를 v2 개선 대상으로 정리했습니다.',
+      ],
+      labelStructure: [
+        '`id`: 샘플 고유 ID',
+        '`text`: 플레이어 문의 원문, 한국어 합성 문장',
+        '`category`: gameplay_guide, wizard_acquisition, wizard_growth, tower_progress, skill_combat, bug_report, feedback_balance',
+        '`subcategory`: placement, random_draw, resonance, floor_difficulty, cooldown_display 같은 상세 영어 키워드',
+        '`urgency`: low, medium, high',
+        '`needs_human`: 자동 응답 가능 여부와 사람 검토 필요 여부를 구분하는 boolean 라벨',
+      ],
+      coreStructure: [
+        'dataset card에는 데이터 출처, 라벨 스키마, category 분포, 제한 사항, 프라이버시 고지, 향후 개선 계획을 기록했습니다.',
+        'labeling guide에는 category 정의, subcategory 예시, urgency 규칙, needs_human 규칙, 애매한 경우 처리 기준을 정리했습니다.',
+        'error analysis에는 오분류 샘플, 예측 라벨, 기대 라벨, 원인, 개선 후보를 기록하는 방식으로 실패 유형을 추적했습니다.',
+        'experiment log에는 rule baseline, TF-IDF baseline, dataset v2 평가, improved rule 실험을 날짜와 설정, 결과 중심으로 남겼습니다.',
+      ],
+      responsibilities: [
+        '한국어 게임 문의를 분류하기 위한 category와 subcategory 체계를 정리했습니다.',
+        'urgency와 needs_human 라벨을 추가해 단순 의도 분류를 넘어 고객지원 라우팅 관점까지 표현했습니다.',
+        'labeling guide와 dataset card를 작성해 데이터셋의 목적, 한계, 라벨링 규칙을 문서화했습니다.',
+        'Python rule-based classifier와 test script를 통해 라벨 구조가 코드에서 어떻게 활용되는지 확인했습니다.',
+        'baseline 평가와 error analysis를 남겨 다음 개선 방향을 추적할 수 있게 했습니다.',
+      ],
+      implementationStatus: {
+        completed: [
+          'v1 dataset: 100개 합성 한국어 문의 CSV 작성',
+          'v2 dataset: 150개 합성 한국어 문의 CSV 작성',
+          'category, subcategory, urgency, needs_human 라벨 구조 정리',
+          'labeling guide 작성',
+          'dataset card 작성',
+          'schemas.py의 InquiryResult dataclass 작성',
+          'rule_classifier.py의 키워드 기반 분류기 작성',
+          'test_rule_classifier.py로 기본 동작 검증',
+          'experiment_log.md와 error_analysis.md로 실험 및 오류 분석 기록',
+          'Git tag 기반 버전 기록 확인',
+        ],
+        inProgress: [
+          '분류 규칙과 라벨 경계 사례를 실험 기록을 바탕으로 계속 다듬을 수 있는 구조로 관리하고 있습니다.',
+          'baseline 결과를 비교하면서 rule-based 접근과 TF-IDF baseline의 장단점을 나누어 정리하고 있습니다.',
+        ],
+        planned: [
+          '실제 플레이어 로그를 사용하려면 익명화, 동의, 개인정보 검토가 필요하며 현재 데이터셋에는 포함하지 않습니다.',
+          'improved rule v2의 94.00% 결과는 해당 v2 dataset 기준 결과이므로, holdout 또는 새로운 dataset으로 일반화 가능성을 추가 검증해야 합니다.',
+          '검색 기반 응답이나 실제 고객지원 연동은 향후 확장 후보이며, 현재 포트폴리오에서는 데이터셋 설계와 분류 실험 중심으로 표시합니다.',
+        ],
+      },
+      classifierStructure: [
+        '`schemas.py`는 category, subcategory, urgency, needs_human, confidence, matched_keywords를 담는 InquiryResult dataclass를 정의합니다.',
+        '`rule_classifier.py`는 category별 한국어 키워드 사전, issue pattern, subcategory rule을 사용해 문의를 분류합니다.',
+        '버그 키워드가 매칭되면 `bug_report`를 우선하고, urgency와 needs_human을 함께 설정합니다.',
+        '`test_rule_classifier.py`는 대표 문의를 실행해 category, subcategory, urgency, needs_human 결과가 기대값과 맞는지 확인합니다.',
+        '`rule_classifier_v2.py`는 refined label policy를 반영한 별도 improved rule 실험으로, 원본 rule classifier와 baseline 결과를 보존한 채 비교하도록 분리되어 있습니다.',
+      ],
+      techStack: [
+        'Python',
+        'CSV',
+        'Dataclass',
+        'rule-based classifier',
+        'TF-IDF',
+        'LogisticRegression',
+        'scikit-learn',
+        'Markdown documentation',
+        'Git',
+        'GitHub',
+      ],
+      experimentLog: [
+        'v0.3.0 rule baseline에서는 키워드 기반 분류기와 기본 테스트를 기록했습니다.',
+        'v0.4.0 rule baseline은 v1 dataset 100개 기준 accuracy 60.00%로 기록되었습니다.',
+        'v0.9.0 v2 baseline에서는 v2 dataset 150개 기준 rule-based 44.67%, TF-IDF 72.67%로 비교했습니다.',
+        'v0.10.0 improved rule v2는 v2 dataset 기준 94.00%를 기록했지만, 이 수치는 해당 데이터 기준 개선 결과이며 일반화 성능으로 보지 않도록 주의 문구를 남겼습니다.',
+        'error analysis에는 bug_report, feedback_balance, wizard_growth, gameplay_guide 경계에서 발생한 오분류 패턴과 개선 후보를 기록했습니다.',
+      ],
+      problemSolving: [
+        '기능 단어가 포함된 오류 문의는 feature category보다 bug_report로 검토해야 하는 기준을 labeling guide에 추가했습니다.',
+        '강함/약함, 비용 대비 효율, 확률 불만 같은 평가 표현은 feedback_balance로 다루도록 경계 규칙을 정리했습니다.',
+        '경험치와 성장 재료를 얻는 방법은 wizard_growth, 신규 마법사 소환과 등장 확률 안내는 wizard_acquisition으로 구분했습니다.',
+        '추천 빌드와 배치 전략은 gameplay_guide, 데미지 공식과 쿨타임, 판정 질문은 skill_combat으로 나누었습니다.',
+        'v1과 v2 산출물을 분리해 baseline 비교가 가능하도록 관리했습니다.',
+      ],
+      outcomes: [
+        '데이터셋을 단순 CSV가 아니라 라벨링 기준, dataset card, 테스트 스크립트, 실험 로그, 오류 분석까지 포함한 포트폴리오 단위로 정리했습니다.',
+        'category와 subcategory만이 아니라 urgency와 needs_human을 포함해 고객지원 라우팅 관점의 라벨 설계를 경험했습니다.',
+        'baseline 성능이 낮게 나온 category를 숨기지 않고 error analysis와 다음 개선 후보로 기록하는 방식의 실험 관리를 배웠습니다.',
+        '규칙 기반 접근은 설명 가능성이 높지만 표현 분포에 맞춰질 수 있으므로, improved rule 결과도 추가 검증이 필요하다는 한계를 분리해 설명할 수 있게 되었습니다.',
+      ],
+      artifacts: [
+        {
+          label: 'GitHub repository',
+          pathOrUrl: 'https://github.com/slowlyP/wizard-defense-ai-support',
+          kind: 'repository',
+          note: 'Inquiry Dataset과 rule-based classifier, experiment 기록이 있는 확인된 저장소입니다.',
+        },
+        {
+          label: 'Dataset v1 CSV',
+          pathOrUrl: 'data/raw/wizard_defense_inquiries_raw.csv',
+          kind: 'csv',
+          note: '100개 합성 한국어 문의가 담긴 v1 dataset입니다.',
+        },
+        {
+          label: 'Dataset v2 CSV',
+          pathOrUrl: 'data/raw/wizard_defense_inquiries_v2.csv',
+          kind: 'csv',
+          note: '라벨 경계 사례를 보강한 150개 합성 한국어 문의 dataset입니다.',
+        },
+        {
+          label: 'Labeling guide',
+          pathOrUrl: 'data/labeling_guide.md',
+          kind: 'docs',
+          note: 'category, subcategory, urgency, needs_human 기준과 경계 규칙을 설명합니다.',
+        },
+        {
+          label: 'Dataset card',
+          pathOrUrl: 'data/dataset_card.md',
+          kind: 'docs',
+          note: '데이터 출처, 라벨 스키마, 제한 사항, 프라이버시 고지를 정리합니다.',
+        },
+        {
+          label: 'Rule classifier',
+          pathOrUrl: 'backend/app/rule_classifier.py',
+          kind: 'code',
+          note: '한국어 키워드 기반 규칙 분류기입니다.',
+        },
+        {
+          label: 'Experiment log',
+          pathOrUrl: 'experiments/experiment_log.md',
+          kind: 'experiment',
+          note: 'baseline, TF-IDF, improved rule 실험의 설정과 결과를 기록합니다.',
+        },
+        {
+          label: 'Error analysis',
+          pathOrUrl: 'experiments/error_analysis.md',
+          kind: 'experiment',
+          note: '오분류 패턴과 개선 후보를 추적합니다.',
+        },
+      ],
+      metrics: [
+        {
+          label: 'Dataset v1',
+          value: '100 samples',
+          note: '게임 맥락을 기반으로 만든 합성 한국어 문의입니다.',
+        },
+        {
+          label: 'Dataset v2',
+          value: '150 samples',
+          note: '라벨 경계 사례를 보강한 별도 dataset이며 v1을 덮어쓰지 않습니다.',
+        },
+        {
+          label: 'v0.4 rule baseline',
+          value: '60.00%',
+          note: 'v1 dataset 100개 기준 accuracy입니다.',
+        },
+        {
+          label: 'v2 baseline',
+          value: 'rule 44.67% / TF-IDF 72.67%',
+          note: 'v2 dataset 150개 기준 비교 결과입니다.',
+        },
+        {
+          label: 'improved rule v2',
+          value: '94.00%',
+          note: '해당 v2 dataset 기준 개선 결과이며 일반화 가능성은 추가 검증이 필요합니다.',
+        },
+      ],
+      media: {
+        screenshots: [],
+        videos: [],
+        note: 'Inquiry Dataset 관련 이미지와 영상 자료는 아직 확인되지 않아 추가 예정으로 표시합니다.',
+      },
+    },
+    links: {
+      github: 'https://github.com/slowlyP/wizard-defense-ai-support',
+      youtube: '',
+      service: '',
+    },
   },
 ]
 

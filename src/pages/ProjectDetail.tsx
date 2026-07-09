@@ -136,23 +136,41 @@ export function ProjectDetail() {
       {project.detail ? (
         <>
           <DetailSection title="프로젝트 개요" items={project.detail.overview} />
+          {project.detail.problem ? (
+            <DetailSection
+              title="해결하려는 문제"
+              items={project.detail.problem}
+              tone="violet"
+            />
+          ) : null}
+          {project.detail.designDirection ? (
+            <DetailSection
+              title="데이터셋 설계 방향"
+              items={project.detail.designDirection}
+            />
+          ) : null}
+          {project.detail.labelStructure ? (
+            <DetailSection
+              title="라벨 구조"
+              items={project.detail.labelStructure}
+              tone="violet"
+            />
+          ) : null}
           <DetailSection
-            title="게임 핵심 구조"
+            title={project.id === 'wizard-defense' ? '게임 핵심 구조' : '문서 / 데이터 구성'}
             items={project.detail.coreStructure}
-            tone="violet"
           />
           <DetailSection
             title="내가 맡은 역할"
             items={project.detail.responsibilities}
+            tone="violet"
           />
 
           <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-            <h2 className="text-xl font-bold text-white">
-              구현 상태 구분
-            </h2>
+            <h2 className="text-xl font-bold text-white">구현 상태 구분</h2>
             <div className="mt-4 grid gap-4 lg:grid-cols-3">
               <StatusColumn
-                title="구현 완료 내용"
+                title="구현 / 작성한 내용"
                 items={project.detail.implementationStatus.completed}
                 tone="cyan"
               />
@@ -162,26 +180,85 @@ export function ProjectDetail() {
                 tone="violet"
               />
               <StatusColumn
-                title="기획 / 확장 예정 내용"
+                title="향후 확장 예정"
                 items={project.detail.implementationStatus.planned}
                 tone="amber"
               />
             </div>
           </section>
 
-          <DetailSection
-            title="사용 기술스택"
-            items={project.detail.techStack}
-          />
+          {project.detail.classifierStructure ? (
+            <DetailSection
+              title="규칙 기반 분류기 구조"
+              items={project.detail.classifierStructure}
+              tone="violet"
+            />
+          ) : null}
+
+          <DetailSection title="사용 기술스택" items={project.detail.techStack} />
+
+          {project.detail.experimentLog ? (
+            <DetailSection
+              title="실험 / 기록 방식"
+              items={project.detail.experimentLog}
+              tone="violet"
+            />
+          ) : null}
+
+          {project.detail.metrics?.length ? (
+            <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
+              <h2 className="text-xl font-bold text-white">확인된 결과 지표</h2>
+              <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {project.detail.metrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="rounded-lg border border-slate-700 bg-slate-950 p-4"
+                  >
+                    <p className="text-sm font-bold uppercase text-violet-300">
+                      {metric.label}
+                    </p>
+                    <p className="mt-2 text-2xl font-black text-cyan-100">
+                      {metric.value}
+                    </p>
+                    <p className="mt-3 text-sm leading-6 text-slate-300">
+                      {metric.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           <DetailSection
             title="문제 해결 / 설계 포인트"
             items={project.detail.problemSolving}
             tone="violet"
           />
-          <DetailSection
-            title="결과 및 배운 점"
-            items={project.detail.outcomes}
-          />
+          <DetailSection title="결과 및 배운 점" items={project.detail.outcomes} />
+
+          {project.detail.artifacts?.length ? (
+            <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
+              <h2 className="text-xl font-bold text-white">확인된 산출물</h2>
+              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                {project.detail.artifacts.map((artifact) => (
+                  <div
+                    key={artifact.label}
+                    className="rounded-lg border border-slate-700 bg-slate-950 p-4"
+                  >
+                    <p className="text-sm font-bold text-cyan-100">
+                      {artifact.label}
+                    </p>
+                    <p className="mt-2 break-words text-sm text-slate-400">
+                      {artifact.pathOrUrl}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                      {artifact.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           <section className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">

@@ -29,20 +29,28 @@
 - Add media and GitHub link placeholder areas for future assets.
 - Use only confirmed Notion reference content and avoid overstating implementation status.
 
-## v0.5 Resume, About, Contact
+## v0.5 Inquiry Dataset Detail
+
+- Strengthen the Inquiry Dataset project detail page.
+- Present the Korean synthetic inquiry dataset design for Random Wizard Defense.
+- Explain label structure, labeling guide, dataset card, rule-based classifier, tests, experiment logs, and error analysis.
+- Show confirmed dataset and experiment numbers with clear limitations.
+- Link the confirmed GitHub repository.
+
+## v0.6 Resume, About, Contact
 
 - Fill real resume content.
 - Expand personal/about narrative.
 - Add contact links or form strategy.
 
-## v0.6 Design Polish
+## v0.7 Design Polish
 
 - Refine HUD styling, motion, spacing, and accessibility.
 - Improve mobile views.
 - Finalize visual system.
 
-## v1.0 Release Ready
+## v0.8 Release Preparation
 
 - Complete content pass.
 - Final build verification.
-- Stable release branch or tag.
+- Prepare stable release branch or tag.
