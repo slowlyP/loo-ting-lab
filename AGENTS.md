@@ -240,3 +240,17 @@ YYYY-MM-DD-vX.X-task-name-validation.md
 - docs/release 최신 파일
 
 이전 MD 기록을 참고해서 같은 작업을 반복하지 않고, 기존 기능을 깨지 않게 작업한다.
+
+## Wizard Defense Notion 참고 규칙
+
+Wizard Defense 상세 페이지 작업을 할 때는 아래 파일을 먼저 확인한다.
+
+- docs/reference/wizard-defense/notion-link.md
+
+Notion 링크가 공개되어 있으면 원본 기획 자료로 참고한다.
+
+단, Notion 페이지에 접근할 수 없거나 내용 확인이 어려우면,
+반드시 GitHub 저장소와 기존 docs/worklog 기록만 기준으로 작성한다.
+
+확인되지 않은 내용은 구현 완료처럼 쓰지 않는다.
+구현 완료 / 진행 중 / 기획 예정 내용을 구분해서 작성한다.
