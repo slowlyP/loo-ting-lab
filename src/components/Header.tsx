@@ -10,13 +10,13 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="border-b border-cyan-400/20 bg-slate-950/95">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <header className="sticky top-0 z-20 border-b border-cyan-300/15 bg-slate-950/90 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <NavLink to="/" className="group w-fit">
-          <span className="block text-xs font-semibold uppercase text-cyan-300">
+          <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
             Loo Ting Lab
           </span>
-          <span className="text-lg font-bold text-white group-hover:text-violet-200">
+          <span className="text-lg font-black text-white transition group-hover:text-cyan-100">
             프로젝트 아카이브
           </span>
         </NavLink>
@@ -28,10 +28,10 @@ export function Header() {
               end={item.to === '/'}
               className={({ isActive }) =>
                 [
-                  'rounded-md border px-3 py-2 text-sm font-medium transition',
+                  'rounded-md border px-3 py-2 text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300',
                   isActive
-                    ? 'border-cyan-300 bg-cyan-300/10 text-cyan-100'
-                    : 'border-slate-700 bg-slate-900 text-slate-300 hover:border-violet-300 hover:text-white',
+                    ? 'border-cyan-300 bg-cyan-300/12 text-cyan-50 shadow-sm shadow-cyan-950'
+                    : 'border-slate-700 bg-slate-900/80 text-slate-300 hover:border-violet-300 hover:bg-slate-800 hover:text-white',
                 ].join(' ')
               }
             >

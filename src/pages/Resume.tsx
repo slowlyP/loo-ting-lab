@@ -17,7 +17,7 @@ const projectExperience = [
   {
     name: 'STACCATO',
     summary:
-      'AI 분석 결과가 Flask API, DB, Next.js 관제 화면으로 이어지는 흐름을 이해하고, 영상 분석 결과와 운영 문서를 포트폴리오 관점으로 정리했습니다.',
+      'AI 분석 결과가 Flask API, DB, Next.js 관리 화면으로 이어지는 흐름을 이해하고, 영상 분석 결과와 운영 문서를 포트폴리오 관점으로 정리했습니다.',
     tags: ['Flask', 'YOLO', 'Next.js', 'Linux VM', 'MySQL'],
   },
   {
@@ -41,25 +41,27 @@ const workStyle = [
 ]
 
 const portfolioHighlights = [
-  '웹 포트폴리오 자체를 React + TypeScript 기반 프로젝트 아카이브로 구성',
+  '포트폴리오 자체를 React + TypeScript 기반 프로젝트 아카이브로 구성',
   'AI 관제, Unity 게임 프로토타입, 한국어 데이터셋 프로젝트를 하나의 흐름으로 정리',
-  '각 프로젝트 상세 페이지에 역할, 기술 스택, 문제 해결, 결과와 한계를 구분해 표시',
+  '각 프로젝트 상세 페이지에서 역할, 기술 스택, 문제 해결, 결과와 한계를 구분해 표시',
 ]
 
 export function Resume() {
   return (
     <div className="space-y-6">
       <header className="space-y-2">
-        <p className="text-sm font-semibold uppercase text-cyan-300">RESUME</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
+          Resume
+        </p>
         <h1 className="text-3xl font-black text-white">이력 요약</h1>
-        <p className="max-w-3xl text-slate-300">
-          프로젝트를 구조화하고, 구현한 내용과 검증 기록을 남기는 방식으로
+        <p className="max-w-3xl leading-7 text-slate-300">
+          프로젝트를 구조화하고 구현 내용과 검증 기록을 함께 남기는 방식으로
           성장하고 있는 개발자 포트폴리오입니다.
         </p>
       </header>
 
-      <section className="rounded-lg border border-violet-400/30 bg-slate-900 p-6">
-        <h2 className="text-xl font-bold text-white">Profile Summary</h2>
+      <section className="rounded-lg border border-violet-400/30 bg-slate-900/90 p-6">
+        <h2 className="text-xl font-black text-white">Profile Summary</h2>
         <p className="mt-3 max-w-4xl leading-7 text-slate-300">
           React 기반 포트폴리오, Unity 게임 프로토타입, 한국어 문의 데이터셋
           프로젝트를 통해 화면 구성, 게임 시스템 이해, 데이터 라벨링 기준 정리,
@@ -69,21 +71,21 @@ export function Resume() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-white">Core Skills</h2>
+        <h2 className="text-xl font-black text-white">Core Skills</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {coreSkills.map((skill) => (
             <div
               key={skill.title}
-              className="rounded-lg border border-slate-700 bg-slate-900 p-5"
+              className="rounded-lg border border-slate-700 bg-slate-900/90 p-5"
             >
-              <h3 className="text-lg font-bold text-cyan-100">
+              <h3 className="text-lg font-black text-cyan-100">
                 {skill.title}
               </h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {skill.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded border border-slate-700 px-2 py-1 text-sm text-slate-300"
+                    className="rounded border border-slate-700 bg-slate-950/60 px-2 py-1 text-sm text-slate-300"
                   >
                     {item}
                   </span>
@@ -95,14 +97,14 @@ export function Resume() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-white">Project Experience</h2>
+        <h2 className="text-xl font-black text-white">Project Experience</h2>
         <div className="grid gap-4 lg:grid-cols-3">
           {projectExperience.map((project) => (
             <article
               key={project.name}
-              className="rounded-lg border border-slate-700 bg-slate-900 p-5"
+              className="rounded-lg border border-slate-700 bg-slate-900/90 p-5"
             >
-              <h3 className="text-lg font-bold text-white">{project.name}</h3>
+              <h3 className="text-lg font-black text-white">{project.name}</h3>
               <p className="mt-3 leading-7 text-slate-300">
                 {project.summary}
               </p>
@@ -110,7 +112,7 @@ export function Resume() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded border border-violet-300/40 px-2 py-1 text-xs text-violet-100"
+                    className="rounded border border-violet-300/40 bg-slate-950/60 px-2 py-1 text-xs text-violet-100"
                   >
                     {tag}
                   </span>
@@ -122,16 +124,16 @@ export function Resume() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">Technical Stack</h2>
+        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">Technical Stack</h2>
           <p className="mt-3 leading-7 text-slate-300">
             React, TypeScript, Tailwind CSS로 포트폴리오 UI를 구성하고,
             Python과 CSV 기반 데이터 실험, Unity/C# 기반 게임 프로토타입,
             Flask/Next.js/MySQL 기반 프로젝트 흐름을 함께 정리하고 있습니다.
           </p>
         </div>
-        <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">Work Style</h2>
+        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">Work Style</h2>
           <ul className="mt-4 space-y-3 text-slate-300">
             {workStyle.map((item) => (
               <li key={item} className="border-l-2 border-cyan-300 pl-3">
@@ -143,8 +145,8 @@ export function Resume() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">
+        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">
             Portfolio Highlights
           </h2>
           <ul className="mt-4 space-y-3 text-slate-300">
@@ -155,8 +157,8 @@ export function Resume() {
             ))}
           </ul>
         </div>
-        <div className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-          <h2 className="text-xl font-bold text-white">
+        <div className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+          <h2 className="text-xl font-black text-white">
             Education / Training
           </h2>
           <p className="mt-3 leading-7 text-slate-300">
@@ -165,23 +167,23 @@ export function Resume() {
         </div>
       </section>
 
-      <section className="rounded-lg border border-slate-700 bg-slate-900 p-5">
-        <h2 className="text-xl font-bold text-white">
+      <section className="rounded-lg border border-slate-700 bg-slate-900/90 p-5">
+        <h2 className="text-xl font-black text-white">
           Links / Contact Summary
         </h2>
         <div className="mt-4 grid gap-3 md:grid-cols-3">
-          <p className="rounded border border-slate-700 bg-slate-950 p-4 text-slate-300">
+          <p className="rounded border border-slate-700 bg-slate-950/80 p-4 text-slate-300">
             Email: 추가 예정
           </p>
           <a
             href="https://github.com/slowlyP"
             target="_blank"
             rel="noreferrer"
-            className="rounded border border-cyan-300/70 bg-slate-950 p-4 font-semibold text-cyan-100 transition hover:bg-cyan-300/10"
+            className="rounded border border-cyan-300/70 bg-slate-950/80 p-4 font-semibold text-cyan-100 transition hover:bg-cyan-300/10"
           >
             GitHub: slowlyP
           </a>
-          <p className="rounded border border-slate-700 bg-slate-950 p-4 text-slate-300">
+          <p className="rounded border border-slate-700 bg-slate-950/80 p-4 text-slate-300">
             상세 연락 정보: 정리 예정
           </p>
         </div>
