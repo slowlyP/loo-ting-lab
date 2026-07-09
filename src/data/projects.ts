@@ -105,10 +105,102 @@ export const projects: Project[] = [
       'Linux VM',
       'systemd',
     ],
+    detail: {
+      overview: [
+        'STACCATO는 고속도로 CCTV 영상에서 정차 차량, 갓길 정차 등 위험 상황을 탐지하고 관제 화면에서 이벤트로 확인할 수 있게 만든 AI 기반 관제 MVP입니다.',
+        'README와 문서 기준으로 YOLOv11 객체 탐지, bbox 중심점 이동량 기반 정차 추정, ROI / Rule Engine, Flask API Gateway, MySQL 메타데이터 저장, Socket.IO 실시간 알림, Next.js 관제 화면을 포함합니다.',
+        '상용 운영 완료 서비스가 아니라 팀 프로젝트에서 구현한 MVP와 운영 문서를 바탕으로, AI 분석 결과가 서비스 화면까지 이어지는 구조를 설명하는 포트폴리오 프로젝트입니다.',
+      ],
+      problem: [
+        '고속도로 CCTV를 사람이 계속 확인하는 방식은 정차 차량이나 갓길 정차 같은 위험 상황을 놓치기 쉽습니다.',
+        'AI 모델 출력이 단순 탐지 결과로만 남으면 관제자가 이벤트 목록, 상세 화면, 스냅샷, 리플레이로 확인하기 어렵습니다.',
+        'CCTV 이벤트, 신고 업로드, 분석 결과, 미디어 파일, 권한 관리가 분리되어 있으면 사고 흐름을 추적하기 어렵기 때문에 API, DB, 프론트 화면, 미디어 프록시가 함께 맞물려야 합니다.',
+      ],
+      coreStructure: [
+        'CCTV 또는 신고 영상이 AI VM으로 들어오면 FastAPI 기반 AI 서비스가 YOLOv11로 차량을 탐지합니다.',
+        '탐지된 bbox의 중심점 이동량을 바탕으로 정차 상태를 추정하고, ROI / Rule Engine을 통해 LANE_STOP 또는 SHOULDER_STOP 이벤트로 분류합니다.',
+        'AI VM은 이벤트 JSON과 스냅샷, MP4 Replay 메타데이터를 Flask API Gateway로 전달하고, Flask VM은 MySQL에 이벤트와 파일 경로 중심의 메타데이터를 저장합니다.',
+        'Flask Socket.IO는 신규 인시던트 알림을 Next.js 관제 화면으로 전달하고, 사용자는 이벤트 목록, 상세 정보, 스냅샷, replay 영상을 확인합니다.',
+        'Frontend VM, Flask VM, AI VM, DB VM을 분리해 화면, API, AI 추론, 데이터 저장 책임을 나누는 구조로 정리되어 있습니다.',
+      ],
+      responsibilities: [
+        'AI 분석 결과가 Flask API, MySQL 메타데이터, Next.js 관제 화면으로 이어지는 전체 흐름을 이해하고 포트폴리오에서 설명 가능한 형태로 정리했습니다.',
+        'CCTV와 신고 영상 분석 결과, 스냅샷, MP4 Replay 메타데이터가 화면에서 어떻게 확인되는지 검증하고 누락된 설명을 보강했습니다.',
+        'Flask API 응답, 프론트 표시 상태, AI media proxy, 서버 실행 상태를 함께 확인하며 문제 원인을 추적하는 방식으로 참여했습니다.',
+        'Linux VM 분리 구조, systemd 기반 실행 상태, 배포/운영 문서를 참고해 프로젝트의 기술 구조를 과장 없이 정리했습니다.',
+        '직접 구현이 확실하지 않은 항목은 단독 구현으로 쓰지 않고 참여, 검증, 구조 정리, 연동 흐름 확인으로 표현했습니다.',
+      ],
+      implementationStatus: {
+        completed: [
+          '프로젝트에서 확인된 고속도로 CCTV 기반 차량 탐지 흐름',
+          'YOLOv11 기반 객체 탐지와 bbox 중심점 이동량 기반 정차 추정 흐름',
+          'ROI / Rule Engine 기반 LANE_STOP, SHOULDER_STOP 분류 흐름',
+          'Flask API Gateway와 MySQL 메타데이터 저장 구조',
+          'Socket.IO 기반 신규 인시던트 실시간 알림',
+          'Next.js 관제 화면의 이벤트 목록, 상세, Snapshot, MP4 Replay 확인 흐름',
+          '신고 업로드와 신고 분석 결과 확인 흐름',
+          '인증 기반 AI media proxy와 관리자 회원 승인, 권한 기반 접근 정책 문서 확인',
+        ],
+        inProgress: [
+          '포트폴리오에서는 STACCATO GitHub README와 관련 문서에서 확인한 범위만 기준으로 상세 내용을 복구하고 있습니다.',
+          '개인 기여가 명확하지 않은 항목은 구현 완료로 단정하지 않고 프로젝트 구조와 참여/검증 경험 중심으로 정리합니다.',
+        ],
+        planned: [
+          '상세 스크린샷과 추가 발표 자료는 확인된 자산 URL이 준비되면 추가할 예정입니다.',
+          '현재 공개 서비스 링크는 자체서명 인증서가 안내된 개발/시연 환경이므로 포트폴리오에는 GitHub와 확인된 시연 영상 중심으로 연결합니다.',
+        ],
+      },
+      techStack: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Flask',
+        'FastAPI',
+        'YOLOv11',
+        'OpenCV',
+        'MySQL',
+        'Socket.IO',
+        'Linux VM',
+        'systemd',
+        'Nginx',
+      ],
+      problemSolving: [
+        'AI 감지 결과가 화면에 보이지 않을 때 API 응답, 미디어 URL, 사용자 권한, AI VM 실행 상태, Socket.IO 연결 상태를 함께 확인하며 원인을 좁혔습니다.',
+        '대용량 영상 파일은 DB에 직접 저장하지 않고 파일 경로와 메타데이터를 저장하는 구조를 확인해, 데이터 저장 책임과 파일 전달 책임을 나누어 이해했습니다.',
+        '스냅샷과 replay 영상은 AI VM에 직접 접근하지 않고 인증된 사용자가 AI media proxy를 통해 확인하는 방식으로 정리했습니다.',
+        'AI VM, Flask VM, Frontend VM, DB VM이 분리되어 있어 장애가 발생했을 때 어느 계층의 문제인지 나누어 보는 관점을 익혔습니다.',
+        '신고 영상 분석과 CCTV 이벤트 분석이 서로 다른 진입점에서 시작되지만 최종적으로 관제 화면의 이벤트 확인 흐름으로 이어지는 지점을 추적했습니다.',
+      ],
+      outcomes: [
+        'AI 모델의 탐지 결과를 관제자가 확인 가능한 인시던트, 알림, 스냅샷, MP4 Replay 흐름으로 설명할 수 있게 정리했습니다.',
+        '모델 정확도뿐 아니라 API 계약, 메타데이터 저장, 인증 기반 미디어 제공, 실시간 알림, 운영 문서가 서비스 완성도에 중요하다는 점을 배웠습니다.',
+        '직접 구현 범위를 과장하지 않고 팀 프로젝트의 구조 이해, 연동 흐름 검증, 문제 해결 참여 경험을 채용 담당자가 읽기 쉬운 상세 페이지 형태로 복구했습니다.',
+      ],
+      artifacts: [
+        {
+          label: 'GitHub 저장소',
+          pathOrUrl:
+            'https://github.com/staccato-ai-highway-control/staccato-ai-highway-control',
+          kind: 'repository',
+          note: 'STACCATO 프로젝트 코드와 README, architecture, API, 운영 문서를 확인할 수 있습니다.',
+        },
+      ],
+      media: {
+        screenshots: [],
+        videos: [
+          {
+            title: 'STACCATO 시연 영상',
+            url: 'https://youtu.be/l2xOOqAfufo',
+            type: 'demo',
+          },
+        ],
+        note: '추가 스크린샷 자료는 확인된 URL이 준비되면 추가할 예정입니다.',
+      },
+    },
     links: {
       github:
         'https://github.com/staccato-ai-highway-control/staccato-ai-highway-control',
-      youtube: '',
+      youtube: 'https://youtu.be/l2xOOqAfufo',
       service: '',
     },
   },
