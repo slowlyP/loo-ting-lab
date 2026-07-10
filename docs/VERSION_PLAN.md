@@ -112,3 +112,11 @@
 - Set Vite `base` for the repository subpath.
 - Keep HashRouter routing for static hosting refresh safety.
 - Add GitHub Actions deployment workflow and release documentation.
+
+## v1.0.1 Project Tech Stack Audit
+
+- Audit `project.tech` and `detail.techStack` for STACCATO, Wizard Defense, Inquiry Dataset, and 404 R·N·F AI.
+- Add only technologies confirmed by current portfolio docs, project README files, or code references.
+- Keep project card tech lists concise and use detail tech stacks for fuller context.
+- Add TechStackBadges mappings for newly exposed confirmed technology labels.
+- Keep unconfirmed Unity implementation details and ORM assumptions as later verification candidates.
