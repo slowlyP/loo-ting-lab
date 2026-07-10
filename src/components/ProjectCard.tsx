@@ -37,7 +37,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.subtitle}
         </p>
         <p className="text-sm leading-6 text-slate-400">{project.summary}</p>
-        <TechStackBadges techs={project.tech} limit={4} size="sm" />
+        <TechStackBadges
+          techs={project.tech}
+          limit={8}
+          showMoreCount
+          moreLabel="modules"
+          size="sm"
+        />
       </div>
       <Link
         to={`/projects/${project.id}`}
