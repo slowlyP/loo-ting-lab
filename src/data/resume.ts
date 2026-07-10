@@ -74,6 +74,8 @@ export type ResumeContent = {
   contactLinks: ResumeContact[]
 }
 
+const resumeDocumentUrl = `${import.meta.env.BASE_URL}assets/resume/documents/resume.pdf`
+
 export const resumeContent: ResumeContent = {
   pageTitle: '이력서 / 자기소개 요약',
   intro:
@@ -90,7 +92,7 @@ export const resumeContent: ResumeContent = {
   resumeDocument: {
     title: '이력서 PDF',
     status: 'available',
-    fileUrl: '/assets/resume/documents/resume.pdf',
+    fileUrl: resumeDocumentUrl,
     note: '새 탭에서 이력서 PDF를 확인할 수 있습니다.',
   },
   externalResumeLinks: [

@@ -108,3 +108,7 @@
 - Complete content pass.
 - Final build verification.
 - Prepare stable release branch or tag.
+- Prepare GitHub Pages deployment for `https://slowlyp.github.io/loo-ting-lab/`.
+- Set Vite `base` for the repository subpath.
+- Keep HashRouter routing for static hosting refresh safety.
+- Add GitHub Actions deployment workflow and release documentation.

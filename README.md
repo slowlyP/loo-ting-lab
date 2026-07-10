@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+## Deployment
+
+- GitHub Pages: https://slowlyp.github.io/loo-ting-lab/
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
