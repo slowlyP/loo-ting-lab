@@ -207,7 +207,7 @@ export const projects: Project[] = [
       github:
         'https://github.com/staccato-ai-highway-control/staccato-ai-highway-control',
       youtube: 'https://youtu.be/l2xOOqAfufo',
-      service: '',
+      service: 'https://mbc-sw.iptime.org:3221/',
     },
   },
   {
@@ -679,8 +679,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/lms-mini-project/AI-accident-detection',
       youtube: 'https://youtu.be/Iet2QiSkU5s',
-      service:
-        'https://github.com/lms-mini-project/AI-accident-detection/blob/main/404RNF-mini_2026.04.03%28FFFFFinal%29.pdf',
+      service: 'https://404-rnf.ddoriny.com/',
     },
   },
 ]

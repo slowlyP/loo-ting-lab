@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router'
 import { ProjectThumbnail } from '../components/ProjectThumbnail'
 import { TechStackBadges } from '../components/TechStackBadges'
+import { getOwnershipTranslationKey } from '../data/projectOwnership'
 import { useLanguage } from '../i18n/useLanguage'
 import { getLocalizedProject } from '../i18n/projectTranslations'
 
@@ -24,7 +25,7 @@ export function ProjectDetail() {
       <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white/95 shadow-xl shadow-slate-200/60">
         <ProjectThumbnail project={project} />
         <div className="p-6 sm:p-9 lg:p-12">
-          <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500"><span>{project.category}</span><span className="rounded-full bg-violet-50 px-3 py-1.5 text-violet-700">{project.status}</span></div>
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500"><span>{project.category}</span><span className="rounded-full bg-violet-50 px-3 py-1.5 normal-case tracking-normal text-violet-700">{t('detail.projectType')}: {t(getOwnershipTranslationKey(project.id))}</span></div>
           <h1 className="mt-6 break-words text-4xl font-black tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-6xl">{project.title}</h1>
           <p className="mt-4 max-w-3xl break-words text-lg font-semibold leading-8 text-slate-600">{project.subtitle}</p>
         </div>
@@ -54,7 +55,7 @@ export function ProjectDetail() {
         <ListSection title={t('detail.problemSolving')} items={detail.problemSolving} />
         <ListSection title={t('detail.outcomes')} items={detail.outcomes} />
         {detail.artifacts?.length ? <section className="border-t border-slate-200 pt-8"><h2 className="text-2xl font-black text-slate-950">{t('detail.resources')}</h2><div className="mt-6 grid gap-4 md:grid-cols-2">{detail.artifacts.map((artifact) => { const external = artifact.pathOrUrl.startsWith('http'); const content = <><h3 className="font-black text-slate-950">{artifact.label}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{artifact.note}</p><p className="mt-3 break-all text-xs text-slate-400">{artifact.pathOrUrl}</p>{external ? <span className="mt-4 inline-flex text-sm font-black text-violet-700">{artifactLabel(artifact.kind, artifact.label)} ↗</span> : null}</>; return external ? <a key={artifact.label} href={artifact.pathOrUrl} target="_blank" rel="noreferrer" className="rounded-2xl border border-slate-200 p-5 transition hover:border-violet-300">{content}</a> : <div key={artifact.label} className="rounded-2xl border border-slate-200 p-5">{content}</div> })}</div></section> : null}
-        <section className="grid gap-5 border-t border-slate-200 pt-8 lg:grid-cols-2"><div><h2 className="text-2xl font-black text-slate-950">{detail.media?.videos?.length ? t('detail.media') : t('detail.mediaPending')}</h2>{detail.media?.videos?.map((video) => <a key={video.url} href={video.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-black text-white">{video.title} ↗</a>)}<p className="mt-4 text-sm leading-6 text-slate-500">{detail.media?.note}</p></div><div><h2 className="text-2xl font-black text-slate-950">{t('detail.repository')}</h2>{project.links?.github ? <a href={project.links.github} target="_blank" rel="noreferrer" className="mt-5 inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-black text-slate-900">{t('common.repository')} ↗</a> : <p className="mt-4 text-sm leading-6 text-slate-500">{t('detail.repositoryPending')}</p>}</div></section>
+        <section className="grid gap-5 border-t border-slate-200 pt-8 lg:grid-cols-2"><div><h2 className="text-2xl font-black text-slate-950">{detail.media?.videos?.length ? t('detail.media') : t('detail.mediaPending')}</h2>{detail.media?.videos?.map((video) => <a key={video.url} href={video.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-black text-white">{video.title} ↗</a>)}<p className="mt-4 text-sm leading-6 text-slate-500">{detail.media?.note}</p></div><div><h2 className="text-2xl font-black text-slate-950">{t('detail.repository')}</h2><div className="mt-5 flex flex-wrap gap-3">{project.links?.github ? <a href={project.links.github} target="_blank" rel="noreferrer" className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-black text-slate-900">{t('common.repository')} ↗</a> : <p className="text-sm leading-6 text-slate-500">{t('detail.repositoryPending')}</p>}{project.links?.service ? <a href={project.links.service} target="_blank" rel="noreferrer" className="inline-flex rounded-full bg-violet-600 px-5 py-3 text-sm font-black text-white transition hover:bg-violet-700">{t('common.openService')} ↗</a> : null}</div></div></section>
       </div> : null}
     </article>
   )
