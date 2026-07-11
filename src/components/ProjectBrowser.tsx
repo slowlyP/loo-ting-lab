@@ -1,27 +1,17 @@
-import { projects } from '../data/projects'
+import { useLanguage } from '../i18n/useLanguage'
+import { getLocalizedProjects } from '../i18n/projectTranslations'
 import { ProjectCard } from './ProjectCard'
 
 export function ProjectBrowser() {
+  const { language, t } = useLanguage()
+  const projects = getLocalizedProjects(language)
   return (
-    <section className="space-y-5">
-      <div className="flex flex-col gap-3 border-b border-cyan-300/15 pb-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-            Project Archive System
-          </p>
-          <h2 className="text-2xl font-black text-white">
-            열람할 프로젝트 파일을 선택하세요
-          </h2>
-        </div>
-        <p className="text-sm text-slate-400">
-          {projects.length}개의 archive file이 준비되어 있습니다
-        </p>
+    <section className="space-y-7">
+      <div className="flex items-end justify-between gap-4 border-b border-slate-200 pb-4">
+        <h2 className="text-xl font-black tracking-[-0.03em] text-slate-950">{t('work.gallery')}</h2>
+        <p className="text-sm font-semibold text-slate-500">{projects.length} {t('work.count')}</p>
       </div>
-      <div className="grid gap-4 lg:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      <div className="grid gap-6 md:grid-cols-2">{projects.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
     </section>
   )
 }

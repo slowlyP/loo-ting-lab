@@ -43,14 +43,14 @@ type TechIconConfig = {
 }
 
 const iconMap: Record<string, TechIconConfig> = {
-  'Next.js': { icon: SiNextdotjs, tone: 'text-white' },
+  'Next.js': { icon: SiNextdotjs, tone: 'text-slate-900' },
   React: { icon: SiReact, tone: 'text-cyan-200' },
   TypeScript: { icon: SiTypescript, tone: 'text-sky-200' },
   JavaScript: { icon: SiJavascript, tone: 'text-yellow-200' },
   HTML: { icon: SiHtml5, tone: 'text-orange-200' },
   CSS: { icon: SiCss, tone: 'text-blue-200' },
   'Tailwind CSS': { icon: SiTailwindcss, tone: 'text-cyan-200' },
-  Flask: { icon: SiFlask, tone: 'text-slate-100' },
+  Flask: { icon: SiFlask, tone: 'text-slate-800' },
   FastAPI: { icon: SiFastapi, tone: 'text-emerald-200' },
   Python: { icon: SiPython, tone: 'text-sky-200' },
   YOLOv11: { icon: SiYolo, tone: 'text-rose-200' },
@@ -59,25 +59,25 @@ const iconMap: Record<string, TechIconConfig> = {
   'RT-DETR': { icon: LuCpu, tone: 'text-rose-200' },
   OpenCV: { icon: SiOpencv, tone: 'text-emerald-200' },
   MySQL: { icon: SiMysql, tone: 'text-sky-200' },
-  'Socket.IO': { icon: SiSocketdotio, tone: 'text-white' },
+  'Socket.IO': { icon: SiSocketdotio, tone: 'text-slate-900' },
   WebSocket: { icon: SiSocketdotio, tone: 'text-cyan-200' },
   'REST API': { icon: FaServer, tone: 'text-violet-200' },
-  Linux: { icon: SiLinux, tone: 'text-slate-100' },
-  'Linux VM': { icon: SiLinux, tone: 'text-slate-100' },
+  Linux: { icon: SiLinux, tone: 'text-slate-800' },
+  'Linux VM': { icon: SiLinux, tone: 'text-slate-800' },
   systemd: { icon: LuServerCog, tone: 'text-violet-200' },
   Nginx: { icon: SiNginx, tone: 'text-emerald-200' },
   'AI Media Proxy': { icon: LuServerCog, tone: 'text-violet-200' },
   'CCTV / Video Processing': { icon: LuCpu, tone: 'text-cyan-200' },
   'ROI / Rule Engine': { icon: LuCpu, tone: 'text-emerald-200' },
-  Unity: { icon: SiUnity, tone: 'text-white' },
-  'Unity 2D': { icon: SiUnity, tone: 'text-white' },
+  Unity: { icon: SiUnity, tone: 'text-slate-900' },
+  'Unity 2D': { icon: SiUnity, tone: 'text-slate-900' },
   'C#': { icon: TbBrandCSharp, tone: 'text-violet-200' },
   CSV: { icon: FaFileCsv, tone: 'text-emerald-200' },
   Git: { icon: SiGit, tone: 'text-orange-200' },
-  GitHub: { icon: SiGithub, tone: 'text-white' },
+  GitHub: { icon: SiGithub, tone: 'text-slate-900' },
   Vite: { icon: SiVite, tone: 'text-violet-200' },
   SQLAlchemy: { icon: SiSqlalchemy, tone: 'text-rose-200' },
-  'Flask-Migrate': { icon: SiFlask, tone: 'text-slate-100' },
+  'Flask-Migrate': { icon: SiFlask, tone: 'text-slate-800' },
   'Google Maps API': { icon: SiGooglemaps, tone: 'text-emerald-200' },
   'Kakao Navigation API': { icon: SiKakao, tone: 'text-yellow-200' },
   'scikit-learn': { icon: SiScikitlearn, tone: 'text-orange-200' },
@@ -145,7 +145,7 @@ export function TechStackBadges({
         return (
           <span
             key={tech}
-            className={`inline-flex items-center border border-slate-700 bg-slate-950/70 font-semibold text-slate-200 shadow-sm shadow-slate-950/20 transition hover:border-cyan-300/60 hover:bg-slate-900 ${badgeClass}`}
+            className={`inline-flex min-w-0 items-center border border-slate-200 bg-slate-50 font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:bg-white ${badgeClass}`}
           >
             <Icon className={`${iconClass} shrink-0 ${config.tone}`} />
             <span>{tech}</span>
@@ -154,7 +154,7 @@ export function TechStackBadges({
       })}
       {showMoreCount && hiddenCount > 0 ? (
         <span
-          className={`inline-flex items-center border border-violet-300/40 bg-violet-300/10 font-semibold text-violet-100 shadow-sm shadow-slate-950/20 ${badgeClass}`}
+          className={`inline-flex items-center border border-violet-200 bg-violet-50 font-semibold text-violet-700 shadow-sm ${badgeClass}`}
         >
           +{hiddenCount} {moreLabel}
         </span>

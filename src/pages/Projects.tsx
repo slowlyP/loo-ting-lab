@@ -1,18 +1,14 @@
 import { ProjectBrowser } from '../components/ProjectBrowser'
+import { useLanguage } from '../i18n/useLanguage'
 
 export function Projects() {
+  const { t } = useLanguage()
   return (
-    <div className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-          Project Archive System
-        </p>
-        <h1 className="text-3xl font-black text-white">프로젝트 파일</h1>
-        <p className="max-w-3xl leading-7 text-slate-300">
-          포트폴리오의 핵심 프로젝트를 실험 기록과 프로젝트 파일처럼 모아둔
-          공간입니다. 각 파일을 통해 프로젝트의 역할, 기술, 문제 해결 흐름을
-          열람할 수 있습니다.
-        </p>
+    <div className="space-y-14 lg:space-y-20">
+      <header className="max-w-4xl space-y-5 py-4 lg:py-10">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-violet-600">{t('work.eyebrow')}</p>
+        <h1 className="text-4xl font-black leading-[1.08] tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-7xl">{t('work.title')}</h1>
+        <p className="max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">{t('work.intro')}</p>
       </header>
       <ProjectBrowser />
     </div>
