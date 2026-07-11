@@ -18,21 +18,21 @@ export function About() {
   return (
     <div className="space-y-14 lg:space-y-20">
       <header className="max-w-4xl space-y-5 py-4 lg:py-10">
-        <p className="text-sm font-black uppercase tracking-[0.2em] text-violet-600">{t('about.eyebrow')}</p>
-        <h1 className="text-4xl font-black leading-[1.1] tracking-[-0.055em] text-slate-950 sm:text-5xl lg:text-6xl">{t('about.title')}</h1>
-        <p className="max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">{t('about.intro')}</p>
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-violet-600 dark:text-violet-300">{t('about.eyebrow')}</p>
+        <h1 className="text-4xl font-black leading-[1.1] tracking-[-0.055em] text-slate-950 dark:text-slate-50 sm:text-5xl lg:text-6xl">{t('about.title')}</h1>
+        <p className="max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">{t('about.intro')}</p>
       </header>
       <section className="grid gap-6 lg:grid-cols-2">
         {[{ title: t('about.interests'), items: interestList }, { title: t('about.process'), items: processList }].map((section) => (
-          <div key={section.title} className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950">{section.title}</h2>
-            <ul className="mt-6 space-y-4">{section.items.map((item, index) => <li key={item} className="flex gap-4 leading-7 text-slate-600"><span className="font-black text-violet-600">0{index + 1}</span><span>{item}</span></li>)}</ul>
+          <div key={section.title} className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/82 sm:p-8">
+            <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950 dark:text-slate-50">{section.title}</h2>
+            <ul className="mt-6 space-y-4">{section.items.map((item, index) => <li key={item} className="flex gap-4 leading-7 text-slate-600 dark:text-slate-300"><span className="font-black text-violet-600 dark:text-violet-300">0{index + 1}</span><span>{item}</span></li>)}</ul>
           </div>
         ))}
       </section>
       <section>
-        <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950">{t('about.links')}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">{links.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined} className="group rounded-2xl border border-slate-200 bg-white/90 p-5 transition hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg"><span className="font-black text-slate-950">{link.label} ↗</span><p className="mt-2 text-sm leading-6 text-slate-500">{link.note}</p></a>)}</div>
+        <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950 dark:text-slate-50">{t('about.links')}</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">{links.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined} className="group rounded-2xl border border-slate-200 bg-white/90 p-5 transition hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg dark:border-slate-700/70 dark:bg-slate-900/82 dark:hover:border-violet-500/60"><span className="font-black text-slate-950 dark:text-slate-50">{link.label} ↗</span><p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">{link.note}</p></a>)}</div>
       </section>
     </div>
   )

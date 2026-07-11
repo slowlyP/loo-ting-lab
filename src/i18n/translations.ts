@@ -4,6 +4,7 @@ export const translations: Record<'ko' | 'en', TranslationTree> = {
   ko: {
     nav: { work: 'Work', about: 'About Me' },
     language: { label: '언어 변경', ko: 'KO', en: 'EN' },
+    theme: { toDark: '다크 모드로 전환', toLight: '라이트 모드로 전환' },
     common: {
       github: 'GitHub', email: 'Email', resume: 'Resume', contact: 'Contact',
       demo: '시연 영상', presentation: '발표자료', repository: '저장소 보기',
@@ -44,6 +45,7 @@ export const translations: Record<'ko' | 'en', TranslationTree> = {
   en: {
     nav: { work: 'Work', about: 'About Me' },
     language: { label: 'Change language', ko: 'KO', en: 'EN' },
+    theme: { toDark: 'Switch to dark mode', toLight: 'Switch to light mode' },
     common: {
       github: 'GitHub', email: 'Email', resume: 'Resume', contact: 'Contact',
       demo: 'Demo video', presentation: 'Presentation', repository: 'View repository',

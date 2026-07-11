@@ -11,7 +11,7 @@ import { Resume } from './pages/Resume'
 
 function App() {
   return (
-    <div className="relative min-h-screen text-slate-900">
+    <div className="relative min-h-screen text-slate-900 transition-colors dark:text-slate-100">
       <NetworkBackground />
       <Header />
       <main className="relative z-10 mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-12 lg:py-16">

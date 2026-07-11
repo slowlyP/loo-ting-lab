@@ -128,3 +128,11 @@
 - Add a Korean/English language toggle with Korean fallback and localStorage persistence.
 - Keep project facts, v1.0.1 technology data, routes, external links, and resume access unchanged.
 - Add a lightweight pointer-responsive canvas network background without new dependencies.
+
+## v1.2.0 Dark Mode + Network Background Tuning
+
+- Add explicit light/dark theme switching while keeping light as the default.
+- Persist the selected theme independently from the KO/EN language state.
+- Apply a navy/slate dark palette across the Work Gallery, About, Project Detail, Header, Footer, and shared UI.
+- Improve network point size and line/triangle visibility with separate light and dark canvas palettes.
+- Preserve project previews, live services, ownership grouping, routes, Resume access, and deployment configuration.
