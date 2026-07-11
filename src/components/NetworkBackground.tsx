@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTheme } from '../theme/useTheme'
 
 type Point = { x: number; y: number; vx: number; vy: number }
 type Connection = { from: number; to: number; distance: number }
@@ -6,8 +7,24 @@ type Connection = { from: number; to: number; distance: number }
 const CONNECTION_DISTANCE = 148
 const POINTER_RADIUS = 170
 
+const palettes = {
+  light: {
+    line: '100, 116, 139', lineOpacity: 0.17,
+    triangleA: 'rgba(129, 140, 248, 0.038)', triangleB: 'rgba(148, 163, 184, 0.032)',
+    pointA: 'rgba(109, 40, 217, 0.30)', pointB: 'rgba(100, 116, 139, 0.25)',
+    regularRadius: 1.65, accentRadius: 2.15,
+  },
+  dark: {
+    line: '148, 163, 184', lineOpacity: 0.20,
+    triangleA: 'rgba(167, 139, 250, 0.046)', triangleB: 'rgba(148, 163, 184, 0.038)',
+    pointA: 'rgba(196, 181, 253, 0.36)', pointB: 'rgba(148, 163, 184, 0.30)',
+    regularRadius: 1.75, accentRadius: 2.25,
+  },
+} as const
+
 export function NetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -15,6 +32,7 @@ export function NetworkBackground() {
     const context = canvas.getContext('2d')
     if (!context) return
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const palette = palettes[theme]
     const pointer = { x: -1000, y: -1000 }
     let points: Point[] = []
     let width = 0
@@ -103,9 +121,7 @@ export function NetworkBackground() {
             context.lineTo(pointA.x, pointA.y)
             context.lineTo(pointB.x, pointB.y)
             context.closePath()
-            context.fillStyle = triangleCount % 2 === 0
-              ? 'rgba(129, 140, 248, 0.026)'
-              : 'rgba(148, 163, 184, 0.022)'
+            context.fillStyle = triangleCount % 2 === 0 ? palette.triangleA : palette.triangleB
             context.fill()
             triangleCount += 1
           }
@@ -118,17 +134,15 @@ export function NetworkBackground() {
         context.beginPath()
         context.moveTo(point.x, point.y)
         context.lineTo(other.x, other.y)
-        context.strokeStyle = `rgba(100, 116, 139, ${0.115 * (1 - distance / CONNECTION_DISTANCE)})`
-        context.lineWidth = 0.65
+        context.strokeStyle = `rgba(${palette.line}, ${palette.lineOpacity * (1 - distance / CONNECTION_DISTANCE)})`
+        context.lineWidth = 0.75
         context.stroke()
       })
 
       points.forEach((point, index) => {
         context.beginPath()
-        context.arc(point.x, point.y, index % 5 === 0 ? 1.7 : 1.3, 0, Math.PI * 2)
-        context.fillStyle = index % 3 === 0
-          ? 'rgba(109, 40, 217, 0.2)'
-          : 'rgba(100, 116, 139, 0.18)'
+        context.arc(point.x, point.y, index % 5 === 0 ? palette.accentRadius : palette.regularRadius, 0, Math.PI * 2)
+        context.fillStyle = index % 3 === 0 ? palette.pointA : palette.pointB
         context.fill()
       })
       if (!reducedMotion) frame = window.requestAnimationFrame(draw)
@@ -146,7 +160,7 @@ export function NetworkBackground() {
       window.removeEventListener('pointermove', onPointerMove)
       document.documentElement.removeEventListener('pointerleave', onPointerLeave)
     }
-  }, [])
+  }, [theme])
 
-  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 opacity-80" />
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 opacity-90" />
 }

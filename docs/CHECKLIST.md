@@ -36,3 +36,16 @@
 - [x] Add a low-contrast canvas network background.
 - [x] Run lint and build.
 - [x] Record final validation results.
+
+## v1.2 Dark Mode + Network Background Tuning
+
+- [x] Work on `feature/v1.2-dark-mode-network-tuning`.
+- [x] Keep light as the default and invalid-value fallback.
+- [x] Persist `light | dark` with `loo-ting-lab-theme`.
+- [x] Apply `data-theme` and `colorScheme` to the document root.
+- [x] Keep theme state independent from KO/EN state.
+- [x] Add responsive ThemeToggle beside LanguageToggle.
+- [x] Apply dark styling to shared and primary portfolio screens.
+- [x] Tune separate light/dark canvas palettes without changing performance limits.
+- [x] Run lint, build, and diff checks.
+- [x] Record final validation results.

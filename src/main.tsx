@@ -4,11 +4,12 @@ import { HashRouter } from 'react-router'
 import './index.css'
 import App from './App.tsx'
 import { LanguageProvider } from './i18n/LanguageContext.tsx'
+import { ThemeProvider } from './theme/ThemeContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
-      <LanguageProvider><App /></LanguageProvider>
+      <ThemeProvider><LanguageProvider><App /></LanguageProvider></ThemeProvider>
     </HashRouter>
   </StrictMode>,
 )

@@ -1,10 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-:root { color-scheme: light; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
-html { background: #f8fafc; }
-body { margin: 0; min-width: 320px; font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 12% 10%, rgba(221,214,254,.45), transparent 28rem), radial-gradient(circle at 88% 24%, rgba(207,250,254,.42), transparent 30rem), #f8fafc; }
-::selection { background: rgba(124,58,237,.18); color: #0f172a; }
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #f8fafc;
+  --page-glow-violet: rgba(221, 214, 254, 0.45);
+  --page-glow-cyan: rgba(207, 250, 254, 0.42);
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface-muted: #f8fafc;
+  --border: #e2e8f0;
+  --text-primary: #020617;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #7c3aed;
+  --accent-soft: #f5f3ff;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #07111f;
+  --page-glow-violet: rgba(91, 33, 182, 0.15);
+  --page-glow-cyan: rgba(14, 116, 144, 0.12);
+  --surface: rgba(15, 23, 42, 0.82);
+  --surface-strong: rgba(15, 23, 42, 0.94);
+  --surface-muted: rgba(30, 41, 59, 0.78);
+  --border: rgba(100, 116, 139, 0.42);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #a78bfa;
+  --accent-soft: rgba(124, 58, 237, 0.16);
+}
+
+:root { font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+html { background: var(--page-bg); transition: background-color 240ms ease, color 240ms ease; }
+body { margin: 0; min-width: 320px; font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text-primary); background: radial-gradient(circle at 12% 10%, var(--page-glow-violet), transparent 28rem), radial-gradient(circle at 88% 24%, var(--page-glow-cyan), transparent 30rem), var(--page-bg); transition: background-color 240ms ease, color 240ms ease; }
+::selection { background: color-mix(in srgb, var(--accent) 24%, transparent); color: var(--text-primary); }
 a { overflow-wrap: anywhere; }
 button, a { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

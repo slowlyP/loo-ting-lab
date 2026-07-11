@@ -43,14 +43,14 @@ type TechIconConfig = {
 }
 
 const iconMap: Record<string, TechIconConfig> = {
-  'Next.js': { icon: SiNextdotjs, tone: 'text-slate-900' },
+  'Next.js': { icon: SiNextdotjs, tone: 'text-slate-900 dark:text-slate-100' },
   React: { icon: SiReact, tone: 'text-cyan-200' },
   TypeScript: { icon: SiTypescript, tone: 'text-sky-200' },
   JavaScript: { icon: SiJavascript, tone: 'text-yellow-200' },
   HTML: { icon: SiHtml5, tone: 'text-orange-200' },
   CSS: { icon: SiCss, tone: 'text-blue-200' },
   'Tailwind CSS': { icon: SiTailwindcss, tone: 'text-cyan-200' },
-  Flask: { icon: SiFlask, tone: 'text-slate-800' },
+  Flask: { icon: SiFlask, tone: 'text-slate-800 dark:text-slate-100' },
   FastAPI: { icon: SiFastapi, tone: 'text-emerald-200' },
   Python: { icon: SiPython, tone: 'text-sky-200' },
   YOLOv11: { icon: SiYolo, tone: 'text-rose-200' },
@@ -59,25 +59,25 @@ const iconMap: Record<string, TechIconConfig> = {
   'RT-DETR': { icon: LuCpu, tone: 'text-rose-200' },
   OpenCV: { icon: SiOpencv, tone: 'text-emerald-200' },
   MySQL: { icon: SiMysql, tone: 'text-sky-200' },
-  'Socket.IO': { icon: SiSocketdotio, tone: 'text-slate-900' },
+  'Socket.IO': { icon: SiSocketdotio, tone: 'text-slate-900 dark:text-slate-100' },
   WebSocket: { icon: SiSocketdotio, tone: 'text-cyan-200' },
   'REST API': { icon: FaServer, tone: 'text-violet-200' },
-  Linux: { icon: SiLinux, tone: 'text-slate-800' },
-  'Linux VM': { icon: SiLinux, tone: 'text-slate-800' },
+  Linux: { icon: SiLinux, tone: 'text-slate-800 dark:text-slate-100' },
+  'Linux VM': { icon: SiLinux, tone: 'text-slate-800 dark:text-slate-100' },
   systemd: { icon: LuServerCog, tone: 'text-violet-200' },
   Nginx: { icon: SiNginx, tone: 'text-emerald-200' },
   'AI Media Proxy': { icon: LuServerCog, tone: 'text-violet-200' },
   'CCTV / Video Processing': { icon: LuCpu, tone: 'text-cyan-200' },
   'ROI / Rule Engine': { icon: LuCpu, tone: 'text-emerald-200' },
-  Unity: { icon: SiUnity, tone: 'text-slate-900' },
-  'Unity 2D': { icon: SiUnity, tone: 'text-slate-900' },
+  Unity: { icon: SiUnity, tone: 'text-slate-900 dark:text-slate-100' },
+  'Unity 2D': { icon: SiUnity, tone: 'text-slate-900 dark:text-slate-100' },
   'C#': { icon: TbBrandCSharp, tone: 'text-violet-200' },
   CSV: { icon: FaFileCsv, tone: 'text-emerald-200' },
   Git: { icon: SiGit, tone: 'text-orange-200' },
-  GitHub: { icon: SiGithub, tone: 'text-slate-900' },
+  GitHub: { icon: SiGithub, tone: 'text-slate-900 dark:text-slate-100' },
   Vite: { icon: SiVite, tone: 'text-violet-200' },
   SQLAlchemy: { icon: SiSqlalchemy, tone: 'text-rose-200' },
-  'Flask-Migrate': { icon: SiFlask, tone: 'text-slate-800' },
+  'Flask-Migrate': { icon: SiFlask, tone: 'text-slate-800 dark:text-slate-100' },
   'Google Maps API': { icon: SiGooglemaps, tone: 'text-emerald-200' },
   'Kakao Navigation API': { icon: SiKakao, tone: 'text-yellow-200' },
   'scikit-learn': { icon: SiScikitlearn, tone: 'text-orange-200' },
@@ -145,7 +145,7 @@ export function TechStackBadges({
         return (
           <span
             key={tech}
-            className={`inline-flex min-w-0 items-center border border-slate-200 bg-slate-50 font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:bg-white ${badgeClass}`}
+            className={`inline-flex min-w-0 items-center border border-slate-200 bg-slate-50 font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:bg-white dark:border-slate-700 dark:bg-slate-800/85 dark:text-slate-200 dark:hover:border-violet-400/70 dark:hover:bg-slate-800 ${badgeClass}`}
           >
             <Icon className={`${iconClass} shrink-0 ${config.tone}`} />
             <span>{tech}</span>
@@ -154,7 +154,7 @@ export function TechStackBadges({
       })}
       {showMoreCount && hiddenCount > 0 ? (
         <span
-          className={`inline-flex items-center border border-violet-200 bg-violet-50 font-semibold text-violet-700 shadow-sm ${badgeClass}`}
+          className={`inline-flex items-center border border-violet-200 bg-violet-50 font-semibold text-violet-700 shadow-sm dark:border-violet-500/30 dark:bg-violet-500/10 dark:text-violet-300 ${badgeClass}`}
         >
           +{hiddenCount} {moreLabel}
         </span>
