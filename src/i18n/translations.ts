@@ -1,0 +1,76 @@
+import type { TranslationTree } from './types'
+
+export const translations: Record<'ko' | 'en', TranslationTree> = {
+  ko: {
+    nav: { work: 'Work', about: 'About Me' },
+    language: { label: '언어 변경', ko: 'KO', en: 'EN' },
+    common: {
+      github: 'GitHub', email: 'Email', resume: 'Resume', contact: 'Contact',
+      demo: '시연 영상', presentation: '발표자료', repository: '저장소 보기',
+      viewProject: '프로젝트 자세히 보기', backToWork: 'Work로 돌아가기',
+      viewResource: '자료 보기', viewPdf: 'PDF 보기', more: '개 더 보기',
+    },
+    work: {
+      eyebrow: 'Selected Work', title: '문제를 이해하고, 구조로 해결한 프로젝트',
+      intro: 'AI 서비스, 게임 프로토타입, 데이터 설계 작업을 결과뿐 아니라 역할과 과정까지 함께 정리했습니다.',
+      gallery: 'Project Gallery', count: '개의 프로젝트',
+    },
+    about: {
+      eyebrow: 'About Me', title: '기술과 기록을 연결하는 개발자 송명근입니다.',
+      intro: 'AI 서비스의 기능 흐름, Unity 게임 시스템, 한국어 데이터셋을 직접 만들고 정리해 왔습니다. 구현 범위와 확인된 사실을 구분하고, 다른 사람이 이해할 수 있는 구조로 기록하는 일을 중요하게 생각합니다.',
+      interests: '관심 분야', process: '작업 방식', links: '함께 보기',
+      interestItems: ['AI 모델과 서비스 기능의 연결', 'Unity와 C# 기반 게임 시스템', '한국어 데이터셋 설계와 분류 실험'],
+      processItems: ['먼저 해결할 문제와 사용자의 흐름을 정리합니다.', '구현 완료, 진행 중, 확장 예정 범위를 구분합니다.', 'README, 실험 기록, 검증 결과를 남겨 다시 확인할 수 있게 합니다.'],
+      resumeNote: '프로젝트 경험과 기술을 정리한 이력서', githubNote: '코드와 프로젝트 기록', emailNote: '프로젝트 및 채용 관련 연락',
+    },
+    detail: {
+      missingEyebrow: 'Project not found', missingTitle: '프로젝트를 찾을 수 없습니다.',
+      overview: 'Overview', contribution: 'Role & Contribution', highlights: 'Highlights',
+      stack: 'Tech Stack', problemSolving: 'Problem Solving', projectOverview: '프로젝트 개요',
+      problem: '해결하려는 문제', design: '데이터셋 설계 방향', labels: '라벨 구조',
+      core: 'Core Structure', gameCore: 'Game System', architecture: 'Architecture & Flow',
+      responsibilities: '역할과 참여 범위', status: 'Implementation Status', completed: '완료 / 확인',
+      inProgress: '진행 중', planned: '향후 계획', classifier: '규칙 기반 분류기 구조',
+      experiments: '실험과 기록', metrics: 'Verified Metrics', outcomes: '결과와 배운 점',
+      resources: 'Links & Resources', media: 'Media', mediaPending: '추가 미디어 준비 중',
+      repository: 'Repository', repositoryPending: '확인된 공개 저장소 링크가 준비되면 추가할 예정입니다.',
+    },
+    footer: { line: '문제, 구현 과정, 검증 결과를 기록하는 개발자 포트폴리오' },
+  },
+  en: {
+    nav: { work: 'Work', about: 'About Me' },
+    language: { label: 'Change language', ko: 'KO', en: 'EN' },
+    common: {
+      github: 'GitHub', email: 'Email', resume: 'Resume', contact: 'Contact',
+      demo: 'Demo video', presentation: 'Presentation', repository: 'View repository',
+      viewProject: 'View project', backToWork: 'Back to Work', viewResource: 'View resource',
+      viewPdf: 'View PDF', more: 'more',
+    },
+    work: {
+      eyebrow: 'Selected Work', title: 'Projects shaped by clear problems and practical structure',
+      intro: 'A selection of AI services, game prototypes, and data projects—documented with the work, role, and process behind each result.',
+      gallery: 'Project Gallery', count: 'projects',
+    },
+    about: {
+      eyebrow: 'About Me', title: 'I am Myunggeun Song, a developer who connects technology with clear documentation.',
+      intro: 'I build and document AI service flows, Unity game systems, and Korean-language datasets. I care about separating confirmed work from future plans and presenting each project in a structure that others can understand.',
+      interests: 'Areas of Interest', process: 'How I Work', links: 'Connect',
+      interestItems: ['Connecting AI models to service workflows', 'Game systems with Unity and C#', 'Korean dataset design and classification experiments'],
+      processItems: ['I begin by defining the problem and the user flow.', 'I separate completed work, work in progress, and future ideas.', 'I keep READMEs, experiment logs, and validation notes so decisions can be reviewed.'],
+      resumeNote: 'A concise record of my projects and skills', githubNote: 'Code and project documentation', emailNote: 'Project and recruiting inquiries',
+    },
+    detail: {
+      missingEyebrow: 'Project not found', missingTitle: 'This project could not be found.',
+      overview: 'Overview', contribution: 'Role & Contribution', highlights: 'Highlights', stack: 'Tech Stack',
+      problemSolving: 'Problem Solving', projectOverview: 'Project Overview', problem: 'Problem',
+      design: 'Dataset Design', labels: 'Label Structure', core: 'Core Structure', gameCore: 'Game System',
+      architecture: 'Architecture & Flow', responsibilities: 'Role & Scope', status: 'Implementation Status',
+      completed: 'Completed / Confirmed', inProgress: 'In Progress', planned: 'Planned',
+      classifier: 'Rule-based Classifier', experiments: 'Experiments & Records', metrics: 'Verified Metrics',
+      outcomes: 'Outcomes & Learnings', resources: 'Links & Resources', media: 'Media',
+      mediaPending: 'More media will be added when verified assets are available.', repository: 'Repository',
+      repositoryPending: 'A public repository link will be added when one is confirmed.',
+    },
+    footer: { line: 'A developer portfolio documenting problems, implementation, and validation' },
+  },
+}

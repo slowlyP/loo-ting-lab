@@ -120,3 +120,11 @@
 - Keep project card tech lists concise and use detail tech stacks for fuller context.
 - Add TechStackBadges mappings for newly exposed confirmed technology labels.
 - Keep unconfirmed Unity implementation details and ORM assumptions as later verification candidates.
+
+## v1.1.0 Work / About / Project Detail Redesign + KO/EN
+
+- Shift the visual direction from the dark Lab Browser concept to a bright, editorial Work Gallery.
+- Redesign Work, About Me, and Project Detail around readable project case studies.
+- Add a Korean/English language toggle with Korean fallback and localStorage persistence.
+- Keep project facts, v1.0.1 technology data, routes, external links, and resume access unchanged.
+- Add a lightweight pointer-responsive canvas network background without new dependencies.

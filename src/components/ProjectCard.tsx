@@ -1,56 +1,24 @@
 import { Link } from 'react-router'
 import type { Project } from '../data/projects'
+import { useLanguage } from '../i18n/useLanguage'
+import { ProjectThumbnail } from './ProjectThumbnail'
 import { TechStackBadges } from './TechStackBadges'
 
-type ProjectCardProps = {
-  project: Project
-}
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage()
   return (
-    <article className="group relative flex h-full flex-col justify-between overflow-hidden rounded-lg border border-cyan-300/15 bg-slate-950/75 p-5 shadow-lg shadow-slate-950/30 backdrop-blur transition hover:border-cyan-300/70 hover:bg-slate-900/90 hover:shadow-cyan-950/30">
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/70 to-transparent transition group-hover:via-cyan-300" />
-      <div className="space-y-4">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-300">
-              Experiment File
-            </p>
-            <p className="mt-2 text-3xl font-black text-cyan-100">
-              {project.stage.replace('STAGE', 'FILE')}
-            </p>
-            <h2 className="mt-3 text-xl font-black text-white">
-              {project.title}
-            </h2>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-              {project.category}
-            </p>
-          </div>
-          <span className="shrink-0 rounded border border-cyan-300/30 bg-cyan-300/10 px-2 py-1 text-xs font-black text-cyan-100">
-            {project.statusCode}
-          </span>
+    <article className="group flex min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white/90 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/70">
+      <Link to={`/projects/${project.id}`} aria-label={`${project.title} — ${t('common.viewProject')}`}><ProjectThumbnail project={project} /></Link>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-bold uppercase tracking-[0.14em] text-slate-500">
+          <span>{project.category}</span><span className="rounded-full bg-slate-100 px-2.5 py-1 text-slate-600">{project.status}</span>
         </div>
-        <p className="rounded-md border border-slate-800 bg-slate-950/80 px-3 py-2 text-xs font-semibold text-slate-300">
-          {project.status}
-        </p>
-        <p className="text-sm font-semibold leading-6 text-slate-200">
-          {project.subtitle}
-        </p>
-        <p className="text-sm leading-6 text-slate-400">{project.summary}</p>
-        <TechStackBadges
-          techs={project.tech}
-          limit={8}
-          showMoreCount
-          moreLabel="modules"
-          size="sm"
-        />
+        <h2 className="mt-5 break-words text-2xl font-black tracking-[-0.04em] text-slate-950">{project.title}</h2>
+        <p className="mt-2 break-words font-semibold leading-7 text-slate-700">{project.subtitle}</p>
+        <p className="mt-3 break-words text-sm leading-6 text-slate-500">{project.summary}</p>
+        <div className="mt-5"><TechStackBadges techs={project.tech} limit={6} showMoreCount moreLabel={t('common.more')} size="sm" /></div>
+        <Link to={`/projects/${project.id}`} className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-black text-slate-900 transition group-hover:text-violet-700">{t('common.viewProject')} <span aria-hidden="true">↗</span></Link>
       </div>
-      <Link
-        to={`/projects/${project.id}`}
-        className="mt-5 inline-flex justify-center rounded-md border border-cyan-300/70 px-3 py-2.5 text-center text-sm font-black text-cyan-100 transition hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-      >
-        파일 열람
-      </Link>
     </article>
   )
 }
