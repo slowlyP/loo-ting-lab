@@ -1,0 +1,34 @@
+import type { Language } from '../i18n/types'
+
+export type ProjectVideo = {
+  src: string
+  poster: string
+  title: Record<Language, string>
+}
+
+const projectVideos: Record<string, ProjectVideo> = {
+  'wizard-defense': {
+    src: 'assets/projects/wizard-defense/demo.mp4',
+    poster: 'assets/projects/wizard-defense/preview.png',
+    title: {
+      ko: '랜덤 마법사 디펜스 게임플레이 영상',
+      en: 'Wizard Defense Gameplay Video',
+    },
+  },
+}
+
+function resolveAssetPath(path: string) {
+  if (/^(https?:|data:|blob:)/.test(path)) return path
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+}
+
+export function getProjectVideo(projectId: string): ProjectVideo | undefined {
+  const video = projectVideos[projectId]
+  if (!video) return undefined
+
+  return {
+    ...video,
+    src: resolveAssetPath(video.src),
+    poster: resolveAssetPath(video.poster),
+  }
+}

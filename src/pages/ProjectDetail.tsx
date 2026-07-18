@@ -1,13 +1,44 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { ProjectThumbnail } from '../components/ProjectThumbnail'
 import { TechStackBadges } from '../components/TechStackBadges'
 import { getOwnershipTranslationKey } from '../data/projectOwnership'
+import type { Project } from '../data/projects'
+import { getProjectVideo } from '../data/projectVideos'
+import type { Language } from '../i18n/types'
 import { useLanguage } from '../i18n/useLanguage'
 import { getLocalizedProject } from '../i18n/projectTranslations'
 
 function ListSection({ title, items }: { title: string; items?: string[] }) {
   if (!items?.length) return null
   return <section className="border-t border-slate-200 pt-8 dark:border-slate-700/70"><h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950 dark:text-slate-50">{title}</h2><ul className="mt-5 space-y-4">{items.map((item) => <li key={item} className="flex gap-4 leading-7 text-slate-600 dark:text-slate-300"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-violet-500 dark:bg-violet-300" /><span className="min-w-0 break-words">{item}</span></li>)}</ul></section>
+}
+
+function ProjectHeroMedia({ project, language }: { project: Project; language: Language }) {
+  const [videoFailed, setVideoFailed] = useState(false)
+  const video = getProjectVideo(project.id)
+
+  if (!video || videoFailed) return <ProjectThumbnail project={project} />
+
+  return (
+    <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800">
+      <video
+        src={video.src}
+        poster={video.poster}
+        controls
+        preload="metadata"
+        playsInline
+        aria-label={video.title[language]}
+        onError={() => setVideoFailed(true)}
+        className="absolute inset-0 size-full bg-slate-950 object-cover"
+      />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/55 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-6 bottom-14 flex items-end justify-between gap-4">
+        <span className="max-w-[72%] text-xl font-black tracking-[-0.04em] text-white drop-shadow-[0_2px_5px_rgba(0,0,0,.85)] sm:text-2xl">{project.title}</span>
+        <span className="rounded-full border border-white/80 bg-white/80 px-3 py-1 text-[10px] font-black tracking-wider text-slate-700 backdrop-blur">{project.stage}</span>
+      </div>
+    </div>
+  )
 }
 
 export function ProjectDetail() {
@@ -23,7 +54,7 @@ export function ProjectDetail() {
     <article className="mx-auto max-w-6xl space-y-10 lg:space-y-14">
       <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-black text-slate-600 transition hover:text-violet-700 dark:text-slate-300 dark:hover:text-violet-300">← {t('common.backToWork')}</Link>
       <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white/95 shadow-xl shadow-slate-200/60 dark:border-slate-700/70 dark:bg-slate-900/90 dark:shadow-slate-950/50">
-        <ProjectThumbnail project={project} />
+        <ProjectHeroMedia key={project.id} project={project} language={language} />
         <div className="p-6 sm:p-9 lg:p-12">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"><span>{project.category}</span><span className="rounded-full bg-violet-50 px-3 py-1.5 normal-case tracking-normal text-violet-700 dark:bg-violet-500/15 dark:text-violet-300">{t('detail.projectType')}: {t(getOwnershipTranslationKey(project.id))}</span></div>
           <h1 className="mt-6 break-words text-4xl font-black tracking-[-0.055em] text-slate-950 dark:text-slate-50 sm:text-5xl lg:text-6xl">{project.title}</h1>
