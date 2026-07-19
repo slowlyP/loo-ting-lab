@@ -9,7 +9,13 @@
 
 ## STACCATO
 
-Included: final MVP scope, YOLOv11 detection, bbox-center stop estimation, ROI/rule events, Flask/MySQL/Socket.IO/Next.js flow, report analysis, auth and approval flow, VM runtime separation, user flow, and explicit MVP exclusions.
+Included: final MVP scope, YOLOv11 detection, bbox-center stop estimation, ROI/rule events, Flask/MySQL/Socket.IO/Next.js flow, report analysis, auth and approval flow, Gateway-centered VM runtime separation, user flow, and explicit MVP exclusions.
+
+Architecture detail: Frontend calls only the Flask API Gateway. Frontend, Flask, AI, ITS, and DB VMs separate UI, request brokering, inference, traffic/CCTV integration, and storage; AI, ITS, and DB services are not called directly by Frontend.
+
+Incident data/API flow: incident_reports stores report media and information, detection_logs stores AI results and evidence, incidents manages official incident events, and notifications manages realtime alerts and processing. The core sequence is POST /reports → POST /reports/{id}/analyze → GET /incidents → PATCH /incidents/{id}/status.
+
+Portfolio copy adjustment: internal maintenance wording was replaced with reader-facing descriptions of the report/CCTV-to-incident flow and future event-list, incident-detail, Snapshot, and MP4 Replay visuals.
 
 Excluded or qualified: commercial operation, solo ownership, Map/GPS, LLM/chatbot, Docker Compose runtime, reinforcement learning, and automatic retraining. The linked service is identified as a development/demo environment using a self-signed certificate.
 
