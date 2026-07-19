@@ -149,3 +149,11 @@
 - Add Loo Ting Lab as a fifth personal project with abstract preview fallback.
 - Add optional evidence, limitations, flow, contribution, verification, deployment, milestone, and live-demo sections.
 - Update KO/EN copy together and preserve theme, routing, media, ownership, and GitHub Pages behavior.
+
+## v1.3.2 Wizard Defense Visual Gallery
+
+- Add a Steam-style horizontal Visual Gallery directly below the Random Wizard Defense Hero gameplay video.
+- Register ten confirmed gameplay, UI, wizard, skill, and monster images with Korean/English captions.
+- Support mouse drag, wheel/trackpad scrolling, native mobile swipe, and an accessible image lightbox without a new dependency.
+- Preserve object proportions with uncropped thumbnails and remove failed images instead of showing broken-image UI.
+- Keep the gallery exclusive to the existing `wizard-defense` route and preserve v1.3.1 project content.
