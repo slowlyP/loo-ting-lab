@@ -26,6 +26,10 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     alt: '404 R·N·F AI road hazard detection preview',
     kind: 'image',
   },
+  'loo-ting-lab': {
+    alt: 'Loo Ting Lab portfolio browser preview',
+    kind: 'abstract',
+  },
 }
 
 function resolveAssetPath(path: string | undefined) {
