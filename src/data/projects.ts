@@ -92,7 +92,7 @@ export const projects: Project[] = [
     role: 'AI 분석 결과가 Flask API, MySQL 메타데이터, Next.js 관리 화면까지 이어지는 흐름을 이해하고 영상 분석 결과 표시와 운영 기록 정리에 참여했습니다.',
     highlights: [
       'CCTV와 신고 영상 분석 결과를 인시던트, 알림, 리플레이로 확인하는 흐름 정리',
-      'Flask API Gateway, AI VM, Frontend VM, DB VM으로 나뉜 서비스 구조 이해',
+      'Flask API Gateway를 중심으로 Frontend, AI, ITS, DB VM 역할을 분리한 서버 중계 구조 이해',
       'Linux VM, systemd, 배포/운영 문서를 참고해 실행 상태 점검',
     ],
     problemSolving: [
@@ -124,6 +124,8 @@ export const projects: Project[] = [
         '서비스 접속과 로그인 후 대시보드 또는 관제 화면에서 이벤트 목록을 확인합니다.',
         '이벤트 상세 화면에서 탐지 정보, Snapshot, MP4 Replay를 확인하고 필요한 경우 이벤트 영상을 다운로드합니다.',
         '신규 이벤트는 Socket.IO 실시간 알림 영역에서 확인하며, 신고 영상은 등록 후 별도의 AI 분석 진입점을 거쳐 같은 관제 흐름으로 연결됩니다.',
+        '사용자 신고 등록 → AI 분석 요청 → detection_logs 탐지 근거 저장 → incidents 공식 사고 이벤트 전환 → notifications 실시간 알림 순서로 사고 이벤트 중심의 DB/API 흐름이 이어집니다.',
+        '핵심 API는 POST /reports, POST /reports/{id}/analyze, GET /incidents, PATCH /incidents/{id}/status 흐름으로 신고 등록, 분석, 사고 조회, 처리 상태 변경을 연결합니다.',
       ],
       evidence: [
         'GitHub README의 Final MVP Summary와 final MVP scope 문서',
@@ -136,7 +138,8 @@ export const projects: Project[] = [
         '상용 운영 완료 서비스가 아니라 팀이 구현하고 검증한 관제 MVP입니다.',
       ],
       deployment: [
-        'DB VM은 MySQL 직접 설치, Flask VM은 Python venv, Frontend VM은 Node.js/npm, AI VM은 FastAPI 추론 서비스를 실행하는 분리 구조입니다.',
+        'DB VM은 MySQL, Flask VM은 API Gateway, Frontend VM은 Next.js, AI VM은 FastAPI 추론, ITS VM은 교통·CCTV 연계 역할을 나누는 분리 구조입니다.',
+        'Frontend는 Flask API Gateway만 호출하고 AI·ITS·DB VM에는 직접 접근하지 않으며, 서버 간 요청과 데이터 흐름은 Gateway를 통해 중계됩니다.',
         '각 VM의 설정과 실행 상태는 docs/infra와 운영 문서를 기준으로 관리합니다.',
       ],
       liveDemoNotice: [
@@ -152,7 +155,9 @@ export const projects: Project[] = [
         '탐지된 bbox의 중심점 이동량을 바탕으로 정차 상태를 추정하고, ROI / Rule Engine을 통해 LANE_STOP 또는 SHOULDER_STOP 이벤트로 분류합니다.',
         'AI VM은 이벤트 JSON과 스냅샷, MP4 Replay 메타데이터를 Flask API Gateway로 전달하고, Flask VM은 MySQL에 이벤트와 파일 경로 중심의 메타데이터를 저장합니다.',
         'Flask Socket.IO는 신규 인시던트 알림을 Next.js 관제 화면으로 전달하고, 사용자는 이벤트 목록, 상세 정보, 스냅샷, replay 영상을 확인합니다.',
-        'Frontend VM, Flask VM, AI VM, DB VM을 분리해 화면, API, AI 추론, 데이터 저장 책임을 나누는 구조로 정리되어 있습니다.',
+        'Frontend VM, Flask VM, AI VM, ITS VM, DB VM을 분리해 화면, API 중계, AI 추론, 교통·CCTV 연계, 데이터 저장 책임을 나눕니다.',
+        'Frontend는 Flask API Gateway만 호출하며 AI·ITS·DB 서버에 직접 접근하지 않습니다. Gateway가 인증과 API 요청을 받아 각 서버로 중계합니다.',
+        'incident_reports는 영상과 신고 정보, detection_logs는 AI 탐지 결과와 판단 근거, incidents는 공식 사고 이벤트, notifications는 실시간 알림과 이벤트 처리 상태를 관리합니다.',
       ],
       responsibilities: [
         'AI 분석 결과가 Flask API, MySQL 메타데이터, Next.js 관제 화면으로 이어지는 전체 흐름을 이해하고 포트폴리오에서 설명 가능한 형태로 정리했습니다.',
@@ -167,6 +172,10 @@ export const projects: Project[] = [
           'YOLOv11 기반 객체 탐지와 bbox 중심점 이동량 기반 정차 추정 흐름',
           'ROI / Rule Engine 기반 LANE_STOP, SHOULDER_STOP 분류 흐름',
           'Flask API Gateway와 MySQL 메타데이터 저장 구조',
+          'Frontend, Flask, AI, ITS, DB VM 역할 분리와 Gateway 중심 서버 중계 구조',
+          'Frontend가 AI·ITS·DB에 직접 접근하지 않고 Flask API Gateway만 호출하는 구조',
+          'incident_reports, detection_logs, incidents, notifications 중심의 사고 이벤트 DB 흐름',
+          'POST /reports → POST /reports/{id}/analyze → GET /incidents → PATCH /incidents/{id}/status API 흐름',
           'Socket.IO 기반 신규 인시던트 실시간 알림',
           'Next.js 관제 화면의 이벤트 목록, 상세, Snapshot, MP4 Replay 확인 흐름',
           '신고 업로드와 신고 분석 결과 확인 흐름',
@@ -174,12 +183,12 @@ export const projects: Project[] = [
           '회원가입, 로그인, 관리자 승인, 마이페이지와 이벤트 영상 다운로드 사용자 흐름',
         ],
         inProgress: [
-          '포트폴리오에서는 STACCATO GitHub README와 관련 문서에서 확인한 범위만 기준으로 상세 내용을 복구하고 있습니다.',
-          '개인 기여가 명확하지 않은 항목은 구현 완료로 단정하지 않고 프로젝트 구조와 참여/검증 경험 중심으로 정리합니다.',
+          '신고 영상과 CCTV 분석 결과가 사고 이벤트, 알림, 스냅샷, MP4 Replay로 이어지는 흐름을 중심으로 관제 시스템 구조를 정리했습니다.',
+          '분리된 VM 환경에서 Frontend는 Flask API Gateway만 호출하고, AI·ITS·DB 서버는 Gateway를 통해 연결되도록 구성해 역할을 나누었습니다.',
         ],
         planned: [
-          '상세 스크린샷과 추가 발표 자료는 확인된 자산 URL이 준비되면 추가할 예정입니다.',
-          '현재 공개 서비스 링크는 자체서명 인증서가 안내된 개발/시연 환경이므로 포트폴리오에는 GitHub와 확인된 시연 영상 중심으로 연결합니다.',
+          '이벤트 목록, 사고 상세, 스냅샷, MP4 Replay 확인 흐름을 더 직관적으로 보여줄 수 있는 화면 자료를 보강할 예정입니다.',
+          '개발·시연 환경 특성상 접속 환경에 따라 보안 경고가 표시될 수 있으므로, GitHub 문서와 시연 영상을 함께 제공해 프로젝트 흐름을 확인할 수 있게 유지합니다.',
         ],
       },
       techStack: [
@@ -198,6 +207,7 @@ export const projects: Project[] = [
         'ROI / Rule Engine',
         'AI Media Proxy',
         'Linux VM',
+        'ITS VM',
         'systemd',
         'Nginx',
       ],
@@ -206,6 +216,7 @@ export const projects: Project[] = [
         '대용량 영상 파일은 DB에 직접 저장하지 않고 파일 경로와 메타데이터를 저장하는 구조를 확인해, 데이터 저장 책임과 파일 전달 책임을 나누어 이해했습니다.',
         '스냅샷과 replay 영상은 AI VM에 직접 접근하지 않고 인증된 사용자가 AI media proxy를 통해 확인하는 방식으로 정리했습니다.',
         'AI VM, Flask VM, Frontend VM, DB VM이 분리되어 있어 장애가 발생했을 때 어느 계층의 문제인지 나누어 보는 관점을 익혔습니다.',
+        'Frontend의 직접 서버 접근을 막고 Flask API Gateway를 단일 진입점으로 두어 인증, 중계, 장애 지점을 분리해 확인했습니다.',
         '신고 영상 분석과 CCTV 이벤트 분석이 서로 다른 진입점에서 시작되지만 최종적으로 관제 화면의 이벤트 확인 흐름으로 이어지는 지점을 추적했습니다.',
       ],
       outcomes: [
@@ -231,7 +242,7 @@ export const projects: Project[] = [
             type: 'demo',
           },
         ],
-        note: '추가 스크린샷 자료는 확인된 URL이 준비되면 추가할 예정입니다.',
+        note: 'GitHub 문서와 시연 영상을 통해 관제 흐름을 확인할 수 있으며, 이벤트 목록·사고 상세·Snapshot·MP4 Replay를 더 직관적으로 보여주는 화면 자료는 추후 보강할 예정입니다.',
       },
     },
     links: {

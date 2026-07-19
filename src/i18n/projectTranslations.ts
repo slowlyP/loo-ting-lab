@@ -13,7 +13,7 @@ const en: Record<string, ProjectCopy> = {
     role: 'Participated in reviewing and documenting the flow from AI analysis through the Flask API and MySQL metadata to the Next.js dashboard, including how video analysis results appear in the service.',
     highlights: [
       'Documented the flow from CCTV and report-video analysis to incidents, alerts, and replay',
-      'Reviewed the service structure separated into Flask API Gateway, AI VM, Frontend VM, and DB VM',
+      'Reviewed the Gateway-centered structure separating Frontend, Flask, AI, ITS, and DB VM roles',
       'Checked runtime status using Linux VM, systemd, deployment, and operations documentation',
     ],
     problemSolving: [
@@ -37,7 +37,9 @@ const en: Record<string, ProjectCopy> = {
         'It estimates stops from bbox-center movement and classifies LANE_STOP or SHOULDER_STOP through the ROI / Rule Engine.',
         'The AI VM sends event JSON, snapshots, and MP4 Replay metadata to the Flask API Gateway, which stores event metadata and file paths in MySQL.',
         'Flask Socket.IO delivers new-incident alerts to the Next.js dashboard, where operators review lists, details, snapshots, and replay.',
-        'Frontend, Flask, AI, and DB VMs separate UI, API, inference, and storage responsibilities.',
+        'Frontend, Flask, AI, ITS, and DB VMs separate UI, API brokering, inference, traffic/CCTV integration, and storage responsibilities.',
+        'The Frontend calls only the Flask API Gateway and never accesses AI, ITS, or DB servers directly; the Gateway brokers authenticated requests between services.',
+        'incident_reports stores report media and report information, detection_logs stores AI results and evidence, incidents manages official incident events, and notifications manages realtime alerts and event processing.',
       ],
       responsibilities: [
         'Reviewed and documented the end-to-end flow from AI results to Flask, MySQL, and the Next.js dashboard.',
@@ -47,16 +49,16 @@ const en: Record<string, ProjectCopy> = {
         'Items without confirmed individual ownership remain described as participation, verification, and architecture review.',
       ],
       implementationStatus: {
-        completed: ['Confirmed highway CCTV vehicle-detection flow', 'YOLOv11 detection and bbox-center stop-estimation flow', 'ROI / Rule Engine classification for LANE_STOP and SHOULDER_STOP', 'Flask API Gateway and MySQL metadata structure', 'Socket.IO realtime incident alerts', 'Next.js event list, details, Snapshot, and MP4 Replay flow', 'Report upload and analysis-result flow', 'Documented authenticated AI media proxy and role-based access policy', 'Signup, login, admin approval, mypage, and event-video download flow'],
-        inProgress: ['The portfolio only restores details confirmed in the STACCATO repository and related records.', 'Unclear individual contributions remain framed around structure, participation, and verification.'],
-        planned: ['Add screenshots and presentation assets when verified URLs are available.', 'Keep portfolio access focused on the confirmed GitHub repository and demo video.'],
+        completed: ['Confirmed highway CCTV vehicle-detection flow', 'YOLOv11 detection and bbox-center stop-estimation flow', 'ROI / Rule Engine classification for LANE_STOP and SHOULDER_STOP', 'Flask API Gateway and MySQL metadata structure', 'Gateway-centered Frontend, Flask, AI, ITS, and DB VM separation', 'Frontend access through the Flask API Gateway without direct AI, ITS, or DB access', 'Incident-centered incident_reports, detection_logs, incidents, and notifications data flow', 'POST /reports → POST /reports/{id}/analyze → GET /incidents → PATCH /incidents/{id}/status API flow', 'Socket.IO realtime incident alerts', 'Next.js event list, details, Snapshot, and MP4 Replay flow', 'Report upload and analysis-result flow', 'Documented authenticated AI media proxy and role-based access policy', 'Signup, login, admin approval, mypage, and event-video download flow'],
+        inProgress: ['Organized the monitoring structure around the path from report/CCTV analysis to incident events, alerts, snapshots, and MP4 Replay.', 'Separated VM responsibilities so the Frontend calls only the Flask API Gateway while AI, ITS, and DB services connect through the Gateway.'],
+        planned: ['Add clearer visual material for the event list, incident details, Snapshot, and MP4 Replay flow.', 'Keep the GitHub documentation and demo video available alongside the development/demo service, which may show a browser security warning depending on the access environment.'],
       },
-      problemSolving: ['Checked API responses, media URLs, permissions, AI VM status, and Socket.IO together when results were missing.', 'Separated database metadata responsibility from large media-file delivery.', 'Documented authenticated snapshot and replay access through the AI media proxy.', 'Learned to isolate failures across the AI, Flask, Frontend, and DB VMs.', 'Traced both report-video and CCTV entry points to the shared dashboard flow.'],
+      problemSolving: ['Checked API responses, media URLs, permissions, AI VM status, and Socket.IO together when results were missing.', 'Separated database metadata responsibility from large media-file delivery.', 'Documented authenticated snapshot and replay access through the AI media proxy.', 'Learned to isolate failures across the AI, Flask, Frontend, ITS, and DB VMs.', 'Used the Flask API Gateway as the single Frontend entry point to separate authentication, brokering, and failure boundaries.', 'Traced both report-video and CCTV entry points to the shared dashboard flow.'],
       outcomes: ['Organized model output as an operator-facing flow of incidents, alerts, snapshots, and MP4 Replay.', 'Learned that API contracts, metadata, authenticated media, realtime alerts, and operations records matter alongside model accuracy.', 'Presented team-project participation and architecture understanding without claiming unverified individual implementation.'],
-      systemFlow: ['Sign in, review the dashboard event list, open detection details with Snapshot and MP4 Replay, download media when needed, and monitor realtime alerts.', 'Report videos enter through a separate analysis path and join the shared operations flow.'],
+      systemFlow: ['Sign in, review the dashboard event list, open detection details with Snapshot and MP4 Replay, download media when needed, and monitor realtime alerts.', 'Report videos enter through a separate analysis path and join the shared operations flow.', 'Report submission → AI analysis request → detection_logs evidence → incidents conversion → notifications realtime alert forms the incident-centered DB/API flow.', 'POST /reports, POST /reports/{id}/analyze, GET /incidents, and PATCH /incidents/{id}/status connect report registration, analysis, incident review, and status updates.'],
       evidence: ['Final MVP Summary and scope documentation', 'User/admin manuals, release checklist, AI operations records, and VM infrastructure documentation', 'Confirmed repository, demo environment, and demo video'],
       scopeLimitations: ['Map/GPS, LLM/chatbot, Docker Compose runtime, reinforcement learning, and automatic retraining are excluded from the Final MVP.', 'This is a team-built and verified monitoring MVP, not a commercially operated service.'],
-      deployment: ['DB VM uses a direct MySQL install, Flask VM uses Python venv, Frontend VM uses Node.js/npm, and AI VM runs the FastAPI inference service.'],
+      deployment: ['DB VM runs MySQL, Flask VM brokers APIs, Frontend VM runs Next.js, AI VM runs FastAPI inference, and ITS VM handles traffic/CCTV integration.', 'The Frontend calls only the Flask API Gateway; AI, ITS, and DB services are reached through the Gateway.'],
       liveDemoNotice: ['The development/demo environment uses a self-signed certificate, so browsers may display a security warning.'],
     },
   },
@@ -160,7 +162,7 @@ const artifactCopy: Record<string, { labels: string[]; notes: string[] }> = {
 }
 
 const mediaCopy: Record<string, { titles?: string[]; note: string }> = {
-  staccato: { titles: ['STACCATO demo video'], note: 'More screenshots will be added when verified URLs are available.' },
+  staccato: { titles: ['STACCATO demo video'], note: 'The GitHub documentation and demo video show the monitoring flow. Clearer visuals for event lists, incident details, Snapshot, and MP4 Replay can be added later.' },
   'wizard-defense': { note: 'The representative preview image and gameplay video are connected at the top of the detail page so the playable flow can be reviewed. An external demo or Steam page will be added separately when ready.' },
   'inquiry-dataset': { note: 'Images and video will be added when verified assets are available.' },
   'ai-accident-detection': { titles: ['404 R·N·F AI demo video'], note: 'Screenshots will be added when verified assets are available.' },
