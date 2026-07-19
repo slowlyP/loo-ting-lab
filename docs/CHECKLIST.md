@@ -31,6 +31,11 @@
 - [x] Audit the five requested repositories and confirmed records.
 - [x] Keep STACCATO and 404 R·N·F AI as team projects.
 - [x] Preserve Wizard Defense v1.2.3 five-element and Hero video behavior.
+- [x] Rename the visible project to Random Wizard Defense without changing its ID or route.
+- [x] Correct fusion, Tier 2 auto skills, and core Legendary Resonance to implemented status.
+- [x] Record ESC settings/pause, persisted audio, fullscreen, and 1x/2x speed behavior.
+- [x] Leave missing Wizard Defense PDFs unlinked and keep private Resume originals out of project artifacts.
+- [x] Replace 404 internal-note-style status copy with reader-facing language.
 - [x] Expand Inquiry Dataset into a deterministic Data·AI Support preview with explicit limitations.
 - [x] Add Loo Ting Lab as a fifth personal project with abstract fallback.
 - [x] Add optional evidence, limitation, flow, contribution, verification, deployment, milestone, and live-demo sections.

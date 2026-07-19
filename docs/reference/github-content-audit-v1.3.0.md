@@ -17,6 +17,8 @@ Excluded or qualified: commercial operation, solo ownership, Map/GPS, LLM/chatbo
 
 Included: upload-to-alert flow, debris examples, three detection models and their documented roles, risk levels, Flask layer separation, SQLAlchemy/Alembic, map and route APIs, model comparison, and README-listed personal modules.
 
+Portfolio copy adjustment: internal-note-style in-progress and future statements were replaced with reader-facing descriptions of the upload-to-map flow, model comparison, future visual evidence, and difficult detection conditions.
+
 Excluded or qualified: solo ownership and a general-purpose chatbot. LLM scope is limited to report-title generation and report-content assistance.
 
 ## Wizard Defense AI Support Preview
@@ -27,9 +29,15 @@ Excluded or qualified: external LLM provider calls, real chatbot claims, product
 
 ## Random Wizard Defense
 
-Included: v1.2.3 five-element direction plus README-confirmed auto battle, four legendary wizards, Arcane Research, 1–50 floor UI, pause/settings foundation, URP 2D, Git LFS, and documentation workflow.
+Included: the v1.2.3 five-element direction, elemental fused-wizard creation, Tier 2 auto skills, automatic Legendary Resonance activation/deactivation and battle UI, per-legendary skill parameters, auto battle, four legendary wizards, Arcane Research, 1–50 floor UI, ESC settings display with game pause/resume, shared SettingsPanel display/input handling, realtime persisted BGM volume, persisted sound-effect settings, fullscreen Toggle, 1x/2x battle speed with current-speed UI, URP 2D, Git LFS, and documentation workflow.
 
-Excluded or qualified: historical mist/wood/poison examples, completed fusion or resonance claims, Steam release claims, and a repository link. Fusion and resonance remain experiment/planned work.
+Status correction: elemental fusion, Tier 2 auto skills, and core Legendary Resonance behavior are implemented. Additional element combinations, balance work, and play-synergy review remain ongoing; only new Resonance-exclusive legendary skills remain planned for the Resonance system.
+
+Git evidence: `v0.4.0-tier2-auto-skills`, `feature/shared-settings-ui`, and PR 29 are recorded as text evidence without inventing URLs.
+
+Excluded or qualified: historical element examples, Steam release claims, and an unapproved repository link.
+
+Artifact check: only `preview.png` and `demo.mp4` are currently present under the public Wizard Defense assets. The portfolio, sample-code, and AI-usage PDFs remain unlinked until the approved public files are placed at the recommended paths. A private resume or cover-letter original containing contact details or a profile image must not be added as a project artifact.
 
 ## Loo Ting Lab
 

@@ -143,6 +143,9 @@
 - Strengthen project case studies while separating team scope, personal contribution, completed work, plans, and limitations.
 - Expand Inquiry Dataset into the current deterministic Data·AI Support preview without claiming a real LLM chatbot or production RAG system.
 - Preserve the v1.2.3 Wizard Defense five-element direction and add only separately confirmed implemented features.
+- Correct Random Wizard Defense fusion, Tier 2 auto skills, Legendary Resonance, shared settings/audio/fullscreen, and 1x/2x speed to their latest confirmed implementation status.
+- Keep only new Resonance-exclusive skills as planned, and defer missing public PDF artifacts until approved files are placed without exposing private Resume originals.
+- Replace internal-note-style 404 status copy with reader-facing project language.
 - Add Loo Ting Lab as a fifth personal project with abstract preview fallback.
 - Add optional evidence, limitations, flow, contribution, verification, deployment, milestone, and live-demo sections.
 - Update KO/EN copy together and preserve theme, routing, media, ownership, and GitHub Pages behavior.
