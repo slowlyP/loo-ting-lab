@@ -11,6 +11,7 @@ export function About() {
     : ['먼저 해결할 문제와 사용자의 흐름을 정리합니다.', '구현 완료, 진행 중, 확장 예정 범위를 구분합니다.', 'README, 실험 기록, 검증 결과를 남겨 다시 확인할 수 있게 합니다.']
 
   const links = [
+    { label: 'Loo Ting Lab', note: t('about.portfolioNote'), href: '#/projects/loo-ting-lab' },
     { label: t('common.github'), note: t('about.githubNote'), href: 'https://github.com/slowlyP' },
     { label: t('common.email'), note: t('about.emailNote'), href: 'mailto:vvckfn@gmail.com' },
     { label: t('common.resume'), note: t('about.resumeNote'), href: resumeContent.resumeDocument.fileUrl },
@@ -32,7 +33,7 @@ export function About() {
       </section>
       <section>
         <h2 className="text-2xl font-black tracking-[-0.04em] text-slate-950 dark:text-slate-50">{t('about.links')}</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">{links.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined} className="group rounded-2xl border border-slate-200 bg-white/90 p-5 transition hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg dark:border-slate-700/70 dark:bg-slate-900/82 dark:hover:border-violet-500/60"><span className="font-black text-slate-950 dark:text-slate-50">{link.label} ↗</span><p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">{link.note}</p></a>)}</div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">{links.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noreferrer' : undefined} className="group rounded-2xl border border-slate-200 bg-white/90 p-5 transition hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg dark:border-slate-700/70 dark:bg-slate-900/82 dark:hover:border-violet-500/60"><span className="font-black text-slate-950 dark:text-slate-50">{link.label} ↗</span><p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">{link.note}</p></a>)}</div>
       </section>
     </div>
   )

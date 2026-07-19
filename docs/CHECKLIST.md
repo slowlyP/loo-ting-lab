@@ -25,6 +25,20 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.3 GitHub Content Audit
+
+- [x] Work on `feature/v1.3.0-github-content-audit` from clean `v1.2.3`.
+- [x] Audit the five requested repositories and confirmed records.
+- [x] Keep STACCATO and 404 R·N·F AI as team projects.
+- [x] Preserve Wizard Defense v1.2.3 five-element and Hero video behavior.
+- [x] Expand Inquiry Dataset into a deterministic Data·AI Support preview with explicit limitations.
+- [x] Add Loo Ting Lab as a fifth personal project with abstract fallback.
+- [x] Add optional evidence, limitation, flow, contribution, verification, deployment, milestone, and live-demo sections.
+- [x] Update Korean and English project content together.
+- [x] Run copy/search audit.
+- [x] Run lint, build, and diff checks.
+- [x] Record final validation and release results.
+
 ## v1.1 Work / About / Project Detail + KO/EN
 
 - [x] Work on `feature/v1.1-work-about-redesign-i18n`.

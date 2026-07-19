@@ -44,6 +44,14 @@ export type ProjectDetailContent = {
   experimentLog?: string[]
   problemSolving: string[]
   outcomes: string[]
+  evidence?: string[]
+  scopeLimitations?: string[]
+  systemFlow?: string[]
+  teamContribution?: string[]
+  verification?: string[]
+  deployment?: string[]
+  milestones?: string[]
+  liveDemoNotice?: string[]
   artifacts?: ProjectArtifact[]
   metrics?: ProjectMetric[]
   media?: ProjectMedia
@@ -112,6 +120,28 @@ export const projects: Project[] = [
         'README와 문서 기준으로 YOLOv11 객체 탐지, bbox 중심점 이동량 기반 정차 추정, ROI / Rule Engine, Flask API Gateway, MySQL 메타데이터 저장, Socket.IO 실시간 알림, Next.js 관제 화면을 포함합니다.',
         '상용 운영 완료 서비스가 아니라 팀 프로젝트에서 구현한 MVP와 운영 문서를 바탕으로, AI 분석 결과가 서비스 화면까지 이어지는 구조를 설명하는 포트폴리오 프로젝트입니다.',
       ],
+      systemFlow: [
+        '서비스 접속과 로그인 후 대시보드 또는 관제 화면에서 이벤트 목록을 확인합니다.',
+        '이벤트 상세 화면에서 탐지 정보, Snapshot, MP4 Replay를 확인하고 필요한 경우 이벤트 영상을 다운로드합니다.',
+        '신규 이벤트는 Socket.IO 실시간 알림 영역에서 확인하며, 신고 영상은 등록 후 별도의 AI 분석 진입점을 거쳐 같은 관제 흐름으로 연결됩니다.',
+      ],
+      evidence: [
+        'GitHub README의 Final MVP Summary와 final MVP scope 문서',
+        '사용자·관리자 매뉴얼, 최종 릴리즈 체크리스트, AI VM 운영 문서, VM 인프라 문서',
+        'README에 공개된 개발·시연 서비스와 확인된 시연 영상',
+      ],
+      scopeLimitations: [
+        'Final MVP에서 Map API와 GPS 기반 위치 표시는 제외되었습니다.',
+        'LLM/chatbot, Docker Compose 통합 실행, 강화학습과 자동 재학습은 Final MVP 범위가 아닙니다.',
+        '상용 운영 완료 서비스가 아니라 팀이 구현하고 검증한 관제 MVP입니다.',
+      ],
+      deployment: [
+        'DB VM은 MySQL 직접 설치, Flask VM은 Python venv, Frontend VM은 Node.js/npm, AI VM은 FastAPI 추론 서비스를 실행하는 분리 구조입니다.',
+        '각 VM의 설정과 실행 상태는 docs/infra와 운영 문서를 기준으로 관리합니다.',
+      ],
+      liveDemoNotice: [
+        '공개 링크는 자체서명 인증서를 사용하는 개발·시연 환경이므로 브라우저 보안 경고가 표시될 수 있습니다.',
+      ],
       problem: [
         '고속도로 CCTV를 사람이 계속 확인하는 방식은 정차 차량이나 갓길 정차 같은 위험 상황을 놓치기 쉽습니다.',
         'AI 모델 출력이 단순 탐지 결과로만 남으면 관제자가 이벤트 목록, 상세 화면, 스냅샷, 리플레이로 확인하기 어렵습니다.',
@@ -141,6 +171,7 @@ export const projects: Project[] = [
           'Next.js 관제 화면의 이벤트 목록, 상세, Snapshot, MP4 Replay 확인 흐름',
           '신고 업로드와 신고 분석 결과 확인 흐름',
           '인증 기반 AI media proxy와 관리자 회원 승인, 권한 기반 접근 정책 문서 확인',
+          '회원가입, 로그인, 관리자 승인, 마이페이지와 이벤트 영상 다운로드 사용자 흐름',
         ],
         inProgress: [
           '포트폴리오에서는 STACCATO GitHub README와 관련 문서에서 확인한 범위만 기준으로 상세 내용을 복구하고 있습니다.',
@@ -271,6 +302,12 @@ export const projects: Project[] = [
           '층 선택 흐름 구성',
           '라운드 진행 흐름 구성',
           'Git 기반 버전 관리',
+          '사거리 내 적을 공격하는 자동 전투',
+          'Arden, Orphel, Lumiel, Novarin 전설 마법사 4종',
+          '전체 마법사 공격력을 강화하는 Arcane Research',
+          '1~50층 선택 UI',
+          'ESC 일시정지 메뉴와 SettingsPanel 기본 구조',
+          'Time.timeScale 기반 일시정지와 재개 처리',
         ],
         inProgress: [
           'PC 플레이 환경과 Steam 데모 공개 가능성을 고려한 방향성 정리',
@@ -294,6 +331,27 @@ export const projects: Project[] = [
         'Fusion System',
         'Stage Progression',
         'Git',
+        'URP 2D',
+        'Git LFS',
+      ],
+      evidence: [
+        'v1.2.3에서 확인한 현재 기획 방향과 플레이 영상',
+        'Random Wizard Defense README의 구현 상태 표와 Steam Foundation 기록',
+        'README, ROADMAP, CHANGELOG, DEVLOG 기반 개발 기록',
+      ],
+      scopeLimitations: [
+        '일반 마법사 융합과 전설 공명은 구현 완료가 아니라 실험 또는 계획 단계입니다.',
+        'Steam 출시나 공개 데모 완료 상태가 아니며, 현재는 PC / Steam 지향 플레이 가능 프로토타입입니다.',
+        '현재 포트폴리오의 속성은 불, 물, 바람, 돌, 번개 기준이며 저장소의 과거 융합 예시는 반영하지 않습니다.',
+      ],
+      verification: [
+        '기능별 브랜치 작업 후 Unity Play Mode 테스트를 수행하고 관련 문서를 함께 갱신하는 흐름으로 관리합니다.',
+        'v1.2.2 Hero gameplay video와 이미지 오류 시 preview fallback을 포트폴리오에서 유지합니다.',
+      ],
+      milestones: [
+        'v0.1.0-prototype: 첫 플레이 가능 프로토타입',
+        'v0.1.1-steam-pivot: 모바일 중심에서 PC / Steam 방향으로 전환',
+        'v0.1.2-steam-foundation: ESC 일시정지 메뉴와 기본 PC 조작 구조 추가',
       ],
       problemSolving: [
         '전설 뽑기만 강조하면 플레이가 뽑기 결과에만 의존할 수 있어, 일반 마법사 융합과 속성 융합을 플레이어가 개입할 수 있는 성장 구조로 분리했습니다.',
@@ -320,19 +378,21 @@ export const projects: Project[] = [
   },
   {
     id: 'inquiry-dataset',
-    title: 'Inquiry Dataset',
-    subtitle: 'Random Wizard Defense 한국어 고객 문의 분류 데이터셋',
-    category: 'DATA PROJECT',
+    title: 'Support Browser / Inquiry Dataset',
+    subtitle: 'Wizard Defense 문의 분류·응답 초안·검색 구조를 검증하는 Data·AI Support Preview',
+    category: 'DATA · AI SUPPORT',
     stage: 'STAGE 03',
     statusCode: 'DATASET',
-    status: '데이터셋 / 규칙 기반 분류기 정리',
+    status: 'Deterministic support preview 구현',
     summary:
-      'Random Wizard Defense 플레이어 문의를 분류하기 위해 합성 한국어 문의 CSV, labeling guide, dataset card, rule-based classifier, 실험 기록을 함께 정리한 데이터 프로젝트입니다.',
-    role: '문의 category, subcategory, urgency, needs_human 라벨 구조를 설계하고, v1/v2 CSV 데이터셋과 라벨링 기준, 규칙 기반 분류기, 실험/오류 분석 문서를 포트폴리오용 근거로 정리했습니다.',
+      '합성 문의 데이터셋과 규칙 기반 분류기에서 시작해 FastAPI와 React UI, 재현 가능한 로컬 검색, 안전한 응답 초안, 배포·운영 검증까지 확장한 개인 Data·AI Support 프로젝트입니다.',
+    role: '데이터와 라벨 정책, 규칙 기반 라우팅, FastAPI API, React preview UI, deterministic retrieval, demo-only mock adapter, guardrail과 EC2 배포 검증을 단계별 기록으로 관리했습니다.',
     highlights: [
       'v1 100개 합성 한국어 문의에서 v2 150개 문의로 확장하며 라벨 경계 사례를 보강',
       '단순 CSV가 아니라 labeling guide, dataset card, experiment log, error analysis까지 함께 관리',
       'Python rule-based classifier와 test script로 데이터셋 활용 가능성을 검증',
+      'FastAPI POST /support/preview와 React UI에서 한국어/영어 분류 결과와 응답 초안을 제공',
+      '외부 LLM 없이 deterministic retrieval, mock adapter, guardrail 경계를 재현 가능한 테스트로 검증',
     ],
     problemSolving: [
       '`bug_report`와 기능 category가 겹치는 경계 문제를 문서화했습니다.',
@@ -349,13 +409,20 @@ export const projects: Project[] = [
       'scikit-learn',
       'Dataset Card',
       'Labeling Guide',
+      'FastAPI',
+      'React',
+      'Vite',
+      'Deterministic Retrieval',
+      'AWS EC2',
+      'Nginx',
+      'systemd',
       'GitHub',
     ],
     detail: {
       overview: [
-        'Inquiry Dataset은 Random Wizard Defense 게임의 플레이어 문의를 분류하기 위한 한국어 합성 데이터셋 프로젝트입니다.',
-        '실제 서비스 문의 데이터가 아니라 게임 맥락을 바탕으로 만든 합성 문의를 사용하며, 데이터셋 설계와 라벨링 기준 정리, 규칙 기반 분류기 실험을 포트폴리오 근거로 삼습니다.',
-        '저장소 README에서는 의도 분류, 문서 검색, 근거 기반 응답 설계를 위한 AI support scaffold로 정리되어 있지만, 포트폴리오에서는 데이터 설계와 분류 실험 중심으로 설명합니다.',
+        'Random Wizard Defense 플레이어 문의를 분류하고 로컬 지식과 안전 정책을 바탕으로 한국어/영어 지원 응답 초안을 보여주는 개인 preview 프로젝트입니다.',
+        'v1/v2 합성 한국어 문의와 라벨링 정책, 규칙 기반·TF-IDF 실험을 기반으로 FastAPI API와 React/Vite UI까지 확장했습니다.',
+        '기본 경로는 외부 모델을 호출하지 않는 deterministic template이며, retrieval과 MockLLMAdapter는 향후 구조를 안전하게 검증하는 로컬 baseline입니다.',
       ],
       problem: [
         '게임 고객 문의는 같은 기능 단어를 포함해도 정보 요청, 오류 제보, 밸런스 의견처럼 처리 방식이 달라질 수 있습니다.',
@@ -381,6 +448,10 @@ export const projects: Project[] = [
         'labeling guide에는 category 정의, subcategory 예시, urgency 규칙, needs_human 규칙, 애매한 경우 처리 기준을 정리했습니다.',
         'error analysis에는 오분류 샘플, 예측 라벨, 기대 라벨, 원인, 개선 후보를 기록하는 방식으로 실패 유형을 추적했습니다.',
         'experiment log에는 rule baseline, TF-IDF baseline, dataset v2 평가, improved rule 실험을 날짜와 설정, 결과 중심으로 남겼습니다.',
+        '`POST /support/preview`는 문의와 optional language를 받아 분류·라우팅·응답 초안을 반환합니다.',
+        'React UI는 입력, 예시 chip, loading/error 상태와 category, urgency, human review, routing reason, response draft를 표시합니다.',
+        'local retrieval은 bilingual knowledge chunk를 keyword/token/topic scoring으로 정렬해 재현 가능한 top_k 순서를 반환합니다.',
+        'MockLLMAdapter는 API 기본 경로에 연결되지 않은 demo-only deterministic formatter입니다.',
       ],
       responsibilities: [
         '한국어 게임 문의를 분류하기 위한 category와 subcategory 체계를 정리했습니다.',
@@ -401,6 +472,12 @@ export const projects: Project[] = [
           'test_rule_classifier.py로 기본 동작 검증',
           'experiment_log.md와 error_analysis.md로 실험 및 오류 분석 기록',
           'Git tag 기반 버전 기록 확인',
+          'FastAPI POST /support/preview와 React/Vite 한국어·영어 preview UI',
+          '7개 category와 urgency, needs_human, suggested_response_type, routing_reason 라우팅',
+          'topic knowledge와 response template 기반 deterministic 응답 초안',
+          'keyword/token/topic scoring 기반 local retrieval과 재현 가능한 top_k ordering',
+          'demo-only MockLLMAdapter, prompt redaction, 민감 문의 guardrail prototype',
+          'AWS EC2의 Nginx 정적 제공, same-origin API proxy, FastAPI systemd 배포 검증',
         ],
         inProgress: [
           '분류 규칙과 라벨 경계 사례를 실험 기록을 바탕으로 계속 다듬을 수 있는 구조로 관리하고 있습니다.',
@@ -409,7 +486,7 @@ export const projects: Project[] = [
         planned: [
           '실제 플레이어 로그를 사용하려면 익명화, 동의, 개인정보 검토가 필요하며 현재 데이터셋에는 포함하지 않았습니다.',
           'improved rule v2의 94.00% 결과는 해당 v2 dataset 기준 결과이므로 holdout 또는 새로운 dataset으로 일반화 가능성을 추가 검증해야 합니다.',
-          '검색 기반 응답이나 실제 고객지원 연동은 향후 확장 후보이며, 현재 포트폴리오에서는 데이터셋 설계와 분류 실험 중심으로 표시합니다.',
+          '실제 provider adapter나 vector search 비교는 별도 승인과 평가 기준을 마련한 뒤 검토합니다.',
         ],
       },
       classifierStructure: [
@@ -455,6 +532,41 @@ export const projects: Project[] = [
         'category와 subcategory만이 아니라 urgency와 needs_human을 포함해 고객지원 플로우 관점의 라벨 설계를 경험했습니다.',
         'baseline 성능이 낮게 나온 category를 숨기지 않고 error analysis와 다음 개선 후보로 기록하는 방식의 실험 관리를 배웠습니다.',
         '규칙 기반 접근은 설명 가능성이 높지만 표현 분포에 맞춰질 수 있으므로 improved rule 결과도 추가 검증이 필요하다는 한계를 분리해 설명할 수 있게 했습니다.',
+        '데이터 설계에서 API, UI, retrieval, guardrail, 배포 운영 문서까지 연결하되 각 단계의 실제 한계를 함께 기록했습니다.',
+      ],
+      systemFlow: [
+        '사용자 문의 → FastAPI POST /support/preview → rule-based router → topic detector/support knowledge → deterministic local retrieval → response template → preview response 순서로 동작합니다.',
+        '민감한 환불·결제·보상·복구 문의는 needs_human=true로 전환하고 금지된 확정 약속을 guardrail로 검사합니다.',
+      ],
+      evidence: [
+        '버전별 dataset, labeling guide, dataset card, experiment log와 error analysis',
+        'API contract, frontend README, batch output과 retrieval/mock comparison artifacts',
+        'deployment verification, operations runbook, rollback·incident·security/privacy 문서',
+      ],
+      scopeLimitations: [
+        'OpenAI·Claude 등 외부 LLM API를 호출하지 않으며 실제 LLM chatbot이 아닙니다.',
+        'embedding/vector DB 또는 semantic vector search가 없는 keyword/token/topic baseline이며 production RAG chatbot이 아닙니다.',
+        'MockLLMAdapter는 model quality를 재현하지 않는 로컬 deterministic formatter입니다.',
+        'DB, ticket storage, live player data와 실제 결제·환불 처리가 없고 자동 고객지원이나 production-ready 운영을 보장하지 않습니다.',
+      ],
+      verification: [
+        'Backend regression 86 tests passed',
+        'API smoke 7/7 preview cases passed',
+        '한국어 7개와 영어 7개 mock adapter demo 출력 확인',
+        'React/Vite production build와 저장소의 compile·secret/IP scan 기록 확인',
+      ],
+      deployment: [
+        'AWS EC2에서 Nginx가 React build를 제공하고 same-origin /support/preview를 127.0.0.1:8000의 FastAPI systemd service로 proxy하는 구조를 검증했습니다.',
+        '공개 5173/8000 포트를 닫고 운영·보안 문서를 작성했지만 production-ready 보장은 아닙니다.',
+      ],
+      milestones: [
+        'v0.1.0–v0.10.0: 데이터셋, 규칙/TF-IDF baseline, 데이터 품질 개선',
+        'v0.11.0–v0.19.0: router, response template, FastAPI와 API contract',
+        'v0.20.0–v0.25.0: React UI, bilingual mode, EC2 배포·운영·보안 문서',
+        'v0.26.0–v0.30.0: knowledge coverage, deterministic retrieval, mock/guardrail, showcase',
+      ],
+      liveDemoNotice: [
+        'https://support.slowlyp.dev 는 규칙 기반 support preview이며 실제 고객지원 처리나 외부 LLM 서비스를 제공하지 않습니다.',
       ],
       artifacts: [
         {
@@ -542,7 +654,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/slowlyP/wizard-defense-ai-support',
       youtube: '',
-      service: '',
+      service: 'https://support.slowlyp.dev',
     },
   },
   {
@@ -555,7 +667,7 @@ export const projects: Project[] = [
     status: '팀 프로젝트 참여',
     summary:
       '도로 위 낙하물을 AI로 탐지하고, 위험도 분석과 실시간 알림, 지도 기반 위험 위치 시각화, 경로 기반 위험 분석을 연결한 팀 미니프로젝트입니다.',
-    role: '송명근은 팀 프로젝트에서 조원으로 참여해 신고 기능 구현, Google Maps API 연동, AI 탐지 기능 개발 및 서비스 연계에 참여했습니다. README 기준으로 LLM 기반 신고 제목/내용 보조 기능도 참여 범위로 정리할 수 있습니다.',
+    role: '송명근은 부조장으로 참여해 신고 기능, Google Maps API 연동, AI 탐지 기능 개발과 서비스 연계를 담당했습니다. LLM 범위는 신고 제목 자동 생성과 신고 내용 보조로 한정합니다.',
     highlights: [
       'YOLO 기반 객체 탐지로 이미지와 영상 업로드 데이터를 분석하는 흐름 구성',
       '위험/긴급 상황만 필터링해 Flask-SocketIO 기반 실시간 알림으로 전달하는 구조',
@@ -592,12 +704,13 @@ export const projects: Project[] = [
         '탐지된 객체 정보는 Detection 데이터로 저장되고, 위험도는 주의, 위험, 긴급 단계로 분류됩니다.',
         '위험 또는 긴급 상황이면 Alert를 생성하고 WebSocket 기반으로 관리자 페이지에 실시간 전송합니다.',
         '최종 탐지 결과는 지도 기반 탐지 현황과 경로 위험 분석에 반영됩니다.',
+        'Flask backend는 API, Service, Repository, Model 계층으로 요청, 비즈니스 로직, DB 접근, 데이터 구조 책임을 분리합니다.',
       ],
       responsibilities: [
-        '송명근은 팀 프로젝트에서 조원으로 참여했습니다.',
+        '송명근은 팀 프로젝트 부조장으로 참여했으며, 아래 범위는 README의 담당 기능과 대표 모듈을 기준으로 합니다.',
         '신고 등록, 파일 업로드, AI 분석 연계 처리를 포함한 신고 기능 구현을 담당했습니다.',
         'Google Maps API 연동을 통해 지도 시각화와 위치 기반 데이터 표시 기능에 참여했습니다.',
-        'AI 탐지 기능 개발 및 서비스 연계에 참여했고, README 기준으로 LLM 기반 신고 제목/내용 보조 기능도 참여 범위로 정리할 수 있습니다.',
+        '`yolo_service.py`와 `llm_service.py`를 중심으로 AI 탐지와 서비스 연계를 담당했으며, LLM은 신고 제목 자동 생성과 신고 내용 보조에만 사용했습니다.',
       ],
       implementationStatus: {
         completed: [
@@ -609,6 +722,10 @@ export const projects: Project[] = [
           '경로 기반 위험 분석',
           '신고 기능과 AI 분석 연계',
           'MySQL 기반 데이터 관리',
+          '낙석, 박스, 타이어 등 탐지 객체 분류',
+          'YOLOv8 기본 모델, YOLOv8-p2 소형 객체 탐지, RT-DETR 비교 분석',
+          'SQLAlchemy 모델과 Flask-Migrate/Alembic 스키마 이력',
+          '동일 데이터에 대한 세 모델 관리자 비교 기능',
         ],
         inProgress: [
           '포트폴리오에서는 README에서 확인된 팀 프로젝트 참여 내용만 짧은 미니프로젝트 상세로 정리합니다.',
@@ -643,6 +760,22 @@ export const projects: Project[] = [
         'API, Service, Repository, Model 계층으로 나누어진 Flask 백엔드 구조 안에서 기능별 책임을 분리해 작업했습니다.',
         '신고 기능과 AI 분석 연계를 통해 사용자가 올린 자료가 탐지와 위험도 판단 흐름으로 이어지도록 구성했습니다.',
         '지도 API 연동으로 탐지 결과가 위치 기반 화면에서 확인될 수 있도록 서비스 흐름에 연결했습니다.',
+      ],
+      systemFlow: [
+        '이미지/영상 업로드 → 객체 탐지 → Detection 저장 → 주의/위험/긴급 위험도 분류 → Alert 생성 → 관리자 실시간 전송 → 지도·경로 분석 반영 순서로 연결됩니다.',
+      ],
+      teamContribution: [
+        '팀 전체 범위에는 객체 탐지, 실시간 알림, 지도 모니터링, 경로 위험 분석, 관리자 기능과 데이터 관리가 포함됩니다.',
+        '개인 담당 범위는 신고 등록·파일 업로드·AI 분석 연계, Google Maps 위치 표시, AI 개발과 서비스 연계입니다.',
+        'LLM은 범용 챗봇이 아니라 신고 제목 자동 생성과 신고 내용 보조 모듈 범위입니다.',
+      ],
+      evidence: [
+        '저장소 README의 팀 구성, 담당 기능/대표 모듈, 시스템 동작 흐름과 기능 명세',
+        '프로젝트 발표자료, 코드리뷰 PDF와 시연 영상',
+      ],
+      scopeLimitations: [
+        '팀 미니프로젝트의 전체 기능을 개인 단독 구현으로 표현하지 않습니다.',
+        'V2X, 재학습, 스마트시티 확장은 README의 향후 가능성이며 구현 완료 범위가 아닙니다.',
       ],
       outcomes: [
         '팀 프로젝트에서 신고 기능, 지도 API 연동, AI 탐지 기능 서비스 연계에 참여한 경험을 포트폴리오에 추가했습니다.',
@@ -680,6 +813,88 @@ export const projects: Project[] = [
       github: 'https://github.com/lms-mini-project/AI-accident-detection',
       youtube: 'https://youtu.be/Iet2QiSkU5s',
       service: 'https://404-rnf.ddoriny.com/',
+    },
+  },
+  {
+    id: 'loo-ting-lab',
+    title: 'Loo Ting Lab',
+    subtitle: '프로젝트를 탐색형 case study로 정리한 개인 Portfolio Browser',
+    category: 'PORTFOLIO PROJECT',
+    stage: 'STAGE 05',
+    statusCode: 'DEPLOYED',
+    status: 'GitHub Pages 배포·지속 개선',
+    summary: 'React, Vite, TypeScript와 Tailwind CSS로 만든 개인 포트폴리오 웹사이트입니다. 프로젝트 소유권, KO/EN, light/dark, 미디어와 검증 기록을 하나의 반응형 Work Gallery로 연결합니다.',
+    role: '정보 구조, 프로젝트 데이터 모델, 반응형 UI, 다국어·테마 상태, GitHub Pages 배포와 버전별 작업 문서를 직접 설계하고 관리했습니다.',
+    highlights: [
+      'Team/Personal 그룹과 상세 case study를 연결하는 HashRouter 기반 프로젝트 브라우저',
+      'localStorage에 독립 저장되는 KO/EN과 light/dark 사용자 설정',
+      'GitHub Pages 하위 경로, preview asset, Hero gameplay video fallback을 고려한 정적 배포 구조',
+    ],
+    problemSolving: [
+      'GitHub Pages 새로고침과 저장소 하위 경로를 고려해 HashRouter와 Vite base를 유지했습니다.',
+      '언어와 테마 상태를 분리 저장해 한 설정 변경이 다른 설정을 덮어쓰지 않게 했습니다.',
+      '프로젝트별 이미지와 영상이 없거나 로드에 실패해도 abstract/thumbnail fallback으로 탐색이 끊기지 않게 했습니다.',
+    ],
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router', 'GitHub Pages', 'GitHub Actions'],
+    detail: {
+      overview: [
+        'Loo Ting Lab은 단순 이력서 페이지가 아니라 프로젝트를 카드와 상세 case study로 탐색하는 개인 포트폴리오 웹사이트입니다.',
+        'React 19, Vite, TypeScript, Tailwind CSS와 React Router를 사용하며 GitHub Pages에 배포합니다.',
+        '프로젝트 설명은 완료·진행·계획·제한을 구분하고 versioned request, validation, worklog, release 문서와 함께 관리합니다.',
+      ],
+      problem: [
+        '프로젝트 목록만 나열하면 팀/개인 역할, 구현 흐름, 검증 근거와 한계를 함께 전달하기 어렵습니다.',
+        '정적 호스팅에서도 상세 경로, 하위 asset 경로, 언어·테마 설정과 미디어 fallback이 안정적으로 동작해야 합니다.',
+      ],
+      coreStructure: [
+        '`projects.ts`와 KO/EN project translations가 카드와 상세 페이지의 공통 데이터 원본을 제공합니다.',
+        'ProjectBrowser는 Team/Personal 순서로 프로젝트를 그룹화하고 ProjectDetail은 optional case-study section을 렌더링합니다.',
+        'LanguageContext와 ThemeContext는 각 설정을 별도 localStorage key로 저장합니다.',
+        'projectPreviews와 projectVideos는 `import.meta.env.BASE_URL`을 사용해 GitHub Pages 하위 경로에서 asset URL을 해석합니다.',
+        'canvas network background, responsive gallery, project thumbnails와 Wizard Defense Hero video가 공통 레이아웃 안에서 동작합니다.',
+      ],
+      responsibilities: [
+        '개인 프로젝트로 정보 구조, UI 구현, 프로젝트 콘텐츠와 배포 흐름을 관리했습니다.',
+        'KO/EN 콘텐츠와 light/dark theme를 독립 상태로 구현하고 반응형 화면에 적용했습니다.',
+        'GitHub Actions의 lint/build/Pages 배포 흐름과 버전별 문서 기록을 유지했습니다.',
+      ],
+      implementationStatus: {
+        completed: [
+          'React/Vite/TypeScript/Tailwind CSS 기반 반응형 Work Gallery',
+          'HashRouter 프로젝트 목록·상세 경로',
+          'KO/EN 전환과 localStorage 저장',
+          'light/dark theme 전환과 독립 localStorage 저장',
+          'Team/Personal 프로젝트 그룹화와 thumbnail',
+          'Wizard Defense Hero gameplay video와 오류 시 thumbnail fallback',
+          'canvas network background와 Resume PDF 연결',
+          'GitHub Actions를 통한 GitHub Pages 배포',
+          'change-request, validation, worklog, release 기반 버전 문서화',
+        ],
+        inProgress: ['GitHub README와 확인된 문서를 기준으로 프로젝트 case study를 계속 감사하고 보강합니다.'],
+        planned: ['검증된 새 프로젝트 미디어와 접근성·반응형 개선을 버전 단위로 추가합니다.'],
+      },
+      techStack: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router', 'HashRouter', 'Canvas API', 'localStorage', 'GitHub Actions', 'GitHub Pages'],
+      problemSolving: [
+        'Vite base와 BASE_URL 기반 asset 해석으로 `/loo-ting-lab/` 하위 배포 경로를 일관되게 처리했습니다.',
+        '영상 재생 오류를 상태로 감지해 기존 project thumbnail로 되돌리는 fallback을 유지했습니다.',
+        '확인된 사실과 계획을 데이터와 문서에서 분리해 프로젝트 설명이 구현 범위를 넘지 않게 관리했습니다.',
+      ],
+      outcomes: [
+        '다섯 프로젝트의 문제, 구조, 역할, 상태, 검증과 제한을 탐색 가능한 하나의 포트폴리오로 연결했습니다.',
+        '프론트엔드 구현뿐 아니라 배포와 콘텐츠 근거 관리 과정을 함께 보여주는 개인 프로젝트로 정리했습니다.',
+      ],
+      systemFlow: ['Work Gallery → 프로젝트 카드 → HashRouter 상세 경로 → 프로젝트별 case study와 검증된 외부 리소스 순서로 탐색합니다.'],
+      evidence: ['이 저장소의 source code, AGENTS/WORKFLOW/VERSION_PLAN 문서와 버전별 request·validation·worklog·release 기록', 'GitHub Actions Pages workflow와 공개 GitHub Pages 배포'],
+      scopeLimitations: ['CMS나 자동 번역 시스템이 아니며 KO/EN 콘텐츠를 직접 관리합니다.', 'SSR 또는 영상 스트리밍 시스템이 아닌 정적 React 포트폴리오입니다.'],
+      verification: ['각 버전 완료 전 ESLint와 TypeScript/Vite production build를 통과해야 합니다.', 'GitHub Pages workflow도 npm ci, lint, build 후 Pages artifact를 배포합니다.'],
+      deployment: ['Vite base `/loo-ting-lab/`와 HashRouter를 사용해 GitHub Pages 저장소 하위 경로에 배포합니다.', 'main push 또는 수동 workflow dispatch로 GitHub Actions Pages 배포를 실행합니다.'],
+      milestones: ['v1.0: GitHub Pages 배포 준비', 'v1.1: Work/About/Detail redesign과 KO/EN', 'v1.2: light/dark theme와 network background tuning', 'v1.3: GitHub 근거 기반 project content audit'],
+      liveDemoNotice: ['공개 사이트는 정적 GitHub Pages 배포이며 저장소의 main 기준 릴리즈를 보여줍니다.'],
+      media: { screenshots: [], videos: [], note: '별도 preview 이미지를 만들지 않고 abstract fallback을 사용합니다.' },
+    },
+    links: {
+      github: 'https://github.com/slowlyP/loo-ting-lab',
+      service: 'https://slowlyp.github.io/loo-ting-lab/',
     },
   },
 ]

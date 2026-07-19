@@ -5,11 +5,12 @@ export const projectOwnership: Record<string, ProjectOwnershipType> = {
   'ai-accident-detection': 'team',
   'wizard-defense': 'personal',
   'inquiry-dataset': 'personal-data',
+  'loo-ting-lab': 'personal',
 }
 
 export const projectGroupOrder = {
   team: ['staccato', 'ai-accident-detection'],
-  personal: ['wizard-defense', 'inquiry-dataset'],
+  personal: ['wizard-defense', 'inquiry-dataset', 'loo-ting-lab'],
 } as const
 
 export function getProjectOwnership(projectId: string): ProjectOwnershipType {

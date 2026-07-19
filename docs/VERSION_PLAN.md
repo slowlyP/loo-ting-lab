@@ -136,3 +136,13 @@
 - Apply a navy/slate dark palette across the Work Gallery, About, Project Detail, Header, Footer, and shared UI.
 - Improve network point size and line/triangle visibility with separate light and dark canvas palettes.
 - Preserve project previews, live services, ownership grouping, routes, Resume access, and deployment configuration.
+
+## v1.3.0 GitHub Content Audit
+
+- Audit STACCATO, 404 R·N·F AI, Wizard Defense AI Support Preview, Random Wizard Defense, and Loo Ting Lab against current README files and confirmed records.
+- Strengthen project case studies while separating team scope, personal contribution, completed work, plans, and limitations.
+- Expand Inquiry Dataset into the current deterministic Data·AI Support preview without claiming a real LLM chatbot or production RAG system.
+- Preserve the v1.2.3 Wizard Defense five-element direction and add only separately confirmed implemented features.
+- Add Loo Ting Lab as a fifth personal project with abstract preview fallback.
+- Add optional evidence, limitations, flow, contribution, verification, deployment, milestone, and live-demo sections.
+- Update KO/EN copy together and preserve theme, routing, media, ownership, and GitHub Pages behavior.
