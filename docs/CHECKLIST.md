@@ -25,6 +25,22 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.3.2 Wizard Defense Visual Gallery
+
+- [x] Work on `feature/v1.3.2-wizard-defense-visual-gallery` from `v1.3.1`.
+- [x] Confirm all ten supplied gallery PNG files exist.
+- [x] Add typed gallery data with KO/EN captions, categories, alt text, and BASE_URL resolution.
+- [x] Render the gallery directly after Hero media only for `wizard-defense`.
+- [x] Use `object-contain` for mixed screenshot, character, and sprite-sheet proportions.
+- [x] Add mouse drag with click suppression and native mobile swipe.
+- [x] Add wheel/trackpad horizontal navigation.
+- [x] Add previous, next, close, Escape, arrow-key, and overlay lightbox controls.
+- [x] Hide images that fail to load.
+- [x] Preserve Hero video, other project content, theme, language, and protected files.
+- [ ] Complete manual responsive and interaction review.
+- [x] Run final lint, build, and diff checks.
+- [x] Record final validation results and the unavailable manual browser review.
+
 ## v1.3 GitHub Content Audit
 
 - [x] Work on `feature/v1.3.0-github-content-audit` from clean `v1.2.3`.
