@@ -17,8 +17,9 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     kind: 'image',
   },
   'animal-pang': {
+    image: 'assets/projects/animal-pang/preview.png',
     alt: 'Stack Stack Animal Pang abstract project preview',
-    kind: 'abstract',
+    kind: 'image',
   },
   'inquiry-dataset': {
     image: 'assets/projects/inquiry-dataset/preview.png',

@@ -165,3 +165,11 @@
 - Add synchronized Korean/English card and detail content with completed, in-progress, and planned work separated.
 - Use an abstract light/dark preview fallback until verified media files are available.
 - Preserve the v1.3.2 Wizard Defense Visual Gallery, v1.3.1 STACCATO content, existing project routes, and protected configuration.
+
+## v1.4.1 Animal Pang Media Assets
+
+- Connect the verified Animal Pang preview image and edited gameplay demo through GitHub Pages-safe asset paths.
+- Add five confirmed title, gameplay, stacking, merge/score, and game-over images to a bilingual horizontal gallery.
+- Generalize the existing Visual Gallery presentation copy by project ID while preserving its shared scrolling, lightbox, accessibility, and failed-image behavior.
+- Keep the Random Wizard Defense gallery unchanged and show no gallery for projects without registered gallery data.
+- Preserve AppInToss upcoming-release wording, existing project content, dependencies, and protected configuration.

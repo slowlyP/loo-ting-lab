@@ -40,6 +40,22 @@
 - [x] Run final lint, build, and diff checks.
 - [ ] Record final validation results.
 
+## v1.4.1 Animal Pang Media Assets
+
+- [x] Continue on `feature/v1.4.0-add-animal-pang-project` after the v1.4.0 merge.
+- [x] Confirm the preview, edited demo, and five gallery files exist with valid signatures.
+- [x] Connect `preview.png` as the Animal Pang card and thumbnail image.
+- [x] Connect only `videos/demo.mp4` with `preview.png` as its poster.
+- [x] Preserve video controls, metadata preload, non-autoplay, non-loop, and Hero fallback behavior.
+- [x] Register five gallery images in the approved order with KO/EN captions and alt text.
+- [x] Use project-specific gallery copy while preserving shared scrolling and lightbox behavior.
+- [x] Keep unregistered projects gallery-free.
+- [x] Preserve the Random Wizard Defense gallery and existing project content.
+- [x] Keep AppInToss wording limited to an upcoming release / release preparation.
+- [ ] Complete manual preview, video, gallery, KO/EN, theme, and fallback review.
+- [ ] Run final lint, build, and diff checks.
+- [ ] Record final validation results.
+
 ## v1.3.2 Wizard Defense Visual Gallery
 
 - [x] Work on `feature/v1.3.2-wizard-defense-visual-gallery` from `v1.3.1`.
