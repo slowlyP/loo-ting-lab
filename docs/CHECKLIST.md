@@ -56,6 +56,19 @@
 - [ ] Run final lint, build, and diff checks.
 - [ ] Record final validation results.
 
+## v1.4.2 Animal Pang Hero Video Fit
+
+- [x] Work on `feature/v1.4.2-animal-pang-video-fit` from clean v1.4.1.
+- [x] Add optional `cover | contain` fit metadata to project videos.
+- [x] Set only `animal-pang` to `contain`.
+- [x] Keep the default Hero video behavior as `cover`.
+- [x] Preserve the dark background, controls, poster, metadata preload, inline playback, and error fallback.
+- [x] Add no autoplay or loop behavior.
+- [x] Preserve Random Wizard Defense video and gallery behavior.
+- [x] Preserve AppInToss upcoming-release wording and protected files.
+- [x] Run final lint, build, diff, and prohibited-attribute checks.
+- [x] Record final validation results and unavailable manual browser review.
+
 ## v1.3.2 Wizard Defense Visual Gallery
 
 - [x] Work on `feature/v1.3.2-wizard-defense-visual-gallery` from `v1.3.1`.

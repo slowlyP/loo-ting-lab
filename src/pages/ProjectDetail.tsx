@@ -31,7 +31,7 @@ function ProjectHeroMedia({ project, language }: { project: Project; language: L
         playsInline
         aria-label={video.title[language]}
         onError={() => setVideoFailed(true)}
-        className="absolute inset-0 size-full bg-slate-950 object-cover"
+        className={`absolute inset-0 size-full bg-black ${video.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/55 to-transparent" />
       <div className="pointer-events-none absolute inset-x-6 bottom-14 flex items-end justify-between gap-4">

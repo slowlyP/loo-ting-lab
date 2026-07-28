@@ -4,6 +4,7 @@ export type ProjectVideo = {
   src: string
   poster: string
   title: Record<Language, string>
+  fit?: 'cover' | 'contain'
 }
 
 const projectVideos: Record<string, ProjectVideo> = {
@@ -18,6 +19,7 @@ const projectVideos: Record<string, ProjectVideo> = {
   'animal-pang': {
     src: 'assets/projects/animal-pang/videos/demo.mp4',
     poster: 'assets/projects/animal-pang/preview.png',
+    fit: 'contain',
     title: {
       ko: '차곡차곡 동물팡 게임플레이 편집 영상',
       en: 'Stack Stack Animal Pang Gameplay Demo',
