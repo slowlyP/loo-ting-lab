@@ -6,6 +6,7 @@ import { useLanguage } from '../i18n/useLanguage'
 const tones: Record<string, string> = {
   staccato: 'from-cyan-100 via-sky-50 to-violet-100 dark:from-slate-800 dark:via-cyan-950 dark:to-violet-950',
   'wizard-defense': 'from-violet-100 via-fuchsia-50 to-amber-100 dark:from-violet-950 dark:via-slate-900 dark:to-amber-950',
+  'animal-pang': 'from-sky-100 via-amber-50 to-rose-100 dark:from-sky-950 dark:via-slate-900 dark:to-rose-950',
   'inquiry-dataset': 'from-emerald-100 via-cyan-50 to-sky-100 dark:from-emerald-950 dark:via-slate-900 dark:to-sky-950',
   'ai-accident-detection': 'from-amber-100 via-orange-50 to-rose-100 dark:from-amber-950 dark:via-slate-900 dark:to-rose-950',
 }

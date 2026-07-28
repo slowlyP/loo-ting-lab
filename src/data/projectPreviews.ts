@@ -16,6 +16,10 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     alt: 'Wizard Defense title screen preview',
     kind: 'image',
   },
+  'animal-pang': {
+    alt: 'Stack Stack Animal Pang abstract project preview',
+    kind: 'abstract',
+  },
   'inquiry-dataset': {
     image: 'assets/projects/inquiry-dataset/preview.png',
     alt: 'Inquiry Dataset support tool preview',
