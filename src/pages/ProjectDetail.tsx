@@ -56,7 +56,7 @@ export function ProjectDetail() {
       <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-black text-slate-600 transition hover:text-violet-700 dark:text-slate-300 dark:hover:text-violet-300">← {t('common.backToWork')}</Link>
       <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white/95 shadow-xl shadow-slate-200/60 dark:border-slate-700/70 dark:bg-slate-900/90 dark:shadow-slate-950/50">
         <ProjectHeroMedia key={project.id} project={project} language={language} />
-        {project.id === 'wizard-defense' ? <ProjectVisualGallery projectId={project.id} language={language} /> : null}
+        <ProjectVisualGallery projectId={project.id} language={language} />
         <div className="p-6 sm:p-9 lg:p-12">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"><span>{project.category}</span><span className="rounded-full bg-violet-50 px-3 py-1.5 normal-case tracking-normal text-violet-700 dark:bg-violet-500/15 dark:text-violet-300">{t('detail.projectType')}: {t(getOwnershipTranslationKey(project.id))}</span></div>
           <h1 className="mt-6 break-words text-4xl font-black tracking-[-0.055em] text-slate-950 dark:text-slate-50 sm:text-5xl lg:text-6xl">{project.title}</h1>
