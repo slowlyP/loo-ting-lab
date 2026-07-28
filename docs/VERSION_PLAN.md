@@ -173,3 +173,11 @@
 - Generalize the existing Visual Gallery presentation copy by project ID while preserving its shared scrolling, lightbox, accessibility, and failed-image behavior.
 - Keep the Random Wizard Defense gallery unchanged and show no gallery for projects without registered gallery data.
 - Preserve AppInToss upcoming-release wording, existing project content, dependencies, and protected configuration.
+
+## v1.4.2 Animal Pang Hero Video Fit
+
+- Add an optional per-project Hero video fit setting while keeping `cover` as the default behavior.
+- Render the portrait-oriented Animal Pang gameplay demo with `contain` so the full mobile UI remains visible without cropping.
+- Preserve the dark video background, poster, controls, metadata preload, inline playback, and video-error fallback.
+- Keep Random Wizard Defense on its existing default `cover` behavior.
+- Add no autoplay, loop, dependency, configuration, or unrelated project-content change.
