@@ -25,6 +25,21 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.4.0 Stack Stack Animal Pang Project
+
+- [x] Work on `feature/v1.4.0-add-animal-pang-project` from clean `v1.3.2`.
+- [x] Register `animal-pang` as a personal project after Random Wizard Defense.
+- [x] Add synchronized Korean/English card and detail content.
+- [x] Describe AppInToss only as an upcoming release / release preparation.
+- [x] Separate completed, in-progress, and planned work.
+- [x] Keep ranking language limited to UI, screen flow, and competition preparation.
+- [x] Use an abstract preview without registering a missing image path.
+- [x] Add a dedicated light/dark abstract fallback tone.
+- [x] Preserve existing project content and protected files.
+- [ ] Complete manual KO/EN, light/dark, ordering, and route review.
+- [x] Run final lint, build, and diff checks.
+- [ ] Record final validation results.
+
 ## v1.3.2 Wizard Defense Visual Gallery
 
 - [x] Work on `feature/v1.3.2-wizard-defense-visual-gallery` from `v1.3.1`.

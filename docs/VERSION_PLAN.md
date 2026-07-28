@@ -157,3 +157,11 @@
 - Support mouse drag, wheel/trackpad scrolling, native mobile swipe, and an accessible image lightbox without a new dependency.
 - Preserve object proportions with uncropped thumbnails and remove failed images instead of showing broken-image UI.
 - Keep the gallery exclusive to the existing `wizard-defense` route and preserve v1.3.1 project content.
+
+## v1.4.0 Stack Stack Animal Pang Project
+
+- Add `animal-pang` as a personal mobile casual game project directly after Random Wizard Defense.
+- Describe the project as preparing for an upcoming AppInToss release, never as already released or operating commercially.
+- Add synchronized Korean/English card and detail content with completed, in-progress, and planned work separated.
+- Use an abstract light/dark preview fallback until verified media files are available.
+- Preserve the v1.3.2 Wizard Defense Visual Gallery, v1.3.1 STACCATO content, existing project routes, and protected configuration.
