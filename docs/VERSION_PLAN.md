@@ -189,3 +189,11 @@
 - Keep only Stack Stack Animal Pang and Loo Ting Lab in Personal Projects, in that order.
 - Route removed project IDs through the existing missing-project view.
 - Preserve historical documentation, Resume content, static assets, dependencies, deployment configuration, and workflows.
+
+## v1.4.4 Replace Loo Ting Lab Project with Guild Director
+
+- Remove the Loo Ting Lab project card/detail record while preserving the Loo Ting Lab portfolio site and branding.
+- Add `guild-director` as Project Guild Director, an early Unity/C# mercenary-guild management prototype.
+- Present confirmed 3×3 auto-battle, mercenary-instance, tavern-candidate, reputation, and contract-data work without release claims.
+- Keep Animal Pang then Project Guild Director in Personal Projects and preserve the existing Team Projects order.
+- Use the abstract preview fallback with no new image, video, gallery, dependency, or service link.

@@ -21,8 +21,8 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     alt: '404 R·N·F AI road hazard detection preview',
     kind: 'image',
   },
-  'loo-ting-lab': {
-    alt: 'Loo Ting Lab portfolio browser preview',
+  'guild-director': {
+    alt: 'Project Guild Director abstract prototype preview',
     kind: 'abstract',
   },
 }
