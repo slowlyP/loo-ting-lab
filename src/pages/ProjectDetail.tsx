@@ -50,7 +50,7 @@ export function ProjectDetail() {
 
   const detail = project.detail
   const artifactLabel = (kind: string, label: string) => kind === 'repository' ? t('common.repository') : label.toLowerCase().includes('pdf') ? t('common.viewPdf') : t('common.viewResource')
-  const coreTitle = project.id === 'wizard-defense' ? t('detail.gameCore') : project.id === 'staccato' ? t('detail.architecture') : t('detail.core')
+  const coreTitle = project.id === 'staccato' ? t('detail.architecture') : t('detail.core')
   return (
     <article className="mx-auto max-w-6xl space-y-10 lg:space-y-14">
       <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-black text-slate-600 transition hover:text-violet-700 dark:text-slate-300 dark:hover:text-violet-300">← {t('common.backToWork')}</Link>
