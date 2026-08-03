@@ -25,6 +25,21 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.4.4 Replace Loo Ting Lab with Guild Director
+
+- [x] Work on `feature/v1.4.4-replace-loo-ting-lab-with-guild-director` from clean v1.4.3.
+- [x] Remove the `loo-ting-lab` project card/detail record without changing site branding or structure.
+- [x] Add `guild-director` as an early personal Unity/C# prototype.
+- [x] Keep Personal Projects ordered as Stack Stack Animal Pang then Project Guild Director.
+- [x] Keep Team Projects ordered as STACCATO then 404 R·N·F AI.
+- [x] Connect only the GridTacticsPrototype GitHub repository and omit a service link.
+- [x] Use an abstract preview without image, video, or gallery assets.
+- [x] Preserve v1.4.3 removals and all retained-project content.
+- [x] Keep Resume, assets, dependencies, Vite config, and workflows unchanged.
+- [ ] Complete manual route, language, theme, and abstract-preview review when a browser is available.
+- [x] Run final lint, build, and diff checks.
+- [x] Record final validation results and unavailable browser review.
+
 ## v1.4.3 Remove Wizard Defense and Inquiry
 
 - [x] Work on `feature/v1.4.3-remove-wizard-defense-and-inquiry` from v1.4.2.

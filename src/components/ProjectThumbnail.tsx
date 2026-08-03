@@ -7,6 +7,7 @@ const tones: Record<string, string> = {
   staccato: 'from-cyan-100 via-sky-50 to-violet-100 dark:from-slate-800 dark:via-cyan-950 dark:to-violet-950',
   'animal-pang': 'from-sky-100 via-amber-50 to-rose-100 dark:from-sky-950 dark:via-slate-900 dark:to-rose-950',
   'ai-accident-detection': 'from-amber-100 via-orange-50 to-rose-100 dark:from-amber-950 dark:via-slate-900 dark:to-rose-950',
+  'guild-director': 'from-emerald-100 via-stone-50 to-amber-100 dark:from-emerald-950 dark:via-slate-900 dark:to-amber-950',
 }
 
 function AbstractPreview({ project, isActive }: { project: Project; isActive: boolean }) {
