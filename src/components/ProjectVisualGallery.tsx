@@ -18,16 +18,6 @@ const sharedCopy = {
 } satisfies Record<Language, Record<string, string>>
 
 const projectCopy: Record<string, Record<Language, { description: string; dialog: string }>> = {
-  'wizard-defense': {
-    ko: {
-      description: '게임 화면, 캐릭터, 몬스터, 스킬 이펙트, UI 에셋을 한눈에 볼 수 있도록 정리했습니다.',
-      dialog: 'Random Wizard Defense 비주얼 갤러리',
-    },
-    en: {
-      description: 'A horizontal gallery of gameplay screens, characters, monsters, skill effects, and UI assets.',
-      dialog: 'Random Wizard Defense visual gallery',
-    },
-  },
   'animal-pang': {
     ko: {
       description: '타이틀부터 동물 블록 쌓기, 병합과 점수, 게임오버까지 실제 플레이 화면을 순서대로 정리했습니다.',

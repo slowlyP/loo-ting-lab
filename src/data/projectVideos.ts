@@ -8,14 +8,6 @@ export type ProjectVideo = {
 }
 
 const projectVideos: Record<string, ProjectVideo> = {
-  'wizard-defense': {
-    src: 'assets/projects/wizard-defense/demo.mp4',
-    poster: 'assets/projects/wizard-defense/preview.png',
-    title: {
-      ko: '랜덤 마법사 디펜스 게임플레이 영상',
-      en: 'Wizard Defense Gameplay Video',
-    },
-  },
   'animal-pang': {
     src: 'assets/projects/animal-pang/videos/demo.mp4',
     poster: 'assets/projects/animal-pang/preview.png',

@@ -25,6 +25,20 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.4.3 Remove Wizard Defense and Inquiry
+
+- [x] Work on `feature/v1.4.3-remove-wizard-defense-and-inquiry` from v1.4.2.
+- [x] Remove `wizard-defense` and `inquiry-dataset` from current project registries and user-facing links.
+- [x] Keep Team Projects ordered as STACCATO, then 404 R·N·F AI.
+- [x] Keep Personal Projects ordered as Stack Stack Animal Pang, then Loo Ting Lab.
+- [x] Preserve Animal Pang v1.4.0-v1.4.2, STACCATO v1.3.1, 404 R·N·F AI, and Loo Ting Lab content.
+- [x] Preserve the existing missing-project route behavior for removed IDs.
+- [x] Keep removed-project static assets and historical documents.
+- [x] Keep Resume, Vite config, workflows, package manifests, and dependencies unchanged.
+- [ ] Complete manual route, language, and theme review when a browser is available.
+- [x] Run final lint, build, and diff checks.
+- [x] Record final validation results and unavailable browser review.
+
 ## v1.4.0 Stack Stack Animal Pang Project
 
 - [x] Work on `feature/v1.4.0-add-animal-pang-project` from clean `v1.3.2`.

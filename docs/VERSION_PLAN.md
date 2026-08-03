@@ -181,3 +181,11 @@
 - Preserve the dark video background, poster, controls, metadata preload, inline playback, and video-error fallback.
 - Keep Random Wizard Defense on its existing default `cover` behavior.
 - Add no autoplay, loop, dependency, configuration, or unrelated project-content change.
+
+## v1.4.3 Remove Wizard Defense and Inquiry
+
+- Remove `wizard-defense` and `inquiry-dataset` from current project, translation, ownership, preview, video, and gallery registries.
+- Keep only STACCATO and 404 R·N·F AI in Team Projects, in that order.
+- Keep only Stack Stack Animal Pang and Loo Ting Lab in Personal Projects, in that order.
+- Route removed project IDs through the existing missing-project view.
+- Preserve historical documentation, Resume content, static assets, dependencies, deployment configuration, and workflows.

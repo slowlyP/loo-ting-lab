@@ -7,11 +7,6 @@ const projectLinks = [
     description: '현재 포트폴리오 사이트 저장소',
   },
   {
-    label: 'Inquiry Dataset',
-    href: 'https://github.com/slowlyP/wizard-defense-ai-support',
-    description: '한국어 문의 데이터셋과 rule-based classifier 저장소',
-  },
-  {
     label: 'STACCATO',
     href: 'https://github.com/staccato-ai-highway-control/staccato-ai-highway-control',
     description: 'AI 기반 고속도로 돌발 상황 감지/관리 프로젝트 저장소',
@@ -21,7 +16,6 @@ const projectLinks = [
 const contactTopics = [
   'AI 모델 개발과 AI 기반 분석/탐지 서비스 구현 경험',
   'Unity / C# 기반 게임 프로토타입 정리 경험',
-  'Python / CSV 기반 한국어 데이터셋과 rule-based classifier 실험 경험',
   '프로젝트 문서화, worklog, validation 기록 방식',
 ]
 

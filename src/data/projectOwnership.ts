@@ -1,17 +1,15 @@
-export type ProjectOwnershipType = 'team' | 'personal' | 'personal-data'
+export type ProjectOwnershipType = 'team' | 'personal'
 
 export const projectOwnership: Record<string, ProjectOwnershipType> = {
   staccato: 'team',
   'ai-accident-detection': 'team',
-  'wizard-defense': 'personal',
   'animal-pang': 'personal',
-  'inquiry-dataset': 'personal-data',
   'loo-ting-lab': 'personal',
 }
 
 export const projectGroupOrder = {
   team: ['staccato', 'ai-accident-detection'],
-  personal: ['wizard-defense', 'animal-pang', 'inquiry-dataset', 'loo-ting-lab'],
+  personal: ['animal-pang', 'loo-ting-lab'],
 } as const
 
 export function getProjectOwnership(projectId: string): ProjectOwnershipType {
@@ -20,5 +18,5 @@ export function getProjectOwnership(projectId: string): ProjectOwnershipType {
 
 export function getOwnershipTranslationKey(projectId: string) {
   const ownership = getProjectOwnership(projectId)
-  return ownership === 'personal-data' ? 'ownership.personalData' : `ownership.${ownership}`
+  return `ownership.${ownership}`
 }

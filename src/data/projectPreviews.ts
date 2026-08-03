@@ -11,19 +11,9 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     alt: 'STACCATO AI highway control preview',
     kind: 'image',
   },
-  'wizard-defense': {
-    image: 'assets/projects/wizard-defense/preview.png',
-    alt: 'Wizard Defense title screen preview',
-    kind: 'image',
-  },
   'animal-pang': {
     image: 'assets/projects/animal-pang/preview.png',
     alt: 'Stack Stack Animal Pang abstract project preview',
-    kind: 'image',
-  },
-  'inquiry-dataset': {
-    image: 'assets/projects/inquiry-dataset/preview.png',
-    alt: 'Inquiry Dataset support tool preview',
     kind: 'image',
   },
   'ai-accident-detection': {
