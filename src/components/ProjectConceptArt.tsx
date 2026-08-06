@@ -6,17 +6,17 @@ function ConceptFigure({ item, language }: { item: ProjectConceptArtItem; langua
   const portrait = item.layout === 'portrait'
 
   return (
-    <figure className="overflow-hidden rounded-3xl border border-amber-200/80 bg-amber-50/70 dark:border-amber-700/40 dark:bg-amber-950/20">
-      <div className={portrait ? 'mx-auto aspect-[3/4] max-h-[36rem] max-w-[27rem] overflow-hidden bg-slate-950' : 'aspect-[16/9] overflow-hidden bg-slate-950'}>
+    <figure className="min-w-0 overflow-hidden rounded-3xl border border-amber-200/80 bg-amber-50/70 p-3 dark:border-amber-700/40 dark:bg-amber-950/20 sm:p-4">
+      <div className={`relative w-full overflow-hidden rounded-2xl bg-slate-950/10 dark:bg-slate-950 ${portrait ? 'aspect-[3/4]' : 'aspect-video'}`}>
         <img
           src={item.src}
           alt={item.alt[language]}
           loading="lazy"
-          className="size-full object-cover"
+          className="block h-full w-full object-cover"
           style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
         />
       </div>
-      <figcaption className="p-5 sm:p-6">
+      <figcaption className="px-2 pb-2 pt-5 sm:px-3 sm:pb-3">
         <h3 className="text-lg font-black text-slate-950 dark:text-slate-50">{item.title[language]}</h3>
         <p className="mt-2 leading-7 text-slate-600 dark:text-slate-300">{item.description[language]}</p>
       </figcaption>
@@ -63,7 +63,7 @@ export function ProjectConceptRoles({ projectId, language }: { projectId: string
       <h2 id={`${projectId}-concept-roles`} className="mt-3 text-2xl font-black tracking-[-0.04em] text-slate-950 dark:text-slate-50">
         {language === 'ko' ? '용병 후보와 정찰 역할' : 'Mercenary Candidate and Scouting Role'}
       </h2>
-      <div className="mt-6 grid gap-6 md:grid-cols-2 md:items-start">
+      <div className="mt-6 grid min-w-0 gap-6 md:grid-cols-2 md:items-start">
         <ConceptFigure item={conceptArt.character} language={language} />
         <ConceptFigure item={conceptArt.mission} language={language} />
       </div>

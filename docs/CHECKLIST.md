@@ -42,6 +42,22 @@
 - [x] Run final lint, build, diff, and wording checks.
 - [x] Record final validation results and unavailable browser review.
 
+## v1.4.6 Guild Director Concept Art Card Layout Fix
+
+- [x] Work on `feature/v1.4.6-fix-guild-director-concept-art-card-layout` from clean v1.4.5.
+- [x] Add consistent internal padding to concept-art cards.
+- [x] Clip every image inside a full-width rounded frame.
+- [x] Keep portrait concepts at a 3:4 ratio and the tavern banner at a video ratio.
+- [x] Keep images block-level, full-frame, and cover-fitted.
+- [x] Preserve Lia Verne's existing object position.
+- [x] Normalize spacing between image frames and captions.
+- [x] Add `min-w-0` safeguards for grid cards at mobile and narrow widths.
+- [x] Preserve concept data, captions, notice copy, images, and prototype positioning.
+- [x] Preserve retained projects, dependencies, protected configuration, workflows, and Resume files.
+- [ ] Complete desktop/mobile route review when an in-app browser is available.
+- [x] Run final lint, build, and diff checks.
+- [x] Record final validation results and unavailable browser review.
+
 ## v1.4.4 Replace Loo Ting Lab with Guild Director
 
 - [x] Work on `feature/v1.4.4-replace-loo-ting-lab-with-guild-director` from clean v1.4.3.
