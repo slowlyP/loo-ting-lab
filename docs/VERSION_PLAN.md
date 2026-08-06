@@ -197,3 +197,11 @@
 - Present confirmed 3×3 auto-battle, mercenary-instance, tavern-candidate, reputation, and contract-data work without release claims.
 - Keep Animal Pang then Project Guild Director in Personal Projects and preserve the existing Team Projects order.
 - Use the abstract preview fallback with no new image, video, gallery, dependency, or service link.
+
+## v1.4.5 Guild Director Concept Art
+
+- Connect four supplied AI-generated visual concepts to the Project Guild Director card and detail page.
+- Use the recruitment-negotiation image as the representative image and clearly label every image as concept material rather than implemented game content.
+- Present the tavern as a wide world-setting banner and pair Lia Verne's tavern portrait with her scouting-role concept.
+- Keep Project Guild Director positioned as an early prototype validating its core loop, with no release or service claim.
+- Preserve retained projects, removed-project state, dependencies, Resume files, Vite configuration, and GitHub workflows.

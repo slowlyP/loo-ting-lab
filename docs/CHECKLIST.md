@@ -25,6 +25,23 @@
 - [ ] Do not delete files unless explicitly needed.
 - [ ] Keep docs updated when project structure changes.
 
+## v1.4.5 Guild Director Concept Art
+
+- [x] Work on `feature/v1.4.5-add-guild-director-concept-art` from clean v1.4.4 code.
+- [x] Confirm the four supplied concept PNG files and inspect their dimensions and composition.
+- [x] Use the recruitment-negotiation concept as the Guild Director representative image.
+- [x] Display the required AI-generated concept notice directly below the representative image.
+- [x] Add the tavern world banner below the project overview.
+- [x] Add Lia Verne's candidate portrait and scouting-role concept with bilingual captions.
+- [x] Prevent excessive enlargement of portrait images and position Lia as the visual focus.
+- [x] Keep Guild Director framed as an early prototype validating its core loop.
+- [x] Preserve the GridTacticsPrototype link and omit a service link.
+- [x] Preserve retained projects and keep Wizard Defense, Inquiry Dataset, and Loo Ting Lab removed.
+- [x] Keep dependencies, Resume files, Vite config, workflows, and existing public assets unchanged.
+- [ ] Complete route, KO/EN, light/dark, and retained-project browser review when an in-app browser is available.
+- [x] Run final lint, build, diff, and wording checks.
+- [x] Record final validation results and unavailable browser review.
+
 ## v1.4.4 Replace Loo Ting Lab with Guild Director
 
 - [x] Work on `feature/v1.4.4-replace-loo-ting-lab-with-guild-director` from clean v1.4.3.

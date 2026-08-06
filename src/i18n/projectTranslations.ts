@@ -138,7 +138,7 @@ const mediaCopy: Record<string, { titles?: string[]; note: string }> = {
   staccato: { titles: ['STACCATO demo video'], note: 'The GitHub documentation and demo video show the monitoring flow. Clearer visuals for event lists, incident details, Snapshot, and MP4 Replay can be added later.' },
   'animal-pang': { note: 'Verified image and video files are not available yet, so the abstract preview is used. Media will be connected only after the files are confirmed.' },
   'ai-accident-detection': { titles: ['404 R·N·F AI demo video'], note: 'Screenshots will be added when verified assets are available.' },
-  'guild-director': { note: 'No verified image or video asset exists yet, so the abstract placeholder is used.' },
+  'guild-director': { note: 'The displayed images are AI-generated visual concepts for mood and recruitment direction, not views of the implemented game experience.' },
 }
 
 function applyEnglishCopy(project: Project): Project {
