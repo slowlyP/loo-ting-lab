@@ -205,3 +205,9 @@
 - Present the tavern as a wide world-setting banner and pair Lia Verne's tavern portrait with her scouting-role concept.
 - Keep Project Guild Director positioned as an early prototype validating its core loop, with no release or service claim.
 - Preserve retained projects, removed-project state, dependencies, Resume files, Vite configuration, and GitHub workflows.
+
+## v1.4.6 Guild Director Concept Art Card Layout Fix
+
+- Keep Guild Director concept images clipped inside padded, rounded card frames at desktop and mobile widths.
+- Preserve the original portrait proportions, Lia Verne object positioning, wide tavern banner, captions, and AI-generated concept notice.
+- Keep the patch limited to concept-card presentation with no image, content, dependency, configuration, workflow, Resume, or retained-project change.
