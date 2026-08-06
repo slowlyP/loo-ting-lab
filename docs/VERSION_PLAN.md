@@ -211,3 +211,10 @@
 - Keep Guild Director concept images clipped inside padded, rounded card frames at desktop and mobile widths.
 - Preserve the original portrait proportions, Lia Verne object positioning, wide tavern banner, captions, and AI-generated concept notice.
 - Keep the patch limited to concept-card presentation with no image, content, dependency, configuration, workflow, Resume, or retained-project change.
+
+## v1.4.7 Guild Director AI Content Review
+
+- Add a dedicated content-review record below the Guild Director visual concept presentation.
+- Present the supplied Zeta AI review dashboard as a document artifact, not implemented game content.
+- Summarize six test cases, final/partial/revision outcomes, strict pass rate, completed retests, and the prompt-revision flow.
+- Preserve the early-prototype positioning, concept-art notice, retained projects, removed-project state, dependencies, configuration, workflows, and Resume files.
