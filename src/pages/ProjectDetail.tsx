@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { ProjectThumbnail } from '../components/ProjectThumbnail'
+import { ProjectConceptNotice, ProjectConceptRoles, ProjectConceptWorld } from '../components/ProjectConceptArt'
 import { ProjectVisualGallery } from '../components/ProjectVisualGallery'
 import { TechStackBadges } from '../components/TechStackBadges'
 import { getOwnershipTranslationKey } from '../data/projectOwnership'
@@ -56,6 +57,7 @@ export function ProjectDetail() {
       <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-black text-slate-600 transition hover:text-violet-700 dark:text-slate-300 dark:hover:text-violet-300">← {t('common.backToWork')}</Link>
       <header className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white/95 shadow-xl shadow-slate-200/60 dark:border-slate-700/70 dark:bg-slate-900/90 dark:shadow-slate-950/50">
         <ProjectHeroMedia key={project.id} project={project} language={language} />
+        <ProjectConceptNotice projectId={project.id} language={language} />
         <ProjectVisualGallery projectId={project.id} language={language} />
         <div className="p-6 sm:p-9 lg:p-12">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-black uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"><span>{project.category}</span><span className="rounded-full bg-violet-50 px-3 py-1.5 normal-case tracking-normal text-violet-700 dark:bg-violet-500/15 dark:text-violet-300">{t('detail.projectType')}: {t(getOwnershipTranslationKey(project.id))}</span></div>
@@ -74,8 +76,11 @@ export function ProjectDetail() {
         <aside className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/90 lg:sticky lg:top-28"><h2 className="text-lg font-black text-slate-950 dark:text-slate-50">{t('detail.stack')}</h2><div className="mt-5"><TechStackBadges techs={detail?.techStack ?? project.tech} /></div></aside>
       </div>
 
+      <ProjectConceptWorld projectId={project.id} language={language} />
+
       {detail ? <div className="space-y-10 rounded-[2rem] border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/90 sm:p-9 lg:p-12">
         <ListSection title={t('detail.projectOverview')} items={detail.overview} />
+        <ProjectConceptRoles projectId={project.id} language={language} />
         <ListSection title={t('detail.problem')} items={detail.problem} />
         <ListSection title={t('detail.design')} items={detail.designDirection} />
         <ListSection title={t('detail.labels')} items={detail.labelStructure} />

@@ -606,7 +606,7 @@ export const projects: Project[] = [
         '다음: 용병단 명성·자금과 계약 판정 연결',
         '이후: 보유 용병, 인맥록과 실제 운영 UI 연결',
       ],
-      media: { screenshots: [], videos: [], note: '확인된 이미지와 영상 asset이 없어 abstract placeholder를 사용합니다.' },
+      media: { screenshots: [], videos: [], note: '표시된 이미지는 프로젝트 분위기와 용병 영입 방향을 위한 AI 생성 비주얼 컨셉 시안이며, 현재 구현된 실제 게임 플레이 화면이 아닙니다.' },
     },
     links: {
       github: 'https://github.com/slowlyP/GridTacticsPrototype',

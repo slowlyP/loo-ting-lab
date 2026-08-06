@@ -3,6 +3,7 @@ export type ProjectPreview = {
   video?: string
   alt: string
   kind: 'image' | 'video' | 'abstract'
+  fit?: 'cover' | 'contain'
 }
 
 export const projectPreviews: Record<string, ProjectPreview> = {
@@ -22,8 +23,10 @@ export const projectPreviews: Record<string, ProjectPreview> = {
     kind: 'image',
   },
   'guild-director': {
-    alt: 'Project Guild Director abstract prototype preview',
-    kind: 'abstract',
+    image: 'assets/projects/guild-director/concept/hero-recruitment-negotiation.png',
+    alt: 'Project Guild Director 용병 영입 협상 비주얼 컨셉 시안',
+    kind: 'image',
+    fit: 'contain',
   },
 }
 
