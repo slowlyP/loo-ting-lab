@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router'
 import { ProjectThumbnail } from '../components/ProjectThumbnail'
 import { ProjectConceptNotice, ProjectConceptRoles, ProjectConceptWorld } from '../components/ProjectConceptArt'
+import { ProjectContentReview } from '../components/ProjectContentReview'
 import { ProjectVisualGallery } from '../components/ProjectVisualGallery'
 import { TechStackBadges } from '../components/TechStackBadges'
 import { getOwnershipTranslationKey } from '../data/projectOwnership'
@@ -81,6 +82,7 @@ export function ProjectDetail() {
       {detail ? <div className="space-y-10 rounded-[2rem] border border-slate-200 bg-white/95 p-6 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/90 sm:p-9 lg:p-12">
         <ListSection title={t('detail.projectOverview')} items={detail.overview} />
         <ProjectConceptRoles projectId={project.id} language={language} />
+        <ProjectContentReview projectId={project.id} language={language} />
         <ListSection title={t('detail.problem')} items={detail.problem} />
         <ListSection title={t('detail.design')} items={detail.designDirection} />
         <ListSection title={t('detail.labels')} items={detail.labelStructure} />

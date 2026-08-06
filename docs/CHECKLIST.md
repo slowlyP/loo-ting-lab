@@ -58,6 +58,23 @@
 - [x] Run final lint, build, and diff checks.
 - [x] Record final validation results and unavailable browser review.
 
+## v1.4.7 Guild Director AI Content Review
+
+- [x] Work on `feature/v1.4.7-add-guild-director-ai-content-review` from clean v1.4.6 code.
+- [x] Confirm the supplied 1370×739 review-dashboard PNG.
+- [x] Add Guild Director-only bilingual content-review data and presentation.
+- [x] Place the content-review record directly below the visual concept roles.
+- [x] Distinguish the dashboard as a review document rather than implemented game content.
+- [x] Show all six requested summary metrics.
+- [x] Record the prompt-revision and same-condition retest flow.
+- [x] Preserve dashboard readability with a bounded rounded card and mobile horizontal scrolling.
+- [x] Preserve the concept-art notice and early-prototype positioning.
+- [x] Preserve retained projects and keep removed projects absent.
+- [x] Keep dependencies, protected files, workflows, and Resume files unchanged.
+- [ ] Complete desktop/mobile route review when an in-app browser is available.
+- [x] Run final lint, build, diff, and scope checks.
+- [x] Record final validation results and unavailable browser review.
+
 ## v1.4.4 Replace Loo Ting Lab with Guild Director
 
 - [x] Work on `feature/v1.4.4-replace-loo-ting-lab-with-guild-director` from clean v1.4.3.
